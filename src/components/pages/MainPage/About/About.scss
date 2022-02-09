@@ -10,7 +10,7 @@
     @include mobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        width: 75%;
+        //width: 75%;
         flex-direction: column;
     }
 
@@ -18,7 +18,7 @@
         padding: 60px 0px;
         font-size: $--fz-lg;
         flex-direction: column;
-        width: 75%;
+        //width: 75%;
         margin: 0;
     }
 
@@ -43,6 +43,13 @@
         flex-direction: column;
         color: $subtitleColor;
         padding-right: 50px;
+
+        @include mobile {
+            padding: 0;
+        }
+        @include miniMobile {
+            padding: 0;
+        }
 
         p {
             -webkit-font-smoothing: antialiased;
@@ -74,8 +81,8 @@
         }
 
         @include miniMobile {
-            width: 180px;
-            max-width: 180px;
+            //width: 180px;
+            //max-width: 180px;
             margin-top: 30px;
         }
 

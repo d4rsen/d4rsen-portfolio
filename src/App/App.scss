@@ -93,15 +93,15 @@ $tablet: 768px;
         justify-content: center;
         align-items: center;
 
-        @include mobile {
-            max-width: 390px;
-            width: 390px;
-        }
-
-        @include mobile {
-            max-width: 450px;
-            width: 450px;
-        }
+        //@include mobile {
+        //    max-width: 390px;
+        //    width: 390px;
+        //}
+        //
+        //@include mobile {
+        //    max-width: 450px;
+        //    width: 450px;
+        //}
 
         .main {
             flex: 1 1 auto;

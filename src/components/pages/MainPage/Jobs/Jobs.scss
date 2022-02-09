@@ -7,17 +7,18 @@
     flex-direction: column;
     padding: 100px 0;
     color: #8892b0;
+    width: 100%;
 
     @include mobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        width: 75%;
+        //width: 75%;
     }
 
     @include miniMobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        width: 75%;
+        //width: 75%;
     }
 
     @include tablet {
@@ -72,6 +73,14 @@
         margin-left: 20px;
         height: auto;
         padding: 10px 5px;
+
+        @include miniMobile {
+            margin-left: 0;
+        }
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 
     .title {

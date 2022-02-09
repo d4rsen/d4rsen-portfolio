@@ -2,13 +2,13 @@
 
 .mainPage {
     background-color: $mainColor;
-    padding: 40px 150px;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    @include miniMobile {
-        padding-left: 70px;
-    }
+    //@include miniMobile {
+    //    padding-left: 70px;
+    //}
 
     &-container {
         display: flex;

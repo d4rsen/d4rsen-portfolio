@@ -11,12 +11,12 @@
     white-space: nowrap;
 
     @include mobile {
-        width: 200px;
+        //width: 200px;
         margin: 10px 0px;
     }
-    
+
     @include miniMobile {
-        width: 200px;
+        //width: 200px;
         margin: 10px 0px;
     }
 
@@ -47,5 +47,11 @@
         height: 1px;
         margin-left: 20px;
         background-color: $subtitleColor;
+        @include miniMobile {
+            display: none;
+        }
+        @include mobile {
+            display: none;
+        }
     }
 }

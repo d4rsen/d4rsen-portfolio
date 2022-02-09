@@ -1,7 +1,6 @@
 @import "../../../../App/App.scss";
 
 .hello {
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -13,13 +12,13 @@
     @include mobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        width: 75%;
+        //width: 75%;
     }
 
     @include miniMobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        width: 75%;
+        //width: 75%;
         margin-left: 0;
     }
 
