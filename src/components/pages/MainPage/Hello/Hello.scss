@@ -12,13 +12,11 @@
     @include mobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        //width: 75%;
     }
 
     @include miniMobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        //width: 75%;
         margin-left: 0;
     }
 
@@ -40,7 +38,6 @@
     }
 
     &__title {
-        //display: block;
         font-size: 80px;
         line-height: 88px;
         color: $titleColor;

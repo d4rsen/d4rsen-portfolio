@@ -10,7 +10,6 @@
     @include mobile {
         padding: 60px 0px;
         font-size: $--fz-lg;
-        //width: 75%;
         flex-direction: column;
     }
 
@@ -18,7 +17,6 @@
         padding: 60px 0px;
         font-size: $--fz-lg;
         flex-direction: column;
-        //width: 75%;
         margin: 0;
     }
 
@@ -81,8 +79,6 @@
         }
 
         @include miniMobile {
-            //width: 180px;
-            //max-width: 180px;
             margin-top: 30px;
         }
 

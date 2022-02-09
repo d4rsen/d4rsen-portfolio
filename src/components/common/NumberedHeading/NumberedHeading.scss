@@ -11,12 +11,10 @@
     white-space: nowrap;
 
     @include mobile {
-        //width: 200px;
         margin: 10px 0px;
     }
 
     @include miniMobile {
-        //width: 200px;
         margin: 10px 0px;
     }
 

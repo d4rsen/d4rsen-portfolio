@@ -14,8 +14,8 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
                     {text}
                 </div>
                 <div className="project__stack stack">
-                    {stackItems && stackItems.map(item => (
-                        <div className="stack__item">
+                    {stackItems && stackItems.map((item, i) => (
+                        <div key={i} className="stack__item">
                             {item}
                         </div>
                     ))}
@@ -23,7 +23,7 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
                 <div className="project__links links">
                     <a target={'_blank'} href={gitLink && gitLink} className="links__github" rel="noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                              className="feather feather-github">
                             <title>
                                 GitHub
@@ -34,7 +34,7 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
                     </a>
                     <a target={'_blank'} href={projectLink && projectLink} className="links__deploy" rel="noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                              className="feather feather-external-link">
                             <title>
                                 External Link
@@ -49,7 +49,7 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
             <div className="project__right right">
                 <div className="right__wrapper">
                     <div className="right__imageWrapper">
-                        <a href="" className="right__imageBlocker">
+                        <a href="#" className="right__imageBlocker">
                             <img className="right__coliseum" src={imgSrc && imgSrc} alt="project"/>
                             <div className="right__hidden"/>
                         </a>
