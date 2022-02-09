@@ -90,6 +90,10 @@
             line-height: 18px;
             font-size: $--fz-sm;
         }
+        @include miniMobile {
+            line-height: 18px;
+            font-size: $--fz-sm;
+        }
 
     }
 

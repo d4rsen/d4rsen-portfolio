@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import Button from '../../common/Button/Button'
+import Burger from '../Burger/Burger'
 import './Header.scss'
 
 const Header = () => {
+    const [menuOpen, setMenuOpen] = useState(false)
+    const burgerHandler = e => setMenuOpen(!menuOpen)
 
     return (
         <header className="header">
@@ -55,12 +59,16 @@ const Header = () => {
                                 </div>
                             </a>
                         </div>
-                    </div>
-                    <div className="right__button">
                         <Button
                             text={'Resume'}
                             href={'https://hh.ru/resume/57aeb169ff099c631e0039ed1f627468636c74'}
                         />
+                    </div>
+                    <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+                    <div onClick={burgerHandler} className={menuOpen ? 'hamburger active' : 'hamburger'}>
+                        <span className="line1"/>
+                        <span className="line2"/>
+                        <span className="line3"/>
                     </div>
                 </div>
             </div>
