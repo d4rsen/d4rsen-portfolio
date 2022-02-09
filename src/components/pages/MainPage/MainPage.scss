@@ -1,0 +1,23 @@
+@import "../../../App/App.scss";
+
+.mainPage {
+    background-color: $mainColor;
+    padding: 40px 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include miniMobile {
+        padding-left: 70px;
+    }
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @include mobile {
+        font-size: $--fz-lg;
+    }
+}

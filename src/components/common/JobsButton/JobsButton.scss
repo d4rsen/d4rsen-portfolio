@@ -1,0 +1,33 @@
+@import "../../../App/App";
+
+.jobs__button {
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    position: relative;
+    transition: $--transition;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: $--tab-height;
+    padding: 0px 20px 2px;
+    border: 2px solid $--lightest-navy;
+    background-color: transparent;
+    color: $--slate;
+    font-family: $--font-mono;
+    font-size: $--fz-xs;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+.active {
+    color: $--green;
+    font-family: $--font-mono;
+    font-size: $--fz-xs;
+    text-align: left;
+    white-space: nowrap;
+    border: 2px solid $--green;
+    transition: $--transition;
+}

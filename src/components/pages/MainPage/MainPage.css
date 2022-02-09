@@ -1,0 +1,55 @@
+._container {
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .main {
+    flex: 1 1 auto;
+}
+
+.mainPage {
+    background-color: #0a192f;
+}
+
+.mainPage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainPage .hello {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.mainPage .hello__uptitle {
+    font-size: 16px;
+    line-height: 17px;
+    color: #64ffda;
+    text-align: start;
+}
+
+.mainPage .hello__title {
+    font-size: 80px;
+    line-height: 88px;
+    color: #ccd6f6;
+}
+
+.mainPage .hello__undertitle {
+    font-size: 80px;
+    line-height: 88px;
+    color: #ccd6f6;
+}
+
+/*# sourceMappingURL=MainPage.css.map */

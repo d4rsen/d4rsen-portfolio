@@ -1,0 +1,51 @@
+@import "../../../App/App";
+
+.numbered-heading {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 0 40px;
+    width: 100%;
+    font-size: clamp(26px, 5vw, 32px);
+    white-space: nowrap;
+
+    @include mobile {
+        width: 200px;
+        margin: 10px 0px;
+    }
+    
+    @include miniMobile {
+        width: 200px;
+        margin: 10px 0px;
+    }
+
+    &__number {
+        color: $limeColor;
+        font-size: 20px;
+        margin-right: 10px;
+
+        @include mobile {
+            font-size: $--fz-md;
+        }
+    }
+
+    &__text {
+        color: $titleColor;
+        font-size: 32px;
+
+        @include mobile {
+            font-size: $--fz-lg;
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        top: -5px;
+        width: 300px;
+        height: 1px;
+        margin-left: 20px;
+        background-color: $subtitleColor;
+    }
+}

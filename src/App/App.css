@@ -1,0 +1,19 @@
+._container {
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.wrapper {
+    background-color: #0a192f;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .main {
+    flex: 1 1 auto;
+}
+
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,67 @@
+@import "../../../../App/App";
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+    margin: 0px auto 100px;
+    text-align: center;
+
+    &__title {
+        font-size: clamp(40px, 5vw, 60px);
+        margin: 0px 0px 10px;
+        font-weight: 600;
+        color: $--lightest-slate;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    &__text {
+        margin: 0px;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        background-color: $--navy;
+        color: $--slate;
+        font-family: $--font-sans;
+        font-size: $--fz-xl;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        @include miniMobile {
+            flex-direction: column;
+        }
+
+        .button {
+            &:not(:last-child) {
+                margin: 0 20px 0 0;
+            }
+
+            @include mobile {
+                &:not(:last-child) {
+                    margin: 0 0 20px 0;
+                }
+            }
+
+            @include miniMobile {
+                &:not(:last-child) {
+                    margin: 0 0 20px 0;
+                }
+            }
+        }
+    }
+}

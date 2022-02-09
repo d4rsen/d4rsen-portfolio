@@ -1,0 +1,24 @@
+._container {
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .main {
+    flex: 1 1 auto;
+}
+
+.header {
+    background-color: #0a192f;
+    height: 60px;
+    width: 100%;
+}
+
+/*# sourceMappingURL=Header.css.map */

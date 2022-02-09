@@ -1,0 +1,105 @@
+@import "../../../../App/App.scss";
+
+.hello {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 100px 0;
+    width: 100%;
+
+    @include mobile {
+        padding: 60px 0px;
+        font-size: $--fz-lg;
+        width: 75%;
+    }
+
+    @include miniMobile {
+        padding: 60px 0px;
+        font-size: $--fz-lg;
+        width: 75%;
+        margin-left: 0;
+    }
+
+    @include tablet {
+        padding: 80px 0px;
+    }
+
+
+    &__uptitle {
+        font-size: 16px;
+        line-height: 17px;
+        color: $limeColor;
+        text-align: start;
+        transition-delay: 100ms;
+        transition: $--transition;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        //display: block;
+        font-size: 80px;
+        line-height: 88px;
+        color: $titleColor;
+        font-weight: 600;
+        margin-top: 30px;
+        transition-delay: 200ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $--transition;
+
+        @include mobile {
+            font-size: clamp(30px, 8vw, 80px);
+            line-height: 40px;
+        }
+    }
+
+    &__undertitle {
+        font-size: 80px;
+        line-height: 72px;
+        color: $subtitleColor;
+        font-weight: 600;
+        margin-top: 10px;
+        transition-delay: 300ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+            font-size: clamp(30px, 8vw, 80px);
+            line-height: 40px;
+        }
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 26px;
+        color: $subtitleColor;
+        margin-top: 20px;
+        max-width: 540px;
+        transition-delay: 400ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mobile {
+            line-height: 18px;
+            font-size: $--fz-sm;
+        }
+
+    }
+
+    &__button {
+        margin-top: 50px;
+        transition-delay: 500ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+}

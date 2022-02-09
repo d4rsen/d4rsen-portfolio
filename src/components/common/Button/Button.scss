@@ -1,0 +1,17 @@
+@import "../../../App/App";
+
+.button {
+    font-size: 14px;
+    line-height: 1;
+    color: $limeColor;
+    background-color: inherit;
+    border: 1px solid $limeColor;
+    padding: 1.25rem 1.75rem;
+    border-radius: $border-radius;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $hoverColor;
+        cursor: pointer;
+    }
+}

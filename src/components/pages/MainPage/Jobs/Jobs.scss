@@ -1,0 +1,95 @@
+@import "../../../../App/App.scss";
+
+.jobs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px 0;
+    color: #8892b0;
+
+    @include mobile {
+        padding: 60px 0px;
+        font-size: $--fz-lg;
+        width: 75%;
+    }
+
+    @include miniMobile {
+        padding: 60px 0px;
+        font-size: $--fz-lg;
+        width: 75%;
+    }
+
+    @include tablet {
+        padding: 80px 0px;
+    }
+
+
+    &__inner {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        @include miniMobile {
+            flex-direction: column;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__left {
+        position: relative;
+        z-index: 3;
+        width: max-content;
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+
+        @include mobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include miniMobile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__right {
+        position: relative;
+        width: 100%;
+        margin-left: 20px;
+        height: auto;
+        padding: 10px 5px;
+    }
+
+    .title {
+        font-size: $--fz-xxl;
+        color: $--lightest-slate;
+        font-weight: 500;
+        margin: 0px 0px 10px;
+        line-height: 1.3;
+
+        &__company {
+            color: $--green;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 25px;
+        color: $--light-slate;
+        font-family: $--font-mono;
+        font-size: $--fz-xs;
+    }
+}

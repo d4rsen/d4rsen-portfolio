@@ -1,0 +1,53 @@
+@import "../../../App/App";
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-align: center;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    -webkit-box-pack: justify;
+    min-width: 100vw;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(5px);
+    filter: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+    transition: $--transition;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $--light-slate;
+        font-family: $--font-mono;
+        font-size: $--fz-xxs;
+        line-height: 1;
+    }
+
+    &__link {
+        padding: 10px;
+        display: inline-block;
+        text-decoration: none;
+        text-decoration-skip-ink: auto;
+        color: inherit;
+        position: relative;
+        transition: $--transition;
+
+        &:hover {
+            color: $--green;
+        }
+    }
+
+    &__title {
+        font-size: $--fz-xxs;
+        line-height: 1;
+    }
+}
