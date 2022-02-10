@@ -8,6 +8,7 @@ import './App.scss'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         ReactGA.initialize('UA-219979405-1')
         ReactGA.pageview(window.location.pathname + window.location.search)
