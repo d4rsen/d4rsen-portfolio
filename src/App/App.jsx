@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ReactGA from 'react-ga'
 import Router from '../components/router/Router'
 import Footer from '../components/UI/Footer/Footer'
 import Header from '../components/UI/Header/Header'
@@ -7,6 +8,10 @@ import './App.scss'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        ReactGA.initialize('G-QZBEE0DKH9', {debug: true})
+        ReactGA.pageview('/')
+    }, [])
 
     if (isLoading) {
         return (<Loader setIsLoading={setIsLoading}/>)
