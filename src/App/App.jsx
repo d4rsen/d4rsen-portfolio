@@ -9,7 +9,7 @@ import './App.scss'
 function App() {
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        ReactGA.initialize('G-QZBEE0DKH9', {debug: true})
+        ReactGA.initialize('G-QZBEE0DKH9')
         ReactGA.pageview('/')
     }, [])
 
