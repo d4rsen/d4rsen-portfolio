@@ -10,7 +10,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         ReactGA.initialize('G-QZBEE0DKH9')
-        ReactGA.pageview('/')
+        ReactGA.pageview(window.location.pathname + window.location.search)
     }, [])
 
     if (isLoading) {
