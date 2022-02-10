@@ -1,9 +1,9 @@
-import About from './About/About'
-import Contact from './Contact/Contact'
-import Hello from './Hello/Hello'
-import Jobs from './Jobs/Jobs'
+import About from '../../content/About/About'
+import Contact from '../../content/Contact/Contact'
+import Hello from '../../content/Hello/Hello'
+import Jobs from '../../content/Jobs/Jobs'
+import Projects from '../../content/Projects/Projects'
 import './MainPage.scss'
-import Projects from './Projects/Projects'
 
 const MainPage = () => {
 

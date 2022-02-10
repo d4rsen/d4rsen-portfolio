@@ -1,5 +1,5 @@
 import React from 'react'
-import SkillsItem from '../../../../common/SkillsItem/SkillsItem'
+import SkillsItem from '../SkillsItem/SkillsItem'
 
 const Elbrus = () => {
     return (<>

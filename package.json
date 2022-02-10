@@ -2,13 +2,14 @@
     "name": "d4rsen",
     "description": "Personal Website",
     "author": "Darsen ungarlinov <darsenungarlinov00@gmail.com>",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "repository": {
         "type": "git",
         "url": "https://github.com/d4rsen/d4rsen-portfolio"
     },
     "keywords": [
         "react",
+        "javascript",
         "sass"
     ],
     "private": true,

@@ -1,5 +1,5 @@
-import Button from '../../../common/Button/Button'
-import NumberedHeading from '../../../common/NumberedHeading/NumberedHeading'
+import Button from '../../common/Button/Button'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
 import './Contact.scss'
 
 const text = 'Currently I’m looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!'

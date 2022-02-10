@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import MainPage from '../pages/MainPage/MainPage'
 import NotFound from '../pages/NotFound/NotFound'
 
-const MainRouter = () => {
+const Router = () => {
     return (
         <Routes>
             <Route path={'/'} element={<MainPage/>}/>
@@ -12,4 +12,4 @@ const MainRouter = () => {
     )
 }
 
-export default MainRouter
+export default Router

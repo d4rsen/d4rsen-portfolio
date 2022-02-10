@@ -1,5 +1,5 @@
-import NumberedHeading from '../../../common/NumberedHeading/NumberedHeading'
-import SkillsItem from '../../../common/SkillsItem/SkillsItem'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
+import SkillsItem from '../../common/SkillsItem/SkillsItem'
 import './About.scss'
 
 const About = () => {

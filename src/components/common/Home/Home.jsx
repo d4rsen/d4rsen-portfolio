@@ -1,5 +1,5 @@
 import React from 'react'
-import SkillsItem from '../../../../common/SkillsItem/SkillsItem'
+import SkillsItem from '../SkillsItem/SkillsItem'
 
 const Home = () => {
     return (
@@ -16,7 +16,7 @@ const Home = () => {
                 Whole life
             </div>
             <SkillsItem text={'Eat'}/>
-            <SkillsItem text={'Sleep'}/>
+            <SkillsItem text={'Sleep'}/>xs
             <SkillsItem text={'Study'}/>
             <SkillsItem text={'Code'}/>
             <SkillsItem text={'Play'}/>

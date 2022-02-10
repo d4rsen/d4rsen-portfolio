@@ -1,4 +1,5 @@
-import NumberedHeading from '../../../common/NumberedHeading/NumberedHeading'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
+import OneProject from '../../common/OneProject/OneProject'
 import {
     coliseumGitLink,
     coliseumImgSrc,
@@ -13,7 +14,6 @@ import {
     gameStoreText,
     gameStoreTitle
 } from './consts'
-import OneProject from './OneProject/OneProject'
 import './Projects.scss'
 
 const Projects = () => {

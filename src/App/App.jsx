@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import MainRouter from '../components/router/MainRouter'
+import Router from '../components/router/Router'
 import Footer from '../components/UI/Footer/Footer'
 import Header from '../components/UI/Header/Header'
 import Loader from '../components/UI/Loader/Loader'
@@ -17,7 +17,7 @@ function App() {
             <div className="_main-container">
                 <Header/>
                 <main className="main">
-                    <MainRouter setIsLoading={setIsLoading}/>
+                    <Router setIsLoading={setIsLoading}/>
                 </main>
                 <Footer/>
             </div>

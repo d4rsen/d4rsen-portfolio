@@ -1,4 +1,4 @@
-import Button from '../../../common/Button/Button'
+import Button from '../../common/Button/Button'
 import './Hello.scss'
 
 const Hello = () => {

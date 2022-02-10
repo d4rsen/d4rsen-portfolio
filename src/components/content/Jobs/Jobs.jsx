@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import JobsButton from '../../../common/JobsButton/JobsButton'
-import NumberedHeading from '../../../common/NumberedHeading/NumberedHeading'
-import Elbrus from './Elbrus/Elbrus'
-import Home from './Home/Home'
+import Elbrus from '../../common/Elbrus/Elbrus'
+import Home from '../../common/Home/Home'
+import JobsButton from '../../common/JobsButton/JobsButton'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
 import './Jobs.scss'
 
 const Jobs = () => {
