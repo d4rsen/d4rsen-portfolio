@@ -23,4 +23,4 @@ Before opening a pull request, please ensure:
 Be kind to code reviewers, please try to keep pull requests as small and focused as possible :)
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owners to license your work under the
-terms of the [MIT License](https://github.com/d4rsen/d4rsen-portfolio/blob/main/LICENSE)
+terms of the [MIT License](https://github.com/d4rsen/d4rsen-portfolio/blob/main/LICENSE) 

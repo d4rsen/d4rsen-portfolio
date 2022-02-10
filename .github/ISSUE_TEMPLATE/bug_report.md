@@ -1,9 +1,10 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Bug report about: Create a report to help us improve
 ---
 
-Before opening a new issue, please take a moment to review our [**community guidelines**](https://github.com/react-boilerplate/react-boilerplate-cra-template/blob/master/CONTRIBUTING.md) to make the contribution process easy and effective for everyone involved.
+Before opening a new issue, please take a moment to review our [**community
+guidelines**](https://github.com/react-boilerplate/react-boilerplate-cra-template/blob/master/CONTRIBUTING.md)
+to make the contribution process easy and effective for everyone involved.
 
 ## Description
 
