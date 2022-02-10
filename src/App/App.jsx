@@ -9,8 +9,7 @@ import './App.scss'
 function App() {
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        // ReactGA.initialize('G-FZSBHMRF0L')
-        ReactGA.initialize('UA-219979405-1')
+        ReactGA.initialize('G-FZSBHMRF0L')
         ReactGA.pageview(window.location.pathname + window.location.search)
     }, [])
 
