@@ -1,0 +1,112 @@
+._container {
+  max-width: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.wrapper {
+  background-color: #0a192f;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper ._main-container {
+  margin: 0 auto;
+  box-sizing: content-box;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper ._main-container .main {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 0;
+  margin: 0px auto 100px;
+  text-align: center;
+}
+.contact__title {
+  font-size: clamp(40px, 5vw, 60px);
+  margin: 40px 0;
+  font-weight: 600;
+  color: #ccd6f6;
+  line-height: 1.1;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .contact__title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 390px) {
+  .contact__title {
+    font-size: 32px;
+  }
+}
+.contact__text {
+  margin: 0px;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: #0a192f;
+  color: #8892b0;
+  font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .contact__text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 390px) {
+  .contact__text {
+    font-size: 16px;
+  }
+}
+.contact__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+@media (max-width: 480px) {
+  .contact__buttons {
+    flex-direction: column;
+  }
+}
+@media (max-width: 390px) {
+  .contact__buttons {
+    flex-direction: column;
+  }
+}
+.contact__buttons .button:not(:last-child) {
+  margin: 0 20px 0 0;
+}
+@media (max-width: 480px) {
+  .contact__buttons .button:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+}
+@media (max-width: 390px) {
+  .contact__buttons .button:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+}
+
+/*# sourceMappingURL=Contact.css.map */

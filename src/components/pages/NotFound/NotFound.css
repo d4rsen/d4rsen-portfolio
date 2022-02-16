@@ -1,0 +1,81 @@
+._container {
+  max-width: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.wrapper {
+  background-color: #0a192f;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper ._main-container {
+  margin: 0 auto;
+  box-sizing: content-box;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper ._main-container .main {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: #0a192f;
+  color: #8892b0;
+  font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+}
+.notFound__title {
+  color: #64ffda;
+  font-size: clamp(100px, 25vw, 200px);
+  line-height: 1;
+  margin: 0px 0px 10px;
+}
+.notFound__subtitle {
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 400;
+  margin: 0px 0px 10px;
+  color: #ccd6f6;
+  line-height: 1.1;
+}
+.notFound__button {
+  color: #64ffda;
+  background-color: transparent;
+  border: 1px solid #64ffda;
+  border-radius: 4px;
+  padding: 1.25rem 1.75rem;
+  font-size: 14px;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-top: 40px;
+}
+.notFound__button:hover {
+  background-color: #233554;
+}
+
+/*# sourceMappingURL=NotFound.css.map */

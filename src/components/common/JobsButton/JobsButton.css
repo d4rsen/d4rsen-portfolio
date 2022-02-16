@@ -1,0 +1,64 @@
+._container {
+  max-width: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.wrapper {
+  background-color: #0a192f;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper ._main-container {
+  margin: 0 auto;
+  box-sizing: content-box;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper ._main-container .main {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jobs__button {
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 42px;
+  padding: 0px 20px 2px;
+  border: 2px solid #233554;
+  background-color: transparent;
+  color: #8892b0;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.active {
+  color: #64ffda;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+  border: 2px solid #64ffda;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/*# sourceMappingURL=JobsButton.css.map */

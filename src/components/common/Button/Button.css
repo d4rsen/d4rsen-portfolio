@@ -29,23 +29,19 @@
   align-items: center;
 }
 
-.mainPage {
-  background-color: #0a192f;
-  padding: 40px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.button {
+  font-size: 14px;
+  line-height: 1;
+  color: #64ffda;
+  background-color: inherit;
+  border: 1px solid #64ffda;
+  padding: 1.25rem 1.75rem;
+  border-radius: 4px;
+  text-decoration: none;
 }
-.mainPage-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-@media (max-width: 480px) {
-  .mainPage {
-    font-size: 18px;
-  }
+.button:hover {
+  background-color: #233554;
+  cursor: pointer;
 }
 
-/*# sourceMappingURL=MainPage.css.map */
+/*# sourceMappingURL=Button.css.map */
