@@ -47,14 +47,16 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
                 </div>
             </div>
             <div className="project__right right">
-                <div className="right__wrapper">
-                    <div className="right__imageWrapper">
-                        <a href="#" className="right__imageBlocker">
-                            <img className="right__coliseum" src={imgSrc && imgSrc} alt="project"/>
-                            <div className="right__hidden"/>
-                        </a>
+                <a href={projectLink} target="_blank" rel="noreferrer">
+                    <div className="right__wrapper">
+                        <div className="right__imageWrapper">
+                            <a href={projectLink} target="_blank" className="right__imageBlocker" rel="noreferrer">
+                                <img className="right__coliseum" src={imgSrc && imgSrc} alt="project"/>
+                                <div className="right__hidden"/>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     )
