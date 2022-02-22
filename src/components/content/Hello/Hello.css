@@ -61,11 +61,11 @@
   line-height: 17px;
   color: #64ffda;
   text-align: start;
-  transition-delay: 100ms;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition-delay: 200ms;
 }
 .hello__title {
   font-size: 80px;

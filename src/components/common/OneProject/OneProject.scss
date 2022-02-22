@@ -181,9 +181,13 @@
             align-items: center;
             padding: 10px;
             color: inherit;
+            transition: $--transition;
+
 
             &:hover {
                 color: $--green;
+                transition: $--transition;
+
             }
 
             svg {
@@ -204,9 +208,12 @@
             align-items: center;
             padding: 10px;
             color: inherit;
+            transition: $--transition;
+
 
             &:hover {
                 color: $--green;
+                transition: $--transition;
             }
 
             svg {

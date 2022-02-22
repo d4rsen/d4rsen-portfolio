@@ -30,11 +30,12 @@
         line-height: 17px;
         color: $limeColor;
         text-align: start;
-        transition-delay: 100ms;
         transition: $--transition;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition-delay: 200ms;
+
     }
 
     &__title {

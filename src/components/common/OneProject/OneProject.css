@@ -198,9 +198,11 @@
   align-items: center;
   padding: 10px;
   color: inherit;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .project .links__github:hover {
   color: #64ffda;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .project .links__github svg {
   width: 20px;
@@ -218,9 +220,11 @@
   align-items: center;
   padding: 10px;
   color: inherit;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .project .links__deploy:hover {
   color: #64ffda;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .project .links__deploy svg {
   width: 20px;

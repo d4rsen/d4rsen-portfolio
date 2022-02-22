@@ -116,7 +116,6 @@
   align-items: center;
   padding: 10px;
   font-size: 13px;
-  transition-delay: 100ms;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .header .right__list .item a {

@@ -9,9 +9,11 @@
     padding: 1.25rem 1.75rem;
     border-radius: $border-radius;
     text-decoration: none;
+    transition: $--transition;
 
     &:hover {
         background-color: $hoverColor;
         cursor: pointer;
+        transition: $--transition;
     }
 }
