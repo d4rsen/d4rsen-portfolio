@@ -81,6 +81,7 @@ select {
 }
 * {
   font-family: "Space Mono", monospace;
+  scroll-behavior: smooth;
 }
 
 /*# sourceMappingURL=normalize.css.map */

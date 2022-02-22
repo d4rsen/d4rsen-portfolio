@@ -8,13 +8,13 @@ const Contact = () => {
     return (
         <div id="contact" className="mainPage__contact contact">
             <NumberedHeading number={'04.'} text={`What’s Next?`}/>
-            <div className="contact__title">
+            <div className="contact__title fade1">
                 Get In Touch
             </div>
-            <div className="contact__text">
+            <div className="contact__text fade2">
                 {text}
             </div>
-            <div className="contact__buttons">
+            <div className="contact__buttons fade3">
                 <Button text={'GitHub'} href={'https://github.com/d4rsen'}/>
                 <Button text={'+79052418527'} href={'tel:+79052418527'}/>
                 <Button text={'Telegram'} href={'https://t.me/d4rse'}/>

@@ -1,8 +1,8 @@
 import './Button.scss'
 
-const Button = ({text, href}) => {
+const Button = ({text, href, className}) => {
     return (
-        <a href={href} target="_blank" className="button" rel="noreferrer">
+        <a href={href} target="_blank" className={`button ${className}`} rel="noreferrer">
             {text}
         </a>
     )

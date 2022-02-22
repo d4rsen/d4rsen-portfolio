@@ -4,23 +4,23 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
     return (
         <div className="projects__project project">
             <div className="project__left">
-                <div className="project__uptitle">
+                <div className="project__uptitle fade1">
                     Featured Project
                 </div>
-                <div className="project__title">
+                <div className="project__title fade1">
                     {title}
                 </div>
-                <div className="project__text">
+                <div className="project__text fade1">
                     {text}
                 </div>
-                <div className="project__stack stack">
+                <div className="project__stack stack fade2">
                     {stackItems && stackItems.map((item, i) => (
                         <div key={i} className="stack__item">
                             {item}
                         </div>
                     ))}
                 </div>
-                <div className="project__links links">
+                <div className="project__links links fade3">
                     <a target={'_blank'} href={gitLink && gitLink} className="links__github" rel="noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
                              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -46,7 +46,7 @@ const OneProject = ({title, text, stackItems, imgSrc, gitLink, projectLink}) => 
                     </a>
                 </div>
             </div>
-            <div className="project__right right">
+            <div className="project__right right fade4">
                 <a href={projectLink} target="_blank" rel="noreferrer">
                     <div className="right__wrapper">
                         <div className="right__imageWrapper">

@@ -4,21 +4,21 @@ import './Hello.scss'
 const Hello = () => {
     return (
         <div id="hello" className="mainPage__hello hello">
-            <div className="hello__uptitle">
+            <div className="hello__uptitle fade1">
                 Hi, my name is
             </div>
-            <div className="hello__title">
+            <div className="hello__title fade2">
                 Darsen Ungarlinov
             </div>
-            <div className="hello__undertitle">
+            <div className="hello__undertitle fade3">
                 I build things for the web.
             </div>
-            <div className="hello__text">
+            <div className="hello__text fade4">
                 I’m a fullstack JavaScript developer specializing in building (and occasionally designing) exceptional
                 digital
                 experiences. Currently, I’m focused on learning new technologies, such as Angular, Vue, TypeScript
             </div>
-            <div className="hello__button">
+            <div className="hello__button fade5">
                 <Button
                     text={'Check out my GitHub!'}
                     href={'https://github.com/d4rsen'}

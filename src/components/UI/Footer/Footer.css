@@ -1,3 +1,55 @@
+@keyframes fadein {
+  from {
+    margin-bottom: 500px;
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0;
+    transform: scale(1) rotate(0deg);
+  }
+}
+.fade1 {
+  animation: fadein 500ms;
+  -webkit-animation: fadein 500ms;
+  -moz-animation: fadein 500ms;
+  -ms-animation: fadein 500ms;
+  -o-animation: fadein 500ms;
+}
+
+.fade2 {
+  animation: fadein 1000ms;
+  -webkit-animation: fadein 1000ms;
+  -moz-animation: fadein 1000ms;
+  -ms-animation: fadein 1000ms;
+  -o-animation: fadein 1000ms;
+}
+
+.fade3 {
+  animation: fadein 1500ms;
+  -webkit-animation: fadein 1500ms;
+  -moz-animation: fadein 1500ms;
+  -ms-animation: fadein 1500ms;
+  -o-animation: fadein 1500ms;
+}
+
+.fade4 {
+  animation: fadein 2000ms;
+  -webkit-animation: fadein 2000ms;
+  -moz-animation: fadein 2000ms;
+  -ms-animation: fadein 2000ms;
+  -o-animation: fadein 2000ms;
+}
+
+.fade5 {
+  animation: fadein 2500ms;
+  -webkit-animation: fadein 2500ms;
+  -moz-animation: fadein 2500ms;
+  -ms-animation: fadein 2500ms;
+  -o-animation: fadein 2500ms;
+}
+
 ._container {
   max-width: 1000px;
   width: 1000px;
@@ -13,6 +65,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .wrapper ._main-container {
   margin: 0 auto;

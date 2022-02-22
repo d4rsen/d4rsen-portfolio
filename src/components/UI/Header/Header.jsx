@@ -11,15 +11,15 @@ const Header = () => {
         <header className="header">
             <div className="header-container">
                 <div className="header__left left">
-                    <div className="left__logo">
-                        <a href="/">
+                    <div className="left__logo fade1">
+                        <a href="#">
                             <img src="assets/logo.png" alt="logo" className="left__img"/>
                         </a>
                     </div>
                 </div>
                 <div className="header__right right">
                     <div className="right__list">
-                        <div className="right__item item">
+                        <div className="right__item item fade1">
                             <a href="#about">
                                 <div className="item__number">
                                     01.
@@ -29,7 +29,7 @@ const Header = () => {
                                 </div>
                             </a>
                         </div>
-                        <div className="right__item item">
+                        <div className="right__item item fade2">
                             <a href="#jobs">
                                 <div className="item__number">
                                     02.
@@ -39,7 +39,7 @@ const Header = () => {
                                 </div>
                             </a>
                         </div>
-                        <div className="right__item item">
+                        <div className="right__item item fade3">
                             <a href="#projects">
                                 <div className="item__number">
                                     03.
@@ -49,7 +49,7 @@ const Header = () => {
                                 </div>
                             </a>
                         </div>
-                        <div className="right__item item">
+                        <div className="right__item item fade4">
                             <a href="#contact">
                                 <div className="item__number">
                                     04.
@@ -60,12 +60,16 @@ const Header = () => {
                             </a>
                         </div>
                         <Button
+                            className="fade5"
                             text={'Resume'}
-                            href={'https://hh.ru/resume/57aeb169ff099c631e0039ed1f627468636c74'}
+                            href={'/resume.pdf'}
                         />
                     </div>
                     <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-                    <div onClick={burgerHandler} className={menuOpen ? 'hamburger active' : 'hamburger'}>
+                    <div
+                        onClick={burgerHandler}
+                        className={menuOpen ? 'hamburger active fade3' : 'hamburger fade3'}
+                    >
                         <span className="line1"/>
                         <span className="line2"/>
                         <span className="line3"/>

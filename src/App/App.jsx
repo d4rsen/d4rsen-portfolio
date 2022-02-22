@@ -7,15 +7,17 @@ import Loader from '../components/UI/Loader/Loader'
 import './App.scss'
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
+        setIsLoading(true)
+        setTimeout(() => setIsLoading(false), 2000)
         ReactGA.initialize('UA-219979405-1')
         ReactGA.pageview(window.location.pathname + window.location.search)
     }, [])
 
     if (isLoading) {
-        return (<Loader setIsLoading={setIsLoading}/>)
+        return (<Loader/>)
     }
 
     return (
@@ -23,7 +25,7 @@ function App() {
             <div className="_main-container">
                 <Header/>
                 <main className="main">
-                    <Router setIsLoading={setIsLoading}/>
+                    <Router/>
                 </main>
                 <Footer/>
             </div>

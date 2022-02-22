@@ -1,10 +1,6 @@
-import { useEffect } from 'react'
 import './Loader.scss'
 
-const Loader = ({setIsLoading}) => {
-    useEffect(() => {
-        setTimeout(() => setIsLoading(false), 1000)
-    }, [setIsLoading])
+const Loader = () => {
 
     return (
         <div className="loader">

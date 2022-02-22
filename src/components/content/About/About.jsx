@@ -1,5 +1,6 @@
 import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
 import SkillsItem from '../../common/SkillsItem/SkillsItem'
+import { darsenGitHub } from '../Projects/consts'
 import './About.scss'
 
 const About = () => {
@@ -16,9 +17,9 @@ const About = () => {
                 <p>
                     Here are a few technologies I’ve been working with recently:
                 </p>
-                <div className="about__skills skills">
-                    <SkillsItem text={'JavaScript (ES6)'}/>
-                    <SkillsItem text={'JavaScript (ES5)'}/>
+                <div className="about__skills skills fade2">
+                    <SkillsItem text={'JavaScript'}/>
+                    <SkillsItem text={'TypeScript'}/>
                     <SkillsItem text={'React'}/>
                     <SkillsItem text={'Node.js'}/>
                     <SkillsItem text={'Redux'}/>
@@ -31,15 +32,17 @@ const About = () => {
                     <SkillsItem text={'JsonWebToken'}/>
                 </div>
             </div>
-            <div className="about__right">
-                <div className="about__wrapper">
-                    <div className="about__imageWrapper">
-                        <div className="about__imageBlocker">
-                            <img className="about__darsen" src="assets/darsen.jpeg" alt="darsen"/>
+            <div className="about__right fade3">
+                <a href={darsenGitHub} target="_blank" rel="noreferrer">
+                    <div className="about__wrapper">
+                        <div className="about__imageWrapper">
+                            <div className="about__imageBlocker">
+                                <img className="about__darsen" src="assets/darsen.jpeg" alt="darsen"/>
+                            </div>
+                            <div className="about__hidden"/>
                         </div>
-                        <div className="about__hidden"/>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     )
