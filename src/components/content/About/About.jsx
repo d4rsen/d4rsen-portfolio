@@ -17,7 +17,7 @@ const About = () => {
                 <p>
                     Here are a few technologies I’ve been working with recently:
                 </p>
-                <div className="about__skills skills fade2">
+                <div className="about__skills skills">
                     <SkillsItem text={'JavaScript'}/>
                     <SkillsItem text={'TypeScript'}/>
                     <SkillsItem text={'React'}/>
@@ -32,7 +32,7 @@ const About = () => {
                     <SkillsItem text={'JsonWebToken'}/>
                 </div>
             </div>
-            <div className="about__right fade3">
+            <div className="about__right">
                 <a href={darsenGitHub} target="_blank" rel="noreferrer">
                     <div className="about__wrapper">
                         <div className="about__imageWrapper">

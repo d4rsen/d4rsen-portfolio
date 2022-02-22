@@ -18,7 +18,7 @@ const Jobs = () => {
                 text={'Where I’ve Worked'}
             />
             <div className="jobs__inner ">
-                <div className="jobs__left fade2">
+                <div className="jobs__left">
                     <JobsButton
                         jobs={jobs}
                         setJobs={setJobs}
@@ -32,7 +32,7 @@ const Jobs = () => {
                         active={jobs.home === true}
                     />
                 </div>
-                <div className="jobs__right fade3">
+                <div className="jobs__right">
                     {jobs.elbrus
                         ? (<Elbrus/>)
                         : (<Home/>)

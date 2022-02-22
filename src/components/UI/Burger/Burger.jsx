@@ -51,7 +51,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
                     <Button
                         className="fade5"
                         text={'Resume'}
-                        href={'https://hh.ru/resume/57aeb169ff099c631e0039ed1f627468636c74'}
+                        href={'/resume.pdf'}
                     />
                 </div>
 
