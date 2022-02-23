@@ -55,7 +55,7 @@ $tablet: 768px;
     from {
         margin-bottom: 500px;
         opacity: 0;
-        transform: scale(0) rotate(360deg);
+        transform: scale(0) rotate(300deg);
     }
     to {
         opacity: 1;
@@ -123,6 +123,7 @@ $tablet: 768px;
     -ms-animation: $--fadein 2500ms;
     -o-animation: $--fadein 2500ms;
 }
+
 
 ._container {
     max-width: 1000px;
