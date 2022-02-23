@@ -42,6 +42,7 @@ $--ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
 $--ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 $--ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 $--fadein: fadein;
+$--superfade: superfade;
 
 
 //---------------------------------------------//
@@ -61,6 +62,15 @@ $tablet: 768px;
         opacity: 1;
         margin-bottom: 0;
         transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes superfade {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
     }
 }
 
@@ -106,6 +116,7 @@ $tablet: 768px;
     -moz-animation: $--fadein 1500ms;
     -ms-animation: $--fadein 1500ms;
     -o-animation: $--fadein 1500ms;
+
 }
 
 .fade4 {
@@ -122,6 +133,14 @@ $tablet: 768px;
     -moz-animation: $--fadein 2500ms;
     -ms-animation: $--fadein 2500ms;
     -o-animation: $--fadein 2500ms;
+}
+
+.superfade {
+    animation: $--superfade 5000ms;
+    -webkit-animation: $--superfade 5000ms;
+    -moz-animation: $--superfade 5000ms;
+    -ms-animation: $--superfade 5000ms;
+    -o-animation: $--superfade 5000ms;
 }
 
 

@@ -11,6 +11,14 @@
     transform: scale(1) rotate(0deg);
   }
 }
+@keyframes superfade {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
 .fade1 {
   animation: fadein 500ms;
   -webkit-animation: fadein 500ms;
@@ -51,6 +59,14 @@
   -o-animation: fadein 2500ms;
 }
 
+.superfade {
+  animation: superfade 5000ms;
+  -webkit-animation: superfade 5000ms;
+  -moz-animation: superfade 5000ms;
+  -ms-animation: superfade 5000ms;
+  -o-animation: superfade 5000ms;
+}
+
 ._container {
   max-width: 1000px;
   width: 1000px;
@@ -88,6 +104,13 @@
   margin-bottom: 10px;
   font-size: 13px;
   color: #8892b0;
+}
+.skills__item:hover {
+  animation: superfade 3000ms;
+  -webkit-animation: superfade 3000ms;
+  -moz-animation: superfade 3000ms;
+  -ms-animation: superfade 3000ms;
+  -o-animation: superfade 3000ms;
 }
 .skills__item:before {
   content: "▹";

@@ -8,7 +8,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
         <div className={'right__burger burger'}>
             <aside>
                 <div className={menuOpen ? 'burger__list active' : 'burger__list'}>
-                    <div onClick={closeHandler} className="burger__item item fade1">
+                    <div onClick={closeHandler} className="burger__item item ">
                         <a href="#about">
                             <div className="item__number">
                                 01.
@@ -18,7 +18,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
                             </div>
                         </a>
                     </div>
-                    <div onClick={closeHandler} className="burger__item item fade2">
+                    <div onClick={closeHandler} className="burger__item item ">
                         <a href="#jobs">
                             <div className="item__number">
                                 02.
@@ -28,7 +28,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
                             </div>
                         </a>
                     </div>
-                    <div onClick={closeHandler} className="burger__item item fade3">
+                    <div onClick={closeHandler} className="burger__item item ">
                         <a href="#projects">
                             <div className="item__number">
                                 03.
@@ -38,7 +38,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
                             </div>
                         </a>
                     </div>
-                    <div onClick={closeHandler} className="burger__item item fade4">
+                    <div onClick={closeHandler} className="burger__item item ">
                         <a href="#contact">
                             <div className="item__number">
                                 04.
@@ -49,7 +49,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
                         </a>
                     </div>
                     <Button
-                        className="fade5"
+                        className=""
                         text={'Resume'}
                         href={'/resume.pdf'}
                     />

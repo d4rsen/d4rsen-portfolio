@@ -2,7 +2,7 @@ import './NumberedHeading.scss'
 
 const NumberedHeading = ({number, text}) => {
     return (
-        <div className="numbered-heading fade1">
+        <div className="numbered-heading">
             <div className="numbered-heading__number">
                 {number}
             </div>

@@ -20,6 +20,14 @@
     white-space: nowrap;
     cursor: pointer;
     border-radius: 0px;
+
+    &:hover {
+        animation: $--superfade 3000ms;
+        -webkit-animation: $--superfade 3000ms;
+        -moz-animation: $--superfade 3000ms;
+        -ms-animation: $--superfade 3000ms;
+        -o-animation: $--superfade 3000ms;
+    }
 }
 
 .active {

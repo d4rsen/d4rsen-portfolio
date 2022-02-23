@@ -89,6 +89,14 @@
             transition: $--transition;
             margin-bottom: 20px;
 
+            &:hover {
+                animation: $--superfade 3000ms;
+                -webkit-animation: $--superfade 3000ms;
+                -moz-animation: $--superfade 3000ms;
+                -ms-animation: $--superfade 3000ms;
+                -o-animation: $--superfade 3000ms;
+            }
+
             a {
                 display: flex;
                 justify-content: center;

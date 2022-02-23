@@ -10,6 +10,14 @@
     transform: scale(1) rotate(0deg);
   }
 }
+@keyframes superfade {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
 .fade1 {
   animation: fadein 500ms;
   -webkit-animation: fadein 500ms;
@@ -48,6 +56,14 @@
   -moz-animation: fadein 2500ms;
   -ms-animation: fadein 2500ms;
   -o-animation: fadein 2500ms;
+}
+
+.superfade {
+  animation: superfade 5000ms;
+  -webkit-animation: superfade 5000ms;
+  -moz-animation: superfade 5000ms;
+  -ms-animation: superfade 5000ms;
+  -o-animation: superfade 5000ms;
 }
 
 ._container {
@@ -91,6 +107,13 @@
   width: 100%;
   font-size: clamp(26px, 5vw, 32px);
   white-space: nowrap;
+}
+.numbered-heading:hover {
+  animation: superfade 3000ms;
+  -webkit-animation: superfade 3000ms;
+  -moz-animation: superfade 3000ms;
+  -ms-animation: superfade 3000ms;
+  -o-animation: superfade 3000ms;
 }
 @media (max-width: 480px) {
   .numbered-heading {

@@ -10,6 +10,14 @@
     transform: scale(1) rotate(0deg);
   }
 }
+@keyframes superfade {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
 .fade1 {
   animation: fadein 500ms;
   -webkit-animation: fadein 500ms;
@@ -48,6 +56,14 @@
   -moz-animation: fadein 2500ms;
   -ms-animation: fadein 2500ms;
   -o-animation: fadein 2500ms;
+}
+
+.superfade {
+  animation: superfade 5000ms;
+  -webkit-animation: superfade 5000ms;
+  -moz-animation: superfade 5000ms;
+  -ms-animation: superfade 5000ms;
+  -o-animation: superfade 5000ms;
 }
 
 ._container {
@@ -143,9 +159,23 @@
   font-size: 20px;
   line-height: 1.3;
 }
+.about__left p:hover {
+  animation: superfade 3000ms;
+  -webkit-animation: superfade 3000ms;
+  -moz-animation: superfade 3000ms;
+  -ms-animation: superfade 3000ms;
+  -o-animation: superfade 3000ms;
+}
 .about__right {
   position: relative;
   max-width: 300px;
+}
+.about__right:hover {
+  animation: superfade 3000ms;
+  -webkit-animation: superfade 3000ms;
+  -moz-animation: superfade 3000ms;
+  -ms-animation: superfade 3000ms;
+  -o-animation: superfade 3000ms;
 }
 .about__wrapper {
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);

@@ -55,12 +55,28 @@
             font-family: $--font-sans;
             font-size: $--fz-xl;
             line-height: 1.3;
+
+            &:hover {
+                animation: $--superfade 3000ms;
+                -webkit-animation: $--superfade 3000ms;
+                -moz-animation: $--superfade 3000ms;
+                -ms-animation: $--superfade 3000ms;
+                -o-animation: $--superfade 3000ms;
+            }
         }
     }
 
     &__right {
         position: relative;
         max-width: 300px;
+
+        &:hover {
+            animation: $--superfade 3000ms;
+            -webkit-animation: $--superfade 3000ms;
+            -moz-animation: $--superfade 3000ms;
+            -ms-animation: $--superfade 3000ms;
+            -o-animation: $--superfade 3000ms;
+        }
     }
 
     &__wrapper {

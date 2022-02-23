@@ -31,6 +31,7 @@
                 -webkit-transform: translate3d(0, 0, 0);
                 transform: translate3d(0, 0, 0);
                 opacity: 0;
+                filter: hue-rotate(0deg);
             }
 
             40%, 43% {
@@ -39,6 +40,8 @@
                 -webkit-transform: translate3d(0, -30px, 0);
                 transform: translate3d(0, -30px, 0);
                 opacity: 1;
+                filter: hue-rotate(360deg);
+
             }
 
             70% {
@@ -47,12 +50,16 @@
                 -webkit-transform: translate3d(0, -15px, 0);
                 transform: translate3d(0, -15px, 0);
                 opacity: 1;
+                filter: hue-rotate(360deg);
+
             }
 
             90% {
                 -webkit-transform: translate3d(0, -4px, 0);
                 transform: translate3d(0, -4px, 0);
                 opacity: 1;
+                filter: hue-rotate(360deg);
+
             }
         }
 
@@ -61,6 +68,7 @@
             animation-name: bounce;
             -webkit-transform-origin: center bottom;
             transform-origin: center bottom;
+
         }
     }
 }

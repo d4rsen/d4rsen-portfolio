@@ -3,7 +3,7 @@ import './Hello.scss'
 
 const Hello = () => {
     return (
-        <div id="hello" className="mainPage__hello hello">
+        <div id="hello" className="mainPage__hello hello superfade">
             <div className="hello__uptitle fade1">
                 Hi, my name is
             </div>

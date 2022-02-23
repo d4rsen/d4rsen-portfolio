@@ -88,6 +88,14 @@
         margin: 0px 0px 10px;
         line-height: 1.3;
 
+        &:hover {
+            animation: $--superfade 3000ms;
+            -webkit-animation: $--superfade 3000ms;
+            -moz-animation: $--superfade 3000ms;
+            -ms-animation: $--superfade 3000ms;
+            -o-animation: $--superfade 3000ms;
+        }
+
         &__company {
             color: $--green;
         }
@@ -98,5 +106,13 @@
         color: $--light-slate;
         font-family: $--font-mono;
         font-size: $--fz-xs;
+
+        &:hover {
+            animation: $--superfade 3000ms;
+            -webkit-animation: $--superfade 3000ms;
+            -moz-animation: $--superfade 3000ms;
+            -ms-animation: $--superfade 3000ms;
+            -o-animation: $--superfade 3000ms;
+        }
     }
 }

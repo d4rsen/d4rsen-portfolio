@@ -18,6 +18,14 @@
         line-height: 1.1;
         text-align: center;
 
+        &:hover {
+            animation: $--superfade 3000ms;
+            -webkit-animation: $--superfade 3000ms;
+            -moz-animation: $--superfade 3000ms;
+            -ms-animation: $--superfade 3000ms;
+            -o-animation: $--superfade 3000ms;
+        }
+
         @include mobile {
             font-size: $--fz-heading;
         }
@@ -38,6 +46,7 @@
         font-size: $--fz-xl;
         line-height: 1.3;
         text-align: center;
+
 
         @include mobile {
             font-size: $--fz-md;

@@ -10,6 +10,14 @@
     font-size: clamp(26px, 5vw, 32px);
     white-space: nowrap;
 
+    &:hover {
+        animation: $--superfade 3000ms;
+        -webkit-animation: $--superfade 3000ms;
+        -moz-animation: $--superfade 3000ms;
+        -ms-animation: $--superfade 3000ms;
+        -o-animation: $--superfade 3000ms;
+    }
+
     @include mobile {
         margin: 10px 0px;
     }

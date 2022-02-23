@@ -6,6 +6,14 @@
     font-size: 13px;
     color: $subtitleColor;
 
+    &:hover {
+        animation: $--superfade 3000ms;
+        -webkit-animation: $--superfade 3000ms;
+        -moz-animation: $--superfade 3000ms;
+        -ms-animation: $--superfade 3000ms;
+        -o-animation: $--superfade 3000ms;
+    }
+
     &:before {
         content: "▹";
         color: #64ffda;

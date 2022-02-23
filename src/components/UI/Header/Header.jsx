@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Button from '../../common/Button/Button'
 import Burger from '../Burger/Burger'
 import './Header.scss'
@@ -7,11 +6,10 @@ import './Header.scss'
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const burgerHandler = e => setMenuOpen(!menuOpen)
-    const navigate = useNavigate()
 
     return (
         <header className="header">
-            <div className="header-container">
+            <div className="header-container superfade">
                 <div className="header__left left">
                     <div className="left__logo fade5">
                         <a href="/#">
