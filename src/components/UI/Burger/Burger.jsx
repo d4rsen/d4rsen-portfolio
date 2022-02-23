@@ -5,7 +5,7 @@ const Burger = ({menuOpen, setMenuOpen}) => {
     const closeHandler = e => setMenuOpen(false)
 
     return (
-        <div className={'right__burger burger'}>
+        <div className={'right__burger burger '}>
             <aside>
                 <div className={menuOpen ? 'burger__list active' : 'burger__list'}>
                     <div onClick={closeHandler} className="burger__item item ">

@@ -9,16 +9,16 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="header-container superfade">
+            <div className="header-container ">
                 <div className="header__left left">
                     <div className="left__logo fade5">
                         <a href="/#">
-                            <img src="assets/logo.png" alt="logo" className="left__img"/>
+                            <img src="assets/logo.png" alt="logo" className="left__img superfade"/>
                         </a>
                     </div>
                 </div>
                 <div className="header__right right">
-                    <div className="right__list">
+                    <div className="right__list superfade">
                         <div className="right__item item fade1">
                             <a href="#about">
                                 <div className="item__number">
@@ -70,9 +70,9 @@ const Header = () => {
                         onClick={burgerHandler}
                         className={menuOpen ? 'hamburger active fade3' : 'hamburger fade3'}
                     >
-                        <span className="line1"/>
-                        <span className="line2"/>
-                        <span className="line3"/>
+                        <span className="line1 superfade "/>
+                        <span className="line2 superfade"/>
+                        <span className="line3 superfade"/>
                     </div>
                 </div>
             </div>

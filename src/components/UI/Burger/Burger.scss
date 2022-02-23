@@ -61,6 +61,7 @@
             right: -300px;
             transition: all 500ms ease;
         }
+
         @include miniMobile {
             display: flex;
             justify-content: center;
