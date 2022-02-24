@@ -117,7 +117,7 @@
 
     .hamburger {
         display: none;
-        
+
         @include miniMobile {
             width: 32px;
             height: 25px;
