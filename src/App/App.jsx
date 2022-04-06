@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
+import Bar from '../components/common/Bar/Bar'
 import Router from '../components/router/Router'
 import Footer from '../components/UI/Footer/Footer'
 import Header from '../components/UI/Header/Header'
@@ -27,6 +28,7 @@ function App() {
                 <main className="main">
                     <Router/>
                 </main>
+                <Bar/>
                 <Footer/>
             </div>
         </div>
