@@ -14,9 +14,9 @@ const Hello = () => {
                 I build things for the web.
             </div>
             <div className="hello__text fade4">
-                I’m a fullstack JavaScript developer specializing in building (and occasionally designing) exceptional
+                I’m a fullstack JavaScript developer specializing in building exceptional
                 digital
-                experiences. Currently, I’m focused on learning new technologies, such as Angular, Vue, TypeScript
+                experiences. Currently, I’m focused on learning new technologies
             </div>
             <div className="hello__button fade5">
                 <Button

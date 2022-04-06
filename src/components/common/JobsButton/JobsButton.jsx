@@ -1,12 +1,13 @@
 import './JobsButton.scss'
 
-const elbrus = {elbrus: true, home: false}
-const home = {elbrus: false, home: true}
+const elbrus = {elbrus: true, home: false, abt: false}
+const abt = {elbrus: false, home: false, abt: true}
+const home = {elbrus: false, home: true, abt: false}
 
 const JobsButton = ({text, active, setJobs}) => {
     const color = active === true ? 'active' : ''
-    const newJobs = text === 'Elbrus' ? elbrus : home
-    const setJobsHandler = e => setJobs(newJobs)
+    const newJobs = text === 'Elbrus' ? elbrus : text === 'ABT' ? abt : home
+    const setJobsHandler = () => setJobs(newJobs)
 
     return (
         <button onClick={setJobsHandler} className={`jobs__button ${color}`}>

@@ -1,6 +1,19 @@
 import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
 import OneProject from '../../common/OneProject/OneProject'
-import { coliseumGitLink, coliseumImgSrc, coliseumItems, coliseumProjectLink, coliseumText, coliseumTitle } from './consts'
+import {
+    coliseumGitLink,
+    coliseumImgSrc,
+    coliseumItems,
+    coliseumProjectLink,
+    coliseumText,
+    coliseumTitle,
+    keyboardGitLink,
+    keyboardImgSrc,
+    keyboardItems,
+    keyboardProjectLink,
+    keyboardText,
+    keyboardTitle
+} from './consts'
 import './Projects.scss'
 
 const Projects = () => {
@@ -18,14 +31,14 @@ const Projects = () => {
                 projectLink={coliseumProjectLink}
                 stackItems={coliseumItems}
             />
-            {/*<OneProject*/}
-            {/*    title={gameStoreTitle}*/}
-            {/*    text={gameStoreText}*/}
-            {/*    gitLink={gameStoreGitLink}*/}
-            {/*    imgSrc={gameStoreImgSrc}*/}
-            {/*    projectLink={gameStoreProjectLink}*/}
-            {/*    stackItems={gameStoreItems}*/}
-            {/*/>*/}
+            <OneProject
+                title={keyboardTitle}
+                text={keyboardText}
+                gitLink={keyboardGitLink}
+                imgSrc={keyboardImgSrc}
+                projectLink={keyboardProjectLink}
+                stackItems={keyboardItems}
+            />
         </div>
     )
 }

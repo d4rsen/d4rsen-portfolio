@@ -1,11 +1,11 @@
 @import "../../../App/App";
 
-
 .project {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
+    width: 100%;
 
     @include miniMobile {
         flex-direction: column;
@@ -25,6 +25,7 @@
         margin-left: 50px;
         width: 100%;
         height: 100%;
+        max-width: 400px;
 
         &:hover {
             animation: $--superfade 3000ms;

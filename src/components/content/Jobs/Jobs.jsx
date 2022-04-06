@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Abt from '../../common/Abt/Abt'
 import Elbrus from '../../common/Elbrus/Elbrus'
 import Home from '../../common/Home/Home'
 import JobsButton from '../../common/JobsButton/JobsButton'
@@ -7,7 +8,8 @@ import './Jobs.scss'
 
 const Jobs = () => {
     const [jobs, setJobs] = useState({
-        elbrus: true,
+        abt: true,
+        elbrus: false,
         home: false
     })
 
@@ -22,6 +24,12 @@ const Jobs = () => {
                     <JobsButton
                         jobs={jobs}
                         setJobs={setJobs}
+                        text={'ABT'}
+                        active={jobs.abt === true}
+                    />
+                    <JobsButton
+                        jobs={jobs}
+                        setJobs={setJobs}
                         text={'Elbrus'}
                         active={jobs.elbrus === true}
                     />
@@ -33,9 +41,11 @@ const Jobs = () => {
                     />
                 </div>
                 <div className="jobs__right">
-                    {jobs.elbrus
-                        ? (<Elbrus/>)
-                        : (<Home/>)
+                    {jobs.abt
+                        ? (<Abt/>)
+                        : jobs.elbrus
+                            ? <Elbrus/>
+                            : <Home/>
                     }
                 </div>
             </div>
