@@ -29,7 +29,15 @@ const About = () => {
                     <SkillsItem text={'CSS'}/>
                     <SkillsItem text={'PostgreSQL'}/>
                     <SkillsItem text={'Sass'}/>
-                    <SkillsItem text={'JsonWebToken'}/>
+                    <SkillsItem text={'JWT'}/>
+                    <SkillsItem text={'ReactQuery'}/>
+                    <SkillsItem text={'ReactRouter'}/>
+                    <SkillsItem text={'Vercel'}/>
+                    <SkillsItem text={'PostCss'}/>
+                    <SkillsItem text={'Figma'}/>
+                    <SkillsItem text={'Sequelize'}/>
+                    <SkillsItem text={'Postman'}/>
+                    <SkillsItem text={'Bootstrap'}/>
                 </div>
             </div>
             <div className="about__right">

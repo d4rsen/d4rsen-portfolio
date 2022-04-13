@@ -6,7 +6,7 @@ import {
     coliseumItems,
     coliseumProjectLink,
     coliseumText,
-    coliseumTitle,
+    coliseumTitle, jsonGitLink, jsonImgSrc, jsonItems, jsonProjectLink, jsonText, jsonTitle,
     keyboardGitLink,
     keyboardImgSrc,
     keyboardItems,
@@ -30,6 +30,14 @@ const Projects = () => {
                 imgSrc={coliseumImgSrc}
                 projectLink={coliseumProjectLink}
                 stackItems={coliseumItems}
+            />
+            <OneProject
+                title={jsonTitle}
+                text={jsonText}
+                gitLink={jsonGitLink}
+                imgSrc={jsonImgSrc}
+                projectLink={jsonProjectLink}
+                stackItems={jsonItems}
             />
             <OneProject
                 title={keyboardTitle}
