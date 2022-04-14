@@ -110,6 +110,20 @@
   z-index: 0;
   position: fixed;
 }
+@media (max-width: 480px) {
+  .cube {
+    width: 5px;
+    height: 5px;
+    border: solid 0.1px #ccd6f6;
+  }
+}
+@media (max-width: 390px) {
+  .cube {
+    width: 5px;
+    height: 5px;
+    border: solid 0.1px #ccd6f6;
+  }
+}
 
 .cube:nth-child(2n) {
   border-color: #64ffda;

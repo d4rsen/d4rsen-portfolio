@@ -11,6 +11,19 @@
     animation: cube 12s ease-in forwards infinite;
     z-index: 0;
     position: fixed;
+
+    @include mobile {
+        width: 5px;
+        height: 5px;
+        border: solid 0.1px $--lightest-slate;
+
+    }
+    @include miniMobile {
+        width: 5px;
+        height: 5px;
+        border: solid 0.1px $--lightest-slate;
+
+    }
 }
 
 .cube:nth-child(2n) {
