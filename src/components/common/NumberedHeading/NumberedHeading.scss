@@ -9,6 +9,7 @@
     width: 100%;
     font-size: clamp(26px, 5vw, 32px);
     white-space: nowrap;
+    z-index: 3;
 
     &:hover {
         animation: $--superfade 3000ms;

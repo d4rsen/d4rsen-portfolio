@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import Bar from '../components/common/Bar/Bar'
 import Router from '../components/router/Router'
+import Background from '../components/UI/Background/Background'
 import Footer from '../components/UI/Footer/Footer'
 import Header from '../components/UI/Header/Header'
 import Loader from '../components/UI/Loader/Loader'
@@ -23,6 +24,7 @@ function App() {
 
     return (
         <div className="wrapper">
+            <Background/>
             <div className="_main-container">
                 <Header/>
                 <main className="main">
