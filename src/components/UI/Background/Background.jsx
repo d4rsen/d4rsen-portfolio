@@ -12,8 +12,6 @@ const Background = () => {
             <div className="cube"></div>
             <div className="cube"></div>
             <div className="cube"></div>
-            <div className="cube"></div>
-            <div className="cube"></div>
         </>
     )
 }
