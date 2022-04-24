@@ -23,7 +23,7 @@ const Background = () => {
                 <img src="assets/reactquery.svg" alt=""/>
             </div>
             <div className="cube">
-                <img src="assets/sass.svg" alt=""/>
+                <img src="assets/css.svg" alt=""/>
             </div>
             <div className="cube">
                 <img src="assets/docker.svg" alt=""/>
@@ -32,7 +32,7 @@ const Background = () => {
                 <img src="assets/html.svg" alt=""/>
             </div>
             <div className="cube">
-                <img src="assets/css.svg" alt=""/>
+                <img src="assets/sass.svg" alt=""/>
             </div>
         </>
     )
