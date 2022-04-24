@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Abt from '../../common/Abt/Abt'
-import Elbrus from '../../common/Elbrus/Elbrus'
 import Home from '../../common/Home/Home'
 import JobsButton from '../../common/JobsButton/JobsButton'
 import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
@@ -30,12 +29,6 @@ const Jobs = () => {
                     <JobsButton
                         jobs={jobs}
                         setJobs={setJobs}
-                        text={'Elbrus'}
-                        active={jobs.elbrus === true}
-                    />
-                    <JobsButton
-                        jobs={jobs}
-                        setJobs={setJobs}
                         text={'Home'}
                         active={jobs.home === true}
                     />
@@ -43,9 +36,7 @@ const Jobs = () => {
                 <div className="jobs__right">
                     {jobs.abt
                         ? (<Abt/>)
-                        : jobs.elbrus
-                            ? <Elbrus/>
-                            : <Home/>
+                        : <Home/>
                     }
                 </div>
             </div>

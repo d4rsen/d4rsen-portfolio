@@ -2,10 +2,10 @@
 
 .cube {
     top: 80vh;
-    left: 45vw;
-    width: 10px;
-    height: 10px;
-    border: solid 1px $--lightest-slate;
+    left: 50vw;
+    width: 8px;
+    height: 8px;
+    //border: solid 1px $--lightest-slate;
     transform-origin: top left;
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
     animation: cube 12s ease-in forwards infinite;
@@ -13,15 +13,13 @@
     position: fixed;
 
     @include mobile {
-        width: 5px;
-        height: 5px;
-        border: solid 0.1px $--lightest-slate;
+        width: 4px;
+        height: 4px;
 
     }
     @include miniMobile {
-        width: 5px;
-        height: 5px;
-        border: solid 0.1px $--lightest-slate;
+        width: 4px;
+        height: 4px;
 
     }
 }
@@ -32,31 +30,55 @@
 
 .cube:nth-child(2) {
     animation-delay: 2s;
-    left: 25vw;
-    top: 40vh;
+    left: 11vw;
+    top: 64vh;
 }
 
 .cube:nth-child(3) {
     animation-delay: 4s;
-    left: 75vw;
-    top: 50vh;
+    left: 26vw;
+    top: 80vh;
 }
 
 .cube:nth-child(4) {
     animation-delay: 6s;
     left: 90vw;
-    top: 22vh;
+    top: 23vh;
 }
 
 .cube:nth-child(5) {
     animation-delay: 8s;
-    left: 10vw;
-    top: 80vh;
+    left: 65vw;
+    top: 79vh;
 }
 
 .cube:nth-child(6) {
     animation-delay: 10s;
-    left: 50vw;
+    left: 80vw;
+    top: 53vh;
+}
+
+.cube:nth-child(7) {
+    animation-delay: 12s;
+    left: 26vw;
+    top: 55vh;
+}
+
+.cube:nth-child(8) {
+    animation-delay: 14s;
+    left: 45vw;
+    top: 28vh;
+}
+
+.cube:nth-child(9) {
+    animation-delay: 16s;
+    left: 60vw;
+    top: 56vh;
+}
+
+.cube:nth-child(10) {
+    animation-delay: 18s;
+    left: 15vw;
     top: 25vh;
 }
 

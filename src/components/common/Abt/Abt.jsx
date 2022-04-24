@@ -12,9 +12,10 @@ const Abt = () => {
             </span>
         </div>
         <div className="jobs__subtitle">
-            March 2022 - Present
+            Sep 2022 - Present
         </div>
-        <SkillsItem text={'Write modern, performant, maintainable code for a diverse array of client and internal projects'}/>
+        <SkillsItem
+            text={'Write modern, performant, maintainable code for a diverse array of client and internal projects'}/>
         <SkillsItem
             text={
                 'Work with a variety of platforms, frameworks, and content management systems such as JavaScript, TypeScript, React'
