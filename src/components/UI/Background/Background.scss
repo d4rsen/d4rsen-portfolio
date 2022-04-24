@@ -3,23 +3,23 @@
 .cube {
     top: 80vh;
     left: 50vw;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     //border: solid 1px $--lightest-slate;
     transform-origin: top left;
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    animation: cube 12s ease-in forwards infinite;
+    animation: cube 17s ease-in forwards infinite;
     z-index: 0;
     position: fixed;
 
     @include mobile {
-        width: 4px;
-        height: 4px;
+        width: 5px;
+        height: 5px;
 
     }
     @include miniMobile {
-        width: 4px;
-        height: 4px;
+        width: 5px;
+        height: 5px;
 
     }
 }

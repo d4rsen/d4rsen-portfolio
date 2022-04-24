@@ -26,7 +26,7 @@ const Background = () => {
                 <img src="assets/css.svg" alt=""/>
             </div>
             <div className="cube">
-                <img src="assets/docker.svg" alt=""/>
+                <img src="assets/docker.png" alt=""/>
             </div>
             <div className="cube">
                 <img src="assets/html.svg" alt=""/>
