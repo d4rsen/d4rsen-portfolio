@@ -1,12 +1,12 @@
+import React from 'react'
 import './Loader.scss'
 
-const Loader = () => {
-
-    return (
-        <div className="loader ">
-            <img src="assets/logo.png" alt="loader" className="loader__img "/>
-        </div>
-    )
+function Loader() {
+  return (
+    <div className="loader ">
+      <img src="assets/logo.png" alt="loader" className="loader__img " />
+    </div>
+  )
 }
 
 export default Loader

@@ -1,20 +1,20 @@
 export const coliseumItems = [
-    'React',
-    'Redux',
-    'Socket.io',
-    'JWT',
-    'Node.js',
-    'Express',
-    'PostgresSQL',
+  'React',
+  'Redux',
+  'Socket.io',
+  'JWT',
+  'Node.js',
+  'Express',
+  'PostgresSQL',
 ]
 export const keyboardItems = [
-    'React',
-    'TypeScript',
+  'React',
+  'TypeScript',
 ]
 export const jsonItems = [
-    'NestJs',
-    'TypeScript',
-    'Express',
+  'NestJs',
+  'TypeScript',
+  'Express',
 ]
 export const coliseumTitle = 'COLISEUM'
 export const coliseumText = 'The browser MMORPG game to fight against monsters and another players, watch battles, take gold, exp and items for wins. '

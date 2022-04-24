@@ -1,29 +1,29 @@
 import React from 'react'
 import SkillsItem from '../SkillsItem/SkillsItem'
 
-const Home = () => {
-    return (
-        <>
-            <div className="jobs__title title">
-                <span>
-                    Self studying
-                </span>
-                <span className="title__company">
-                    {' Home'}
-                </span>
-            </div>
-            <div className="jobs__subtitle">
-                Whole life
-            </div>
-            <SkillsItem text={'Eat'}/>
-            <SkillsItem text={'Sleep'}/>
-            <SkillsItem text={'Study'}/>
-            <SkillsItem text={'Code'}/>
-            <SkillsItem text={'Play'}/>
-            <SkillsItem text={'Repeat'}/>
+function Home() {
+  return (
+    <>
+      <div className="jobs__title title">
+        <span>
+          Self studying
+        </span>
+        <span className="title__company">
+          {' Home'}
+        </span>
+      </div>
+      <div className="jobs__subtitle">
+        Whole life
+      </div>
+      <SkillsItem text="Eat" />
+      <SkillsItem text="Sleep" />
+      <SkillsItem text="Study" />
+      <SkillsItem text="Code" />
+      <SkillsItem text="Play" />
+      <SkillsItem text="Repeat" />
 
-        </>
-    )
+    </>
+  )
 }
 
 export default Home
