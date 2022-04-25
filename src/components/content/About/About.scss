@@ -6,6 +6,7 @@
     align-items: center;
     padding: 100px 0;
     width: 100%;
+    z-index: 2;
 
     @include mobile {
         padding: 60px 0px;
@@ -79,7 +80,6 @@
             -moz-animation: $--superfade 3000ms;
             -ms-animation: $--superfade 3000ms;
             -o-animation: $--superfade 3000ms;
-
 
 
         }

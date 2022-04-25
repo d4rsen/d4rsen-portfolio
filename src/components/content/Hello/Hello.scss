@@ -8,6 +8,7 @@
     flex-direction: column;
     padding: 100px 0;
     width: 100%;
+    z-index: 2;
 
     @include mobile {
         padding: 60px 0px;
@@ -67,7 +68,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
 
 
         @include mobile {
