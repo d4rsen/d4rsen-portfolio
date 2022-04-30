@@ -92,7 +92,6 @@
             filter: grayscale(100%) contrast(1);
             transition: $--transition;
             cursor: pointer;
-
         }
 
         &__imageBlocker {
@@ -116,6 +115,7 @@
             position: absolute;
             inset: 0px;
             object-fit: cover;
+            cursor: url('../../../../public/assets/spider2.png'), auto !important;
         }
     }
 
@@ -217,11 +217,9 @@
             color: inherit;
             transition: $--transition;
 
-
             &:hover {
                 color: $--green;
                 transition: $--transition;
-
             }
 
             svg {
@@ -243,7 +241,6 @@
             padding: 10px;
             color: inherit;
             transition: $--transition;
-
 
             &:hover {
                 color: $--green;

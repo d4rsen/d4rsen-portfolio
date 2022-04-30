@@ -44,7 +44,6 @@
         color: $subtitleColor;
         padding-right: 50px;
 
-
         @include mobile {
             padding: 0;
         }
@@ -73,15 +72,12 @@
         position: relative;
         max-width: 300px;
 
-
         &:hover {
             animation: $--superfade 3000ms;
             -webkit-animation: $--superfade 3000ms;
             -moz-animation: $--superfade 3000ms;
             -ms-animation: $--superfade 3000ms;
             -o-animation: $--superfade 3000ms;
-
-
         }
     }
 
@@ -132,6 +128,7 @@
             border-radius: $--border-radius;
             transition: $--transition;
             box-sizing: inherit;
+            cursor: url('../../../../public/assets/spider2.png'), auto !important;
         }
     }
 
@@ -141,6 +138,7 @@
         mix-blend-mode: multiply;
         filter: grayscale(100%) contrast(1);
         transition: $--transition;
+
     }
 
     &__imageBlocker {

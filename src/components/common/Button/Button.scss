@@ -14,5 +14,6 @@
     &:hover {
         background-color: $hoverColor;
         transition: $--transition;
+        cursor: url('../../../../public/assets/spider2.png'), auto !important;
     }
 }

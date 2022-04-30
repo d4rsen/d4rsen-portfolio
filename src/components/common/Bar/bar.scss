@@ -20,6 +20,10 @@
         display: none;
     }
 
+    @media (max-width: 1150px) {
+        display: none;
+    }
+
     &__list {
         display: flex;
         flex-direction: column;
@@ -57,6 +61,7 @@
 
         &:hover {
             color: $--green;
+            cursor: url('../../../../public/assets/spider2.png'), auto !important;
         }
     }
 
@@ -68,6 +73,7 @@
         position: relative;
         transition: $--transition;
         padding: 10px;
+        cursor: url('../../../../public/assets/spider2.png'), auto !important;
 
         &:hover {
             color: $--green;
@@ -79,7 +85,7 @@
             fill: none;
             text-decoration-skip-ink: auto;
             color: inherit;
-            cursor: pointer;
+            cursor: url('../../../../public/assets/spider2.png'), auto !important;
         }
     }
 }
