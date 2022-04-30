@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import Bar from '../components/common/Bar/Bar'
-import Router from '../components/router/Router'
-import Background from '../components/UI/Background/Background'
-import Footer from '../components/UI/Footer/Footer'
-import Header from '../components/UI/Header/Header'
-import Loader from '../components/UI/Loader/Loader'
+import Background from '../components/layout/Background/Background'
+import Footer from '../components/layout/Footer/Footer'
+import Header from '../components/layout/Header/Header'
+import Loader from '../components/layout/Loader/Loader'
+import Router from '../router/Router'
 import './App.scss'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
     useEffect(() => {
         setIsLoading(true)
-        setTimeout(() => setIsLoading(false), 4000)
+        setTimeout(() => setIsLoading(false), 400)
         ReactGA.initialize('UA-219979405-1')
         ReactGA.pageview(window.location.pathname + window.location.search)
     }, [])

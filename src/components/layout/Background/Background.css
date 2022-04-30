@@ -102,44 +102,90 @@
     align-items: center;
 }
 
-.jobs__button {
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    position: relative;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    height: 42px;
-    padding: 0px 20px 2px;
-    border: 2px solid #233554;
-    background-color: transparent;
-    color: #8892b0;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 0px;
+.cube {
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #ccd6f6;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+    z-index: 0;
+    position: fixed;
 }
 
-.jobs__button:hover {
-    animation: superfade 3000ms;
-    -webkit-animation: superfade 3000ms;
-    -moz-animation: superfade 3000ms;
-    -ms-animation: superfade 3000ms;
-    -o-animation: superfade 3000ms;
+@media (max-width: 480px) {
+    .cube {
+        width: 5px;
+        height: 5px;
+        border: solid 0.1px #ccd6f6;
+    }
 }
 
-.active {
-    color: #64ffda;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    border: 2px solid #64ffda;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+@media (max-width: 390px) {
+    .cube {
+        width: 5px;
+        height: 5px;
+        border: solid 0.1px #ccd6f6;
+    }
 }
 
-/*# sourceMappingURL=JobsButton.css.map */
+.cube:nth-child(2n) {
+    border-color: #64ffda;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 22vh;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 80vh;
+}
+
+.cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 25vh;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(10) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+/*# sourceMappingURL=Background.css.map */

@@ -102,44 +102,57 @@
     align-items: center;
 }
 
-.jobs__button {
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    position: relative;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+.notFound {
     display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
     align-items: center;
+    flex-direction: column;
+    margin: 0px;
     width: 100%;
-    height: 42px;
-    padding: 0px 20px 2px;
-    border: 2px solid #233554;
-    background-color: transparent;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-color: #0a192f;
     color: #8892b0;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 0px;
+    font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+    font-size: 20px;
+    line-height: 1.3;
 }
 
-.jobs__button:hover {
-    animation: superfade 3000ms;
-    -webkit-animation: superfade 3000ms;
-    -moz-animation: superfade 3000ms;
-    -ms-animation: superfade 3000ms;
-    -o-animation: superfade 3000ms;
-}
-
-.active {
+.notFound__title {
     color: #64ffda;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    border: 2px solid #64ffda;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: clamp(100px, 25vw, 200px);
+    line-height: 1;
+    margin: 0px 0px 10px;
 }
 
-/*# sourceMappingURL=JobsButton.css.map */
+.notFound__subtitle {
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 400;
+    margin: 0px 0px 10px;
+    color: #ccd6f6;
+    line-height: 1.1;
+}
+
+.notFound__button {
+    color: #64ffda;
+    background-color: transparent;
+    border: 1px solid #64ffda;
+    border-radius: 4px;
+    padding: 1.25rem 1.75rem;
+    font-size: 14px;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    margin-top: 40px;
+}
+
+.notFound__button:hover {
+    background-color: #233554;
+}
+
+/*# sourceMappingURL=NotFound.css.map */

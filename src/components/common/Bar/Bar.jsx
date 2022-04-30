@@ -4,8 +4,8 @@ import './bar.scss'
 
 function Bar() {
     return (
-        <div className='bar'>
-            <div className='bar__list'>
+        <div className='bar barfade'>
+            <div className='bar__list '>
                 <a
                     className='bar__email'
                     href='mailto:darsenungarlinov00@gmail.com'

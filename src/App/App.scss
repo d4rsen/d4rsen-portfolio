@@ -43,7 +43,7 @@ $--ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.05
 $--ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 $--fadein: fadein;
 $--superfade: superfade;
-
+$--barfade: barfade;
 
 //---------------------------------------------//
 
@@ -51,6 +51,17 @@ $--superfade: superfade;
 $miniMobile: 390px;
 $mobile: 480px;
 $tablet: 768px;
+
+@keyframes barfade {
+    from {
+        margin-bottom: 100vh;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        margin-bottom: 0;
+    }
+}
 
 @keyframes fadein {
     from {
@@ -133,6 +144,14 @@ $tablet: 768px;
     -moz-animation: $--fadein 2500ms;
     -ms-animation: $--fadein 2500ms;
     -o-animation: $--fadein 2500ms;
+}
+
+.barfade {
+    animation: $--barfade 7000ms ease;
+    -webkit-animation: $--barfade 7000ms ease;
+    -moz-animation: $--barfade 7000ms ease;
+    -ms-animation: $--barfade 7000ms ease;
+    -o-animation: $--barfade 7000ms ease;
 }
 
 .superfade {

@@ -102,29 +102,105 @@
     align-items: center;
 }
 
-.jobs__button {
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    position: relative;
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    height: 42px;
-    padding: 0px 20px 2px;
-    border: 2px solid #233554;
-    background-color: transparent;
-    color: #8892b0;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 0px;
+.burger {
+    display: none;
 }
 
-.jobs__button:hover {
+@media (max-width: 480px) {
+    .burger {
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        display: flex;
+        background-color: #112240;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right: -300px;
+        transition: all 500ms ease;
+    }
+}
+
+@media (max-width: 390px) {
+    .burger {
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        display: flex;
+        background-color: #112240;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        right: -300px;
+        transition: all 500ms ease;
+    }
+}
+
+.burger.active {
+    right: 0;
+}
+
+.burger__list {
+    display: none;
+}
+
+.burger__list.active {
+    right: 0;
+}
+
+@media (max-width: 480px) {
+    .burger__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        flex-direction: column;
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        background-color: #112240;
+        flex-direction: column;
+        right: -300px;
+        transition: all 500ms ease;
+    }
+}
+
+@media (max-width: 390px) {
+    .burger__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        flex-direction: column;
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 200;
+        background-color: #112240;
+        flex-direction: column;
+        right: -300px;
+    }
+}
+
+.burger__list .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 13px;
+    transition-delay: 100ms;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    margin-bottom: 20px;
+}
+
+.burger__list .item:hover {
     animation: superfade 3000ms;
     -webkit-animation: superfade 3000ms;
     -moz-animation: superfade 3000ms;
@@ -132,14 +208,24 @@
     -o-animation: superfade 3000ms;
 }
 
-.active {
-    color: #64ffda;
-    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-    font-size: 13px;
-    text-align: left;
-    white-space: nowrap;
-    border: 2px solid #64ffda;
+.burger__list .item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: inherit;
+    position: relative;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/*# sourceMappingURL=JobsButton.css.map */
+.burger__list .item__number {
+    color: #64ffda;
+    margin-right: 5px;
+}
+
+.burger__list .item__text {
+    color: #8892b0;
+}
+
+/*# sourceMappingURL=Burger.css.map */

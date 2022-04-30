@@ -1,255 +1,279 @@
 @keyframes fadein {
-  from {
-    margin-bottom: 500px;
-    opacity: 0;
-    transform: scale(0) rotate(300deg);
-  }
-  to {
-    opacity: 1;
-    margin-bottom: 0;
-    transform: scale(1) rotate(0deg);
-  }
+    from {
+        margin-bottom: 500px;
+        opacity: 0;
+        transform: scale(0) rotate(300deg);
+    }
+    to {
+        opacity: 1;
+        margin-bottom: 0;
+        transform: scale(1) rotate(0deg);
+    }
 }
+
 @keyframes superfade {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
 }
+
 .fade1 {
-  animation: fadein 500ms;
-  -webkit-animation: fadein 500ms;
-  -moz-animation: fadein 500ms;
-  -ms-animation: fadein 500ms;
-  -o-animation: fadein 500ms;
+    animation: fadein 500ms;
+    -webkit-animation: fadein 500ms;
+    -moz-animation: fadein 500ms;
+    -ms-animation: fadein 500ms;
+    -o-animation: fadein 500ms;
 }
 
 .fade2 {
-  animation: fadein 1000ms;
-  -webkit-animation: fadein 1000ms;
-  -moz-animation: fadein 1000ms;
-  -ms-animation: fadein 1000ms;
-  -o-animation: fadein 1000ms;
+    animation: fadein 1000ms;
+    -webkit-animation: fadein 1000ms;
+    -moz-animation: fadein 1000ms;
+    -ms-animation: fadein 1000ms;
+    -o-animation: fadein 1000ms;
 }
 
 .fade3 {
-  animation: fadein 1500ms;
-  -webkit-animation: fadein 1500ms;
-  -moz-animation: fadein 1500ms;
-  -ms-animation: fadein 1500ms;
-  -o-animation: fadein 1500ms;
+    animation: fadein 1500ms;
+    -webkit-animation: fadein 1500ms;
+    -moz-animation: fadein 1500ms;
+    -ms-animation: fadein 1500ms;
+    -o-animation: fadein 1500ms;
 }
 
 .fade4 {
-  animation: fadein 2000ms;
-  -webkit-animation: fadein 2000ms;
-  -moz-animation: fadein 2000ms;
-  -ms-animation: fadein 2000ms;
-  -o-animation: fadein 2000ms;
+    animation: fadein 2000ms;
+    -webkit-animation: fadein 2000ms;
+    -moz-animation: fadein 2000ms;
+    -ms-animation: fadein 2000ms;
+    -o-animation: fadein 2000ms;
 }
 
 .fade5 {
-  animation: fadein 2500ms;
-  -webkit-animation: fadein 2500ms;
-  -moz-animation: fadein 2500ms;
-  -ms-animation: fadein 2500ms;
-  -o-animation: fadein 2500ms;
+    animation: fadein 2500ms;
+    -webkit-animation: fadein 2500ms;
+    -moz-animation: fadein 2500ms;
+    -ms-animation: fadein 2500ms;
+    -o-animation: fadein 2500ms;
 }
 
 .superfade {
-  animation: superfade 5000ms;
-  -webkit-animation: superfade 5000ms;
-  -moz-animation: superfade 5000ms;
-  -ms-animation: superfade 5000ms;
-  -o-animation: superfade 5000ms;
+    animation: superfade 5000ms;
+    -webkit-animation: superfade 5000ms;
+    -moz-animation: superfade 5000ms;
+    -ms-animation: superfade 5000ms;
+    -o-animation: superfade 5000ms;
 }
 
 ._container {
-  max-width: 1000px;
-  width: 1000px;
-  margin: 0 auto;
-  box-sizing: content-box;
+    max-width: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+    box-sizing: content-box;
 }
 
 .wrapper {
-  background-color: #0a192f;
-  min-height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: #0a192f;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .wrapper ._main-container {
-  margin: 0 auto;
-  box-sizing: content-box;
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin: 0 auto;
+    box-sizing: content-box;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .wrapper ._main-container .main {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 0;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+    width: 100%;
 }
+
 @media (max-width: 480px) {
-  .about {
-    padding: 60px 0px;
-    font-size: 18px;
-    flex-direction: column;
-  }
+    .about {
+        padding: 60px 0px;
+        font-size: 18px;
+        flex-direction: column;
+    }
 }
+
 @media (max-width: 390px) {
-  .about {
-    padding: 60px 0px;
-    font-size: 18px;
-    flex-direction: column;
-    margin: 0;
-  }
+    .about {
+        padding: 60px 0px;
+        font-size: 18px;
+        flex-direction: column;
+        margin: 0;
+    }
 }
+
 @media (max-width: 768px) {
-  .about {
-    padding: 80px 0px;
-  }
+    .about {
+        padding: 80px 0px;
+    }
 }
+
 .about__skills {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
-  gap: 0px 10px;
-  padding: 0px;
-  margin: 20px 0px 0px;
-  overflow: hidden;
-  list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    gap: 0px 10px;
+    padding: 0px;
+    margin: 20px 0px 0px;
+    overflow: hidden;
+    list-style: none;
 }
+
 .about__left {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  color: #8892b0;
-  padding-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #8892b0;
+    padding-right: 50px;
 }
+
 @media (max-width: 480px) {
-  .about__left {
-    padding: 0;
-  }
+    .about__left {
+        padding: 0;
+    }
 }
+
 @media (max-width: 390px) {
-  .about__left {
-    padding: 0;
-  }
+    .about__left {
+        padding: 0;
+    }
 }
+
 .about__left p {
-  -webkit-font-smoothing: antialiased;
-  color: #8892b0;
-  font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
-  font-size: 20px;
-  line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    color: #8892b0;
+    font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+    font-size: 20px;
+    line-height: 1.3;
 }
+
 .about__left p:hover {
-  animation: superfade 3000ms;
-  -webkit-animation: superfade 3000ms;
-  -moz-animation: superfade 3000ms;
-  -ms-animation: superfade 3000ms;
-  -o-animation: superfade 3000ms;
+    animation: superfade 3000ms;
+    -webkit-animation: superfade 3000ms;
+    -moz-animation: superfade 3000ms;
+    -ms-animation: superfade 3000ms;
+    -o-animation: superfade 3000ms;
 }
+
 .about__right {
-  position: relative;
-  max-width: 300px;
+    position: relative;
+    max-width: 300px;
 }
+
 .about__right:hover {
-  animation: superfade 3000ms;
-  -webkit-animation: superfade 3000ms;
-  -moz-animation: superfade 3000ms;
-  -ms-animation: superfade 3000ms;
-  -o-animation: superfade 3000ms;
+    animation: superfade 3000ms;
+    -webkit-animation: superfade 3000ms;
+    -moz-animation: superfade 3000ms;
+    -ms-animation: superfade 3000ms;
+    -o-animation: superfade 3000ms;
 }
+
 .about__wrapper {
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  display: block;
-  position: relative;
-  width: 100%;
-  border-radius: 4px;
-  background-color: #64ffda;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #64ffda;
 }
+
 @media (max-width: 480px) {
-  .about__wrapper {
-    max-width: 260px;
-    width: 260px;
-    margin-top: 30px;
-  }
+    .about__wrapper {
+        max-width: 260px;
+        width: 260px;
+        margin-top: 30px;
+    }
 }
+
 @media (max-width: 390px) {
-  .about__wrapper {
-    margin-top: 30px;
-  }
+    .about__wrapper {
+        margin-top: 30px;
+    }
 }
+
 .about__wrapper:before {
-  top: 0px;
-  left: 0px;
-  background-color: #0a192f;
-  mix-blend-mode: screen;
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  box-sizing: inherit;
+    top: 0px;
+    left: 0px;
+    background-color: #0a192f;
+    mix-blend-mode: screen;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-sizing: inherit;
 }
+
 .about__wrapper:after {
-  border: 2px solid rgba(100, 255, 218, 0.1);
-  top: 20px;
-  left: 20px;
-  z-index: 1;
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  box-sizing: inherit;
+    border: 2px solid rgba(100, 255, 218, 0.1);
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-sizing: inherit;
 }
+
 .about__imageWrapper {
-  position: relative;
-  border-radius: 4px;
-  mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1);
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    position: relative;
+    border-radius: 4px;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) contrast(1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .about__imageBlocker {
-  max-width: 500px;
-  min-width: 200px;
-  display: block;
+    max-width: 500px;
+    min-width: 200px;
+    display: block;
 }
+
 .about__darsen {
-  max-width: 100%;
-  display: block;
-  position: static;
+    max-width: 100%;
+    display: block;
+    position: static;
 }
+
 .about__hidden {
-  opacity: 0;
-  transition: opacity 500ms linear 0s;
-  background-color: #e8e8e8;
-  position: absolute;
-  inset: 0px;
-  object-fit: cover;
+    opacity: 0;
+    transition: opacity 500ms linear 0s;
+    background-color: #e8e8e8;
+    position: absolute;
+    inset: 0px;
+    object-fit: cover;
 }
 
 /*# sourceMappingURL=About.css.map */
