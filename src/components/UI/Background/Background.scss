@@ -3,24 +3,26 @@
 .cube {
     top: 80vh;
     left: 50vw;
-    width: 9px;
-    height: 9px;
+    width: 90px;
+    height: 90px;
     //border: solid 1px $--lightest-slate;
     transform-origin: top left;
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    animation: cube 17s ease-in forwards infinite;
+    animation: cube 14s ease-in forwards infinite;
     z-index: 0;
     position: fixed;
 
-    @include mobile {
-        width: 5px;
-        height: 5px;
+    img {
+        border-radius: 4px;
+    }
 
+    @include mobile {
+        width: 60px;
+        height: 60px;
     }
     @include miniMobile {
-        width: 5px;
-        height: 5px;
-
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -101,7 +103,7 @@
         opacity: 1;
     }
     to {
-        transform: scale(10) rotate(960deg) translate(-50%, -50%);
+        transform: scale(1) rotate(960deg) translate(-50%, -50%);
         opacity: 0;
     }
 }
