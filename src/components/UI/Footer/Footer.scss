@@ -22,14 +22,6 @@
     user-select: auto !important;
     transition: $--transition;
 
-    @include mobile {
-        height: 50px;
-    }
-
-    @include miniMobile {
-        height: 50px;
-    }
-
     &__container {
         display: flex;
         justify-content: center;
