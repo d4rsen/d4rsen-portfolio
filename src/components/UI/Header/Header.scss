@@ -106,15 +106,18 @@
                     color: inherit;
                     position: relative;
                     transition: $--transition;
+                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
 
                 &__number {
                     color: $limeColor;
                     margin-right: 5px;
+                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
 
                 &__text {
                     color: $subtitleColor;
+                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
             }
         }

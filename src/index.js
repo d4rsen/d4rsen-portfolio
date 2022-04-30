@@ -5,8 +5,8 @@ import App from './App/App'
 import './normalize.scss'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root'),
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root'),
 )
