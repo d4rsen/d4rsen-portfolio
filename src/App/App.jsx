@@ -12,7 +12,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        // setIsLoading(true)
+        setIsLoading(true)
         setTimeout(() => setIsLoading(false), 4000)
         ReactGA.initialize('UA-219979405-1')
         ReactGA.pageview(window.location.pathname + window.location.search)
