@@ -16,10 +16,10 @@ function Contact() {
                 {text}
             </div>
             <div className='contact__buttons'>
-                <Button text='GitHub' href='https://github.com/d4rsen' />
-                <Button text='+79052418527' href='tel:+79052418527' />
-                <Button text='Telegram' href='https://t.me/d4rse' />
                 <Button text='Gmail' href='mailto:darsenungarlinov00@gmail.com' />
+                <Button text='GitHub' href='https://github.com/d4rsen' />
+                <Button text='Telegram' href='https://t.me/d4rse' />
+                <Button text='+79052418527' href='tel:+79052418527' />
             </div>
         </div>
     )
