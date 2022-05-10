@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import ReactGA from 'react-ga'
 import Bar from '../components/common/Bar/Bar'
 import Background from '../components/layout/Background/Background'
 import Footer from '../components/layout/Footer/Footer'
@@ -9,13 +8,11 @@ import Router from '../router/Router'
 import './App.scss'
 
 function App() {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        setIsLoading(true)
+        // setIsLoading(true)
         setTimeout(() => setIsLoading(false), 4000)
-        ReactGA.initialize('UA-219979405-1')
-        ReactGA.pageview(window.location.pathname + window.location.search)
     }, [])
 
     if (isLoading) {
