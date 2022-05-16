@@ -5,6 +5,7 @@ import './Header.scss'
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
+
     const burgerHandler = () => setMenuOpen(!menuOpen)
 
     return (
