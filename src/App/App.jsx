@@ -9,9 +9,10 @@ import './App.scss'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 4000)
+        setTimeout(() => setIsLoading(false), 1000)
     }, [])
 
     if (isLoading) {
@@ -22,8 +23,8 @@ function App() {
         <div className='wrapper'>
             <Background />
             <div className='_main-container'>
-                <Header />
-                <main className='main'>
+                <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                <main className={menuOpen ? 'main--blur' : 'main'}>
                     <Router />
                 </main>
                 <Bar />

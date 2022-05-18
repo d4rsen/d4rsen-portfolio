@@ -3,8 +3,7 @@ import Button from '../../common/Button/Button'
 import Burger from '../Burger/Burger'
 import './Header.scss'
 
-function Header() {
-    const [menuOpen, setMenuOpen] = useState(false)
+function Header({menuOpen, setMenuOpen}) {
 
     const burgerHandler = () => setMenuOpen(!menuOpen)
 
