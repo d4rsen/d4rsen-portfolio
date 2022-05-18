@@ -12,7 +12,7 @@ function App() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 1000)
+        setTimeout(() => setIsLoading(false), 4000)
     }, [])
 
     if (isLoading) {
