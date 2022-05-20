@@ -13,7 +13,7 @@ function Abt() {
         </span>
             </div>
             <div className='jobs__subtitle'>
-                Sep 2022 - Present
+                Sep 2021 - Apr 2022
             </div>
             <SkillsItem
                 text='Write modern, performant, maintainable code for a diverse array of client and internal projects'
