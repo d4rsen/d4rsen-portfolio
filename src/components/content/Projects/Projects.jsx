@@ -7,7 +7,7 @@ import {
     coliseumItems,
     coliseumProjectLink,
     coliseumText,
-    coliseumTitle,
+    coliseumTitle, gradientGitLink, gradientImgSrc, gradientItems, gradientProjectLink, gradientText, gradientTitle,
     jsonGitLink,
     jsonImgSrc,
     jsonItems,
@@ -45,6 +45,14 @@ function Projects() {
                 imgSrc={jsonImgSrc}
                 projectLink={jsonProjectLink}
                 stackItems={jsonItems}
+            />
+            <OneProject
+                title={gradientTitle}
+                text={gradientText}
+                gitLink={gradientGitLink}
+                imgSrc={gradientImgSrc}
+                projectLink={gradientProjectLink}
+                stackItems={gradientItems}
             />
             <OneProject
                 title={keyboardTitle}
