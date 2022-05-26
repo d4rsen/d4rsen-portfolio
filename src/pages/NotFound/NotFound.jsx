@@ -10,7 +10,7 @@ function NotFound() {
             <div className='notFound__subtitle fade2'>
                 Page Not Found
             </div>
-            <a className='notFound__button fade3' href='/src/pages'>
+            <a className='notFound__button fade3' href='/'>
                 Go Home
             </a>
         </div>
