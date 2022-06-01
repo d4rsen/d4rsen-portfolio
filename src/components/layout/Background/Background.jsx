@@ -26,7 +26,7 @@ function Background() {
                 <img src='assets/svg/css.svg' alt='css' />
             </div>
             <div className='cube'>
-                <img src='assets/images/docker.png' alt='docker' />
+                <img src='assets/svg/socket-io.svg' alt='docker' />
             </div>
             <div className='cube'>
                 <img src='assets/svg/html.svg' alt='html' />

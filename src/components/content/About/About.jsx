@@ -33,12 +33,8 @@ function About() {
                     <SkillsItem text='JWT' />
                     <SkillsItem text='ReactQuery' />
                     <SkillsItem text='ReactRouter' />
-                    <SkillsItem text='Vercel' />
                     <SkillsItem text='PostCss' />
-                    <SkillsItem text='Figma' />
                     <SkillsItem text='Sequelize' />
-                    <SkillsItem text='Postman' />
-                    <SkillsItem text='Bootstrap' />
                 </div>
             </div>
             <div className='about__right'>
