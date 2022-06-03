@@ -21,6 +21,14 @@
     pointer-events: auto !important;
     user-select: auto !important;
     transition: $--transition;
+    animation: .5s linear 0s 1 $--onappear;
+
+    &--blur {
+        filter: blur(5px) brightness(0.7);
+        transition: $--transition;
+        pointer-events: none;
+        user-select: none;
+    }
 
     @include mobile {
         height: 50px;

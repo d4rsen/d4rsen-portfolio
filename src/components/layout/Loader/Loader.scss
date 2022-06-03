@@ -1,5 +1,6 @@
 @import "../../../App/App.scss";
 
+
 .loader {
     display: flex;
     justify-content: center;
@@ -7,11 +8,12 @@
     flex-direction: column;
     height: 100vh;
     -webkit-font-smoothing: antialiased;
-    background-color: $--navy;
+    background-color: $--dark-navy;
     color: $--slate;
     font-family: $--font-sans;
     font-size: $--fz-xl;
     line-height: 1.3;
+    transition: $--transition;
 
     &__img {
         display: flex;

@@ -44,6 +44,7 @@ $--ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0
 $--fadein: fadein;
 $--superfade: superfade;
 $--barfade: barfade;
+$--onappear: onAppear;
 
 //---------------------------------------------//
 
@@ -51,6 +52,15 @@ $--barfade: barfade;
 $miniMobile: 390px;
 $mobile: 480px;
 $tablet: 768px;
+
+@keyframes onAppear {
+    0% {
+        background-color: $--dark-navy;
+    }
+    100% {
+        background-color: $--navy;
+    }
+}
 
 @keyframes barfade {
     from {
@@ -171,14 +181,16 @@ $tablet: 768px;
 }
 
 .wrapper {
-    background-color: $mainColor;
+    background-color: $--navy;
     min-height: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: $--transition;
+    //transition: $--transition;
+    transition: background-color 1000ms linear;
+    animation: .5s linear 0s 1 $--onappear;
 
     ._main-container {
         margin: 0 auto;
@@ -194,7 +206,7 @@ $tablet: 768px;
             justify-content: center;
             align-items: center;
 
-            &--blur{
+            &--blur {
                 filter: blur(5px) brightness(0.7);
                 transition: $--transition;
                 pointer-events: none;

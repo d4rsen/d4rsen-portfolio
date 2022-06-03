@@ -21,6 +21,7 @@
     user-select: auto !important;
     transition: $--transition;
     box-shadow: 0 10px 30px -10px $--navy-shadow;
+    animation: .5s linear 0s 1 $--onappear;
 
     @include mobile {
         padding: 0px 50px;
