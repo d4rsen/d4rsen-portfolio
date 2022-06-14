@@ -1,4 +1,4 @@
-@import "../../../App/App";
+@import "src/App/App";
 
 .button {
     font-size: 14px;
@@ -6,7 +6,7 @@
     color: $limeColor;
     background-color: inherit;
     border: 1px solid $limeColor;
-    padding: 1.1rem ;
+    padding: 1.1rem;
     border-radius: $border-radius;
     text-decoration: none;
     transition: $--transition;

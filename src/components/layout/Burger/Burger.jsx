@@ -1,75 +1,59 @@
-import React from 'react'
-import Button from '../../common/Button/Button'
-import './Burger.scss'
+import React from "react"
+import Button from "../../common/Button/Button"
+import "./Burger.scss"
 
 function Burger({ menuOpen, setMenuOpen }) {
     const closeHandler = () => setMenuOpen(false)
 
     return (
-        <div className='right__burger burger '>
+        <div className="right__burger burger ">
             <aside>
-                <div className={menuOpen ? 'burger__list active' : 'burger__list'}>
+                <div
+                    className={
+                        menuOpen ? "burger__list active" : "burger__list"
+                    }
+                >
                     <div
-                        role='navigation'
+                        role="navigation"
                         onClick={closeHandler}
-                        className='burger__item item '
+                        className="burger__item item "
                     >
-                        <a href='#about'>
-                            <div className='item__number'>
-                                01.
-                            </div>
-                            <div className='item__text'>
-                                About
-                            </div>
+                        <a href="#about">
+                            <div className="item__number">01.</div>
+                            <div className="item__text">About</div>
                         </a>
                     </div>
                     <div
-                        role='navigation'
+                        role="navigation"
                         onClick={closeHandler}
-                        className='burger__item item '
+                        className="burger__item item "
                     >
-                        <a href='#jobs'>
-                            <div className='item__number'>
-                                02.
-                            </div>
-                            <div className='item__text'>
-                                Experience
-                            </div>
+                        <a href="#jobs">
+                            <div className="item__number">02.</div>
+                            <div className="item__text">Experience</div>
                         </a>
                     </div>
                     <div
-                        role='navigation'
+                        role="navigation"
                         onClick={closeHandler}
-                        className='burger__item item '
+                        className="burger__item item "
                     >
-                        <a href='#projects'>
-                            <div className='item__number'>
-                                03.
-                            </div>
-                            <div className='item__text'>
-                                Work
-                            </div>
+                        <a href="#projects">
+                            <div className="item__number">03.</div>
+                            <div className="item__text">Work</div>
                         </a>
                     </div>
                     <div
-                        role='navigation'
+                        role="navigation"
                         onClick={closeHandler}
-                        className='burger__item item '
+                        className="burger__item item "
                     >
-                        <a href='#contact'>
-                            <div className='item__number'>
-                                04.
-                            </div>
-                            <div className='item__text'>
-                                Contact
-                            </div>
+                        <a href="#contact">
+                            <div className="item__number">04.</div>
+                            <div className="item__text">Contact</div>
                         </a>
                     </div>
-                    <Button
-                        className=''
-                        text='Resume'
-                        href='/resume.pdf'
-                    />
+                    <Button className="" text="Resume" href="/resume.pdf" />
                 </div>
             </aside>
         </div>

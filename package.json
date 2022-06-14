@@ -2,7 +2,7 @@
     "name": "d4rsen",
     "description": "Personal Website",
     "author": "Darsen ungarlinov <darsenungarlinov00@gmail.com>",
-    "version": "1.0.7",
+    "version": "1.1.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/d4rsen/d4rsen-portfolio"
@@ -14,21 +14,18 @@
     ],
     "private": true,
     "dependencies": {
-        "@testing-library/jest-dom": "^5.16.2",
-        "@testing-library/react": "^12.1.2",
-        "@testing-library/user-event": "^13.5.0",
         "axios": "^0.25.0",
-        "node-sass": "^7.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.0",
+        "sass": "^1.52.3",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "lint": "eslint --fix --ext .js,.jsx ."
+        "test": "react-scripts test"
     },
     "eslintConfig": {
         "extends": [
@@ -47,17 +44,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "devDependencies": {
-        "@babel/eslint-parser": "^7.17.0",
-        "@babel/preset-react": "^7.16.7",
-        "eslint": "^8.14.0",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-import": "^2.26.0",
-        "eslint-plugin-jsx-a11y": "^6.5.1",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.29.4",
-        "eslint-plugin-react-hooks": "^4.4.0"
     }
 }

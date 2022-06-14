@@ -1,13 +1,19 @@
-import React from 'react'
-import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
-import OneProject from '../../common/OneProject/OneProject'
+import React from "react"
+import NumberedHeading from "../../common/NumberedHeading/NumberedHeading"
+import OneProject from "../../common/OneProject/OneProject"
 import {
     coliseumGitLink,
     coliseumImgSrc,
     coliseumItems,
     coliseumProjectLink,
     coliseumText,
-    coliseumTitle, gradientGitLink, gradientImgSrc, gradientItems, gradientProjectLink, gradientText, gradientTitle,
+    coliseumTitle,
+    gradientGitLink,
+    gradientImgSrc,
+    gradientItems,
+    gradientProjectLink,
+    gradientText,
+    gradientTitle,
     jsonGitLink,
     jsonImgSrc,
     jsonItems,
@@ -20,16 +26,13 @@ import {
     keyboardProjectLink,
     keyboardText,
     keyboardTitle,
-} from './constants'
-import './Projects.scss'
+} from "./constants"
+import "./Projects.scss"
 
 function Projects() {
     return (
-        <div id='projects' className='mainPage__projects projects'>
-            <NumberedHeading
-                number='03.'
-                text='Some Things I’ve Built'
-            />
+        <div id="projects" className="mainPage__projects projects">
+            <NumberedHeading number="03." text="Some Things I’ve Built" />
             <OneProject
                 title={coliseumTitle}
                 text={coliseumText}
