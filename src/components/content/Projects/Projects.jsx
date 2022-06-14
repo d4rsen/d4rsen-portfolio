@@ -20,12 +20,6 @@ import {
     jsonProjectLink,
     jsonText,
     jsonTitle,
-    keyboardGitLink,
-    keyboardImgSrc,
-    keyboardItems,
-    keyboardProjectLink,
-    keyboardText,
-    keyboardTitle,
 } from "./constants"
 import "./Projects.scss"
 
@@ -56,14 +50,6 @@ function Projects() {
                 imgSrc={gradientImgSrc}
                 projectLink={gradientProjectLink}
                 stackItems={gradientItems}
-            />
-            <OneProject
-                title={keyboardTitle}
-                text={keyboardText}
-                gitLink={keyboardGitLink}
-                imgSrc={keyboardImgSrc}
-                projectLink={keyboardProjectLink}
-                stackItems={keyboardItems}
             />
         </div>
     )
