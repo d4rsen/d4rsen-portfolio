@@ -8,7 +8,6 @@ import "./Jobs.scss"
 function Jobs() {
     const [jobs, setJobs] = useState({
         abt: true,
-        elbrus: false,
         home: false,
     })
 

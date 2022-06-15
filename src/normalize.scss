@@ -36,7 +36,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         background-color: #0a192f;
         width: 5px;
         direction: ltr;
@@ -88,6 +88,7 @@ select {
     scroll-behavior: smooth;
     cursor: url('../public/assets/cursors/purple.png'), auto !important;
 }
-body{
+
+body {
     background-color: #0a192f;
 }
