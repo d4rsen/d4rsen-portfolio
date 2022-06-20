@@ -1,8 +1,5 @@
-# Security Policy
+## Reporting a Vulnerability
 
-## Supported Versions
+Report security vulnerabilities by emailing me at:
 
-| Version | Supported          |
-|---------| ------------------ |
-| 1.0.0   | :white_check_mark: |
-
+    darseungarlinov00@gmail.com
