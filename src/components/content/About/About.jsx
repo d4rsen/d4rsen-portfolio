@@ -23,16 +23,12 @@ function About() {
                     <SkillsItem text="Node.js" />
                     <SkillsItem text="Redux" />
                     <SkillsItem text="Express" />
-                    <SkillsItem text="HTML" />
                     <SkillsItem text="Socket.io" />
-                    <SkillsItem text="CSS" />
                     <SkillsItem text="PostgreSQL" />
                     <SkillsItem text="Sass" />
                     <SkillsItem text="JWT" />
                     <SkillsItem text="ReactQuery" />
                     <SkillsItem text="ReactRouter" />
-                    <SkillsItem text="PostCss" />
-                    <SkillsItem text="Sequelize" />
                 </div>
             </div>
             <div className="about__right">
