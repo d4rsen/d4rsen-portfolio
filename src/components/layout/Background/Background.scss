@@ -3,9 +3,8 @@
 .cube {
     top: 80vh;
     left: 50vw;
-    width: 90px;
-    height: 90px;
-    //border: solid 1px $--lightest-slate;
+    width: 120px;
+    height: 120px;
     transform-origin: top left;
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
     animation: cube 14s ease-in forwards infinite;
