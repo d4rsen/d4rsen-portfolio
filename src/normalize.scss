@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&family=Space+Mono&display=swap');
 
-@import-normalize;
-
 *,
 *::before,
 *::after {
@@ -30,11 +28,16 @@ dd {
     margin: 0;
 }
 
+html {
+    background-color: #0a192f;
+}
+
 body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    background-color: #0a192f;
 
     &::-webkit-scrollbar {
         background-color: #0a192f;
@@ -89,6 +92,3 @@ select {
     cursor: url('../public/assets/cursors/purple.png'), auto !important;
 }
 
-body {
-    background-color: #0a192f;
-}
