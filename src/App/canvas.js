@@ -13,7 +13,7 @@ window.requestAnimationFrame = (function () {
 })()
 
 const Configs = {
-    backgroundColor: '#eee9e9',
+    backgroundColor: '#0a192f',
     particleNum: 1000,
     step: 1,
     base: 1000,
@@ -102,8 +102,6 @@ function initParticle(p) {
     p.color.l = 0.5
     p.color.a = 0
 }
-
-// Update
 
 function update() {
     let step = Configs.step,
