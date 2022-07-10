@@ -1,12 +1,13 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { BrowserRouter } from "react-router-dom"
-import App from "./App/App"
-import "./normalize.scss"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App/App'
+import './normalize.scss'
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <App/>
+        <canvas id="c"></canvas>
     </BrowserRouter>,
-    document.getElementById("root"),
+    document.getElementById('root'),
 )
