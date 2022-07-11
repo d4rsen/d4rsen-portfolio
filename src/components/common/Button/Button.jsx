@@ -1,4 +1,5 @@
-import "./Button.scss"
+import { memo } from 'react'
+import './Button.scss'
 
 function Button({ text, href, className }) {
     return (
@@ -13,4 +14,4 @@ function Button({ text, href, className }) {
     )
 }
 
-export default Button
+export default memo(Button)

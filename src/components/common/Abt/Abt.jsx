@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import SkillsItem from '../SkillsItem/SkillsItem'
 
 function Abt() {
@@ -21,4 +21,4 @@ function Abt() {
     )
 }
 
-export default Abt
+export default memo(Abt)

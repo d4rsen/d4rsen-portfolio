@@ -1,7 +1,7 @@
-import React from "react"
-import "./Footer.scss"
+import React, { memo } from 'react'
+import './Footer.scss'
 
-function Footer() {
+const Footer = memo(() => {
     return (
         <footer className="footer">
             <div className="footer__container">
@@ -12,12 +12,12 @@ function Footer() {
                     rel="noreferrer"
                 >
                     <div className="footer__title">
-                        {"Made by < Darsen Ungarlinov />"}
+                        {'Made by < Darsen Ungarlinov />'}
                     </div>
                 </a>
             </div>
         </footer>
     )
-}
+})
 
 export default Footer

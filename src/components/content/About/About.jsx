@@ -1,14 +1,14 @@
-import React from "react"
-import NumberedHeading from "../../common/NumberedHeading/NumberedHeading"
-import SkillsItem from "../../common/SkillsItem/SkillsItem"
-import { darsenGitHub } from "../Projects/constants"
-import "./About.scss"
+import React, { memo } from 'react'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
+import SkillsItem from '../../common/SkillsItem/SkillsItem'
+import { darsenGitHub } from '../Projects/constants'
+import './About.scss'
 
 function About() {
     return (
         <div id="about" className="mainPage__about about">
             <div className="about__left">
-                <NumberedHeading number="01." text="About Me" />
+                <NumberedHeading number="01." text="About Me"/>
                 <p>
                     Hello! My name is Darsen and I enjoy creating things that
                     live on the internet.
@@ -17,18 +17,18 @@ function About() {
                     Here are a few technologies I’ve been working with recently:
                 </p>
                 <div className="about__skills skills">
-                    <SkillsItem text="JavaScript" />
-                    <SkillsItem text="TypeScript" />
-                    <SkillsItem text="React" />
-                    <SkillsItem text="Node.js" />
-                    <SkillsItem text="Redux" />
-                    <SkillsItem text="Express" />
-                    <SkillsItem text="Socket.io" />
-                    <SkillsItem text="PostgreSQL" />
-                    <SkillsItem text="Sass" />
-                    <SkillsItem text="JWT" />
-                    <SkillsItem text="ReactQuery" />
-                    <SkillsItem text="ReactRouter" />
+                    <SkillsItem text="JavaScript"/>
+                    <SkillsItem text="TypeScript"/>
+                    <SkillsItem text="React"/>
+                    <SkillsItem text="Node.js"/>
+                    <SkillsItem text="Redux"/>
+                    <SkillsItem text="Express"/>
+                    <SkillsItem text="Socket.io"/>
+                    <SkillsItem text="PostgreSQL"/>
+                    <SkillsItem text="Sass"/>
+                    <SkillsItem text="JWT"/>
+                    <SkillsItem text="ReactQuery"/>
+                    <SkillsItem text="ReactRouter"/>
                 </div>
             </div>
             <div className="about__right">
@@ -42,7 +42,7 @@ function About() {
                                     alt="darsen"
                                 />
                             </div>
-                            <div className="about__hidden" />
+                            <div className="about__hidden"/>
                         </div>
                     </div>
                 </a>
@@ -51,4 +51,4 @@ function About() {
     )
 }
 
-export default About
+export default memo(About)

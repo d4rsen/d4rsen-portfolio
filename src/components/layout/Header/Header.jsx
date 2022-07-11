@@ -1,10 +1,10 @@
-import React from "react"
-import Button from "../../common/Button/Button"
-import Burger from "../Burger/Burger"
-import "./Header.scss"
+import React, { memo, useCallback } from 'react'
+import Button from '../../common/Button/Button'
+import Burger from '../Burger/Burger'
+import './Header.scss'
 
 function Header({ menuOpen, setMenuOpen }) {
-    const burgerHandler = () => setMenuOpen((prev) => !prev)
+    const burgerHandler = useCallback(() => setMenuOpen((prev) => !prev), [setMenuOpen])
 
     return (
         <header className="header">
@@ -52,18 +52,18 @@ function Header({ menuOpen, setMenuOpen }) {
                             href="/resume.pdf"
                         />
                     </div>
-                    <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                    <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
                     <div
                         onClick={burgerHandler}
                         className={
                             menuOpen
-                                ? "hamburger active fade3"
-                                : "hamburger fade3"
+                                ? 'hamburger active fade3'
+                                : 'hamburger fade3'
                         }
                     >
-                        <span className="line1 superfade " />
-                        <span className="line2 superfade" />
-                        <span className="line3 superfade" />
+                        <span className="line1 superfade "/>
+                        <span className="line2 superfade"/>
+                        <span className="line3 superfade"/>
                     </div>
                 </div>
             </div>
@@ -71,4 +71,4 @@ function Header({ menuOpen, setMenuOpen }) {
     )
 }
 
-export default Header
+export default memo(Header)

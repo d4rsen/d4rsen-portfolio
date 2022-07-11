@@ -1,6 +1,6 @@
-import React from "react"
-import NumberedHeading from "../../common/NumberedHeading/NumberedHeading"
-import OneProject from "../../common/OneProject/OneProject"
+import React, { memo } from 'react'
+import NumberedHeading from '../../common/NumberedHeading/NumberedHeading'
+import OneProject from '../../common/OneProject/OneProject'
 import {
     coliseumGitLink,
     coliseumImgSrc,
@@ -20,13 +20,13 @@ import {
     jsonProjectLink,
     jsonText,
     jsonTitle,
-} from "./constants"
-import "./Projects.scss"
+} from './constants'
+import './Projects.scss'
 
 function Projects() {
     return (
         <div id="projects" className="mainPage__projects projects">
-            <NumberedHeading number="03." text="Some Things I’ve Built" />
+            <NumberedHeading number="03." text="Some Things I’ve Built"/>
             <OneProject
                 title={coliseumTitle}
                 text={coliseumText}
@@ -55,4 +55,4 @@ function Projects() {
     )
 }
 
-export default Projects
+export default memo(Projects)

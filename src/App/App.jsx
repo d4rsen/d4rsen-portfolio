@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import Bar from '../components/common/Bar/Bar'
 import Background from '../components/layout/Background/Background'
 import Footer from '../components/layout/Footer/Footer'
@@ -6,7 +6,7 @@ import Header from '../components/layout/Header/Header'
 import Loader from '../components/layout/Loader/Loader'
 import Router from '../router/Router'
 import './App.scss'
-import { init } from './canvas'
+import { init } from './canvas.js'
 
 function App() {
     const [isLoading, setIsLoading] = useState(true)
@@ -36,4 +36,4 @@ function App() {
     )
 }
 
-export default App
+export default memo(App)

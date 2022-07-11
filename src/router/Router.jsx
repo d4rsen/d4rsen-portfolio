@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import MainPage from '../pages/MainPage/MainPage'
 import NotFound from '../pages/NotFound/NotFound'
@@ -12,4 +12,4 @@ function Router() {
     )
 }
 
-export default Router
+export default memo(Router)

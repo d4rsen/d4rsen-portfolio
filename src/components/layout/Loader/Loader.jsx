@@ -1,5 +1,5 @@
-import React from "react"
-import "./Loader.scss"
+import React, { memo } from 'react'
+import './Loader.scss'
 
 function Loader() {
     return (
@@ -13,4 +13,4 @@ function Loader() {
     )
 }
 
-export default Loader
+export default memo(Loader)

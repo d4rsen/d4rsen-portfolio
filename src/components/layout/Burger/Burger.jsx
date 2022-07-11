@@ -1,16 +1,16 @@
-import React from "react"
-import Button from "../../common/Button/Button"
-import "./Burger.scss"
+import React, { memo, useCallback } from 'react'
+import Button from '../../common/Button/Button'
+import './Burger.scss'
 
-function Burger({ menuOpen, setMenuOpen }) {
-    const closeHandler = () => setMenuOpen(false)
+const Burger = memo(({ menuOpen, setMenuOpen }) => {
+    const closeHandler = useCallback(() => setMenuOpen(false), [setMenuOpen])
 
     return (
         <div className="right__burger burger ">
             <aside>
                 <div
                     className={
-                        menuOpen ? "burger__list active" : "burger__list"
+                        menuOpen ? 'burger__list active' : 'burger__list'
                     }
                 >
                     <div
@@ -53,11 +53,11 @@ function Burger({ menuOpen, setMenuOpen }) {
                             <div className="item__text">Contact</div>
                         </a>
                     </div>
-                    <Button className="" text="Resume" href="/resume.pdf" />
+                    <Button className="" text="Resume" href="/resume.pdf"/>
                 </div>
             </aside>
         </div>
     )
-}
+})
 
 export default Burger

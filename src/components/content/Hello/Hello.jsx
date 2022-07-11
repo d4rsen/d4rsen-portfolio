@@ -1,6 +1,6 @@
-import React from "react"
-import Button from "../../common/Button/Button"
-import "./Hello.scss"
+import React, { memo } from 'react'
+import Button from '../../common/Button/Button'
+import './Hello.scss'
 
 function Hello() {
     return (
@@ -25,4 +25,4 @@ function Hello() {
     )
 }
 
-export default Hello
+export default memo(Hello)
