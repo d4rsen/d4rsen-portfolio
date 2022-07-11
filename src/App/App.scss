@@ -193,6 +193,7 @@ $tablet: 768px;
     animation: .5s linear 0s 1 $--onappear;
 
     ._main-container {
+        z-index: 1;
         margin: 0 auto;
         box-sizing: content-box;
         max-width: 1000px;
