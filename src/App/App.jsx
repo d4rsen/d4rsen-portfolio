@@ -10,7 +10,7 @@ import './App.scss'
 import { init } from './canvas.js'
 
 function App() {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
