@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useState } from 'react'
 import Bar from '../components/common/Bar/Bar'
+import MusicPlayer from '../components/common/MusicPlayer/MusicPlayer'
 import Background from '../components/layout/Background/Background'
 import Footer from '../components/layout/Footer/Footer'
 import Header from '../components/layout/Header/Header'
@@ -9,7 +10,7 @@ import './App.scss'
 import { init } from './canvas.js'
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
     return (
         <div className="wrapper">
             <Background/>
+            <MusicPlayer/>
             <div className="_main-container">
                 <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
                 <main className={menuOpen ? 'main--blur' : 'main'}>

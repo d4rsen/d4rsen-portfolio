@@ -23,6 +23,7 @@
         "react-scripts": "5.0.0",
         "sass": "^1.52.3",
         "simplex-noise": "^3.0.1",
+        "use-sound": "^4.0.1",
         "web-vitals": "^2.1.4"
     },
     "scripts": {

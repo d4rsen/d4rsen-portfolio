@@ -8,7 +8,7 @@ function Header({ menuOpen, setMenuOpen }) {
 
     return (
         <header className="header">
-            <div className="header-container ">
+            <div className="header-container">
                 <div className="header__left left">
                     <div className="left__logo fade5">
                         <a href="/#">
