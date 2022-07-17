@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import "src/App/App";
+    
+.player {
+    position: fixed;
+    top: 50%;
+    left: 5px;
+    z-index: 13;
+    color: $--light-slate;
+    line-height: 1.3;
+
+    @include mobile {
+        top: 13px;
+        left: 50%;
+    }
+    @include miniMobile {
+        top: 13px;
+        left: 50%;
+    }
+
+    .control-panel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: transparent;
+        border-radius: 15px;
+        z-index: 5;
+
+        .play {
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: $--green;
+            border-radius: 4px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color .3s ease;
+            -webkit-transition: background-color .3s ease;
+        }
+
+        .play:hover {
+            transition: background-color .3s ease;
+            -webkit-transition: background-color .3s ease;
+            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
+        }
+    }
+}
