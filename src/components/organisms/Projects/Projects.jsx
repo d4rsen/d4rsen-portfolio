@@ -20,6 +20,12 @@ import {
     jsonProjectLink,
     jsonText,
     jsonTitle,
+    translateGitLink,
+    translateImgSrc,
+    translateItems,
+    translateProjectLink,
+    translateText,
+    translateTitle,
 } from './constants'
 import './Projects.scss'
 
@@ -50,6 +56,14 @@ function Projects() {
                 imgSrc={gradientImgSrc}
                 projectLink={gradientProjectLink}
                 stackItems={gradientItems}
+            />
+            <OneProject
+                title={translateTitle}
+                text={translateText}
+                gitLink={translateGitLink}
+                imgSrc={translateImgSrc}
+                projectLink={translateProjectLink}
+                stackItems={translateItems}
             />
         </div>
     )
