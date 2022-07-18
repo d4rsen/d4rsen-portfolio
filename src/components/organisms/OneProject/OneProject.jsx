@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './OneProject.scss'
 
 function OneProject({ title, text, stackItems, imgSrc, gitLink, projectLink }) {
@@ -89,4 +89,4 @@ function OneProject({ title, text, stackItems, imgSrc, gitLink, projectLink }) {
     )
 }
 
-export default OneProject
+export default memo(OneProject)

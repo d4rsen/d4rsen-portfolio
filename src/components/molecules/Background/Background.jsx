@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import './Background.scss'
 
-const Background = memo(() => {
+const Background = () => {
     return (
         <>
             <div className="cube">
@@ -36,6 +36,6 @@ const Background = memo(() => {
             </div>
         </>
     )
-})
+}
 
-export default Background
+export default memo(Background)

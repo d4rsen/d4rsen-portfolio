@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react'
 import Button from '../../atoms/Button/Button'
 import './Burger.scss'
 
-const Burger = memo(({ menuOpen, setMenuOpen }) => {
+const Burger = ({ menuOpen, setMenuOpen }) => {
     const closeHandler = useCallback(() => setMenuOpen(false), [setMenuOpen])
 
     return (
@@ -58,6 +58,6 @@ const Burger = memo(({ menuOpen, setMenuOpen }) => {
             </aside>
         </div>
     )
-})
+}
 
-export default Burger
+export default memo(Burger)

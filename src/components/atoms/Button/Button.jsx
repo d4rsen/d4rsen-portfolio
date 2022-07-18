@@ -1,11 +1,11 @@
 import { memo } from 'react'
 import './Button.scss'
 
-function Button({ text, href, className }) {
+function Button({ text, href, className, target = '_blank' }) {
     return (
         <a
             href={href}
-            target="_blank"
+            target={target}
             className={`button ${className}`}
             rel="noreferrer"
         >
