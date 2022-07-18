@@ -7,7 +7,7 @@ import Background from '../components/molecules/Background/Background'
 import Bar from '../components/molecules/Bar/Bar'
 import Header from '../components/organisms/Header/Header'
 import Router from '../router/Router'
-import { menu } from '../strore/menu'
+import { menu } from '../store/menu'
 import './App.scss'
 import { init } from './canvas.js'
 

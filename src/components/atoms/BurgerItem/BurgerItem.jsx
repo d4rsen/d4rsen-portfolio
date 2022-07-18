@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React, { memo, useCallback } from 'react'
-import { menu } from '../../../strore/menu'
+import { menu } from '../../../store/menu'
 
 const BurgerItem = observer(({ href, number, text }) => {
     const closeHandler = useCallback(() => {
