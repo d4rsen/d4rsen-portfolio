@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite'
 import React, { memo, useEffect, useState } from 'react'
 import Footer from '../components/atoms/Footer/Footer'
 import Loader from '../components/atoms/Loader/Loader'
@@ -6,12 +7,12 @@ import Background from '../components/molecules/Background/Background'
 import Bar from '../components/molecules/Bar/Bar'
 import Header from '../components/organisms/Header/Header'
 import Router from '../router/Router'
+import { menu } from '../strore/menu'
 import './App.scss'
 import { init } from './canvas.js'
 
-function App() {
+const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true)
-    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         setTimeout(() => setIsLoading(false), 4000)
@@ -27,8 +28,8 @@ function App() {
             <Background/>
             <MusicPlayer/>
             <div className="_main-container">
-                <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-                <main className={menuOpen ? 'main--blur' : 'main'}>
+                <Header/>
+                <main className={menu.open ? 'main--blur' : 'main'}>
                     <Router/>
                 </main>
                 <Bar/>
@@ -36,6 +37,6 @@ function App() {
             </div>
         </div>
     )
-}
+})
 
 export default memo(App)

@@ -1,13 +1,11 @@
-import React, { memo, useCallback, useMemo } from 'react'
+import React, { memo, useMemo } from 'react'
 import Button from '../../atoms/Button/Button'
 import HeaderItem from '../../atoms/HeaderItem/HeaderItem'
 import BurgerTemplate from '../../molecules/BurgerTemplate/BurgerTemplate'
 import './Header.scss'
 
-function Header({ menuOpen, setMenuOpen }) {
+function Header() {
     const url = useMemo(() => window.location.pathname, [])
-
-    const burgerHandler = useCallback(() => setMenuOpen((prev) => !prev), [setMenuOpen])
 
     return (
         <header className="header">
@@ -33,11 +31,7 @@ function Header({ menuOpen, setMenuOpen }) {
                             <Button className="fade5" text="Resume" href="/resume.pdf"/>
                         </div>
                     )}
-                    <BurgerTemplate
-                        burgerHandler={burgerHandler}
-                        setMenuOpen={setMenuOpen}
-                        menuOpen={menuOpen}
-                    />
+                    <BurgerTemplate/>
                 </div>
             </div>
         </header>

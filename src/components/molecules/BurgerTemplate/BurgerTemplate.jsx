@@ -1,19 +1,25 @@
-import React, { memo } from 'react'
+import { observer } from 'mobx-react-lite'
+import React, { memo, useCallback } from 'react'
+import { menu } from '../../../strore/menu'
 import HeaderLines from '../../atoms/HeaderLines/HeaderLines'
 import Burger from '../../organisms/Burger/Burger'
 
-const BurgerTemplate = ({ menuOpen, setMenuOpen, burgerHandler }) => {
+const BurgerTemplate = observer(() => {
+    const burgerHandler = useCallback(() => {
+        menu.setMenu(!menu.open)
+    }, [])
+
     return (
         <>
-            <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+            <Burger/>
             <div
                 onClick={burgerHandler}
-                className={menuOpen ? 'hamburger active fade3' : 'hamburger fade3'}
+                className={menu.open ? 'hamburger active fade3' : 'hamburger fade3'}
             >
                 <HeaderLines/>
             </div>
         </>
     )
-}
+})
 
 export default memo(BurgerTemplate)
