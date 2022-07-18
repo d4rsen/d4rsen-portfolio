@@ -1,21 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import "src/App/App";
-    
+
 .player {
     position: fixed;
     top: 50%;
     left: 5px;
-    z-index: 13;
     color: $--light-slate;
     line-height: 1.3;
+    z-index: 15;
 
     @include mobile {
-        top: 13px;
-        left: 50%;
+        display: none;
     }
     @include miniMobile {
-        top: 13px;
-        left: 50%;
+        display: none;
     }
 
     .control-panel {
@@ -25,7 +23,7 @@
         position: relative;
         background-color: transparent;
         border-radius: 15px;
-        z-index: 5;
+        z-index: 15;
 
         .play {
             padding: 10px;

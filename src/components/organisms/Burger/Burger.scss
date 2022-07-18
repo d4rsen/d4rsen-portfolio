@@ -1,5 +1,5 @@
 @import "src/App/App";
-    
+
 .burger {
     display: none;
 
@@ -49,17 +49,13 @@
             align-items: center;
             transition: $--transition;
             flex-direction: column;
-
-
             width: 300px;
             height: 100vh;
             position: fixed;
             top: 0;
             z-index: 200;
             background-color: $--light-navy;
-            flex-direction: column;
             right: -300px;
-            transition: all 500ms ease;
         }
 
         @include miniMobile {
@@ -68,15 +64,12 @@
             align-items: center;
             transition: $--transition;
             flex-direction: column;
-
-
             width: 300px;
             height: 100vh;
             position: fixed;
             top: 0;
             z-index: 200;
             background-color: $--light-navy;
-            flex-direction: column;
             right: -300px;
         }
 

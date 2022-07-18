@@ -4,13 +4,13 @@ import './MusicPlayer.scss'
 
 const MusicPlayer = () => {
     const [play, { pause }] = useSound('assets/music/sublab.mp3', {
-        volume: 0.5
+        volume: 0.8
     })
-    const [isPlaying, setIsplaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(false)
 
     const playHandler = () => {
         isPlaying ? pause() : play()
-        setIsplaying(prev => !prev)
+        setIsPlaying(prev => !prev)
     }
 
     return (
