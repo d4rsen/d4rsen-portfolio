@@ -1,11 +1,12 @@
 import React, { memo, useCallback, useMemo } from 'react'
 import Button from '../../atoms/Button/Button'
-import Burger from '../Burger/Burger'
+import HeaderItem from '../../atoms/HeaderItem/HeaderItem'
+import BurgerTemplate from '../../molecules/BurgerTemplate/BurgerTemplate'
 import './Header.scss'
 
 function Header({ menuOpen, setMenuOpen }) {
     const url = useMemo(() => window.location.pathname, [])
-    
+
     const burgerHandler = useCallback(() => setMenuOpen((prev) => !prev), [setMenuOpen])
 
     return (
@@ -25,50 +26,18 @@ function Header({ menuOpen, setMenuOpen }) {
                 <div className="header__right right">
                     {url === '/' && (
                         <div className="right__list superfade">
-                            <div className="right__item item fade1">
-                                <a href="#about">
-                                    <div className="item__number">01.</div>
-                                    <div className="item__text">About</div>
-                                </a>
-                            </div>
-                            <div className="right__item item fade2">
-                                <a href="#jobs">
-                                    <div className="item__number">02.</div>
-                                    <div className="item__text">Experience</div>
-                                </a>
-                            </div>
-                            <div className="right__item item fade3">
-                                <a href="#projects">
-                                    <div className="item__number">03.</div>
-                                    <div className="item__text">Work</div>
-                                </a>
-                            </div>
-                            <div className="right__item item fade4">
-                                <a href="#contact">
-                                    <div className="item__number">04.</div>
-                                    <div className="item__text">Contact</div>
-                                </a>
-                            </div>
+                            <HeaderItem fade="fade1" href="#about" number="01." text="About"/>
+                            <HeaderItem fade="fade2" href="#jobs" number="02." text="Experience"/>
+                            <HeaderItem fade="fade3" href="#projects" number="03." text="Work"/>
+                            <HeaderItem fade="fade4" href="#contact" number="04." text="Contact"/>
+                            <Button className="fade5" text="Resume" href="/resume.pdf"/>
                         </div>
                     )}
-                    <Button
-                        className="fade5"
-                        text="Resume"
-                        href="/resume.pdf"
+                    <BurgerTemplate
+                        burgerHandler={burgerHandler}
+                        setMenuOpen={setMenuOpen}
+                        menuOpen={menuOpen}
                     />
-                    <Burger menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-                    <div
-                        onClick={burgerHandler}
-                        className={
-                            menuOpen
-                                ? 'hamburger active fade3'
-                                : 'hamburger fade3'
-                        }
-                    >
-                        <span className="line1 superfade "/>
-                        <span className="line2 superfade"/>
-                        <span className="line3 superfade"/>
-                    </div>
                 </div>
             </div>
         </header>
