@@ -21,8 +21,8 @@ function Header() {
                         </a>
                     </div>
                 </div>
-                <div className="header__right right">
-                    {url === '/' && (
+                {url === '/' && (
+                    <div className="header__right right">
                         <div className="right__list superfade">
                             <HeaderItem fade="fade1" href="#about" number="01." text="About"/>
                             <HeaderItem fade="fade2" href="#jobs" number="02." text="Experience"/>
@@ -30,9 +30,9 @@ function Header() {
                             <HeaderItem fade="fade4" href="#contact" number="04." text="Contact"/>
                             <Button className="fade5" text="Resume" href="/resume.pdf"/>
                         </div>
-                    )}
-                    <BurgerTemplate/>
-                </div>
+                        <BurgerTemplate/>
+                    </div>
+                )}
             </div>
         </header>
     )
