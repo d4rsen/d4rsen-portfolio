@@ -7,7 +7,7 @@ import './normalize.scss'
 ReactDOM.render(
     <BrowserRouter>
         <App/>
-        <canvas id="c"></canvas>
+        <canvas id="c"/>
     </BrowserRouter>,
     document.getElementById('root'),
 )

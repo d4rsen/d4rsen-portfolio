@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { memo, useMemo } from 'react'
+import React, { memo } from 'react'
 import { menu } from '../../../store/menu'
 import BurgerItem from '../../atoms/BurgerItem/BurgerItem'
 import Button from '../../atoms/Button/Button'
@@ -23,3 +23,4 @@ const Burger = observer(() => {
 })
 
 export default memo(Burger)
+
