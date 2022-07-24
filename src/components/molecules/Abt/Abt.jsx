@@ -10,7 +10,7 @@ function Abt() {
                     {' Alpha Business Technologies'}
                 </span>
             </div>
-            <div className="jobs__subtitle">July 2021 - Now</div>
+            <div className="jobs__subtitle">July 2021 - Apr 2022</div>
             <SkillsItem
                 text="Write modern, performant, maintainable code for a diverse array of client and internal projects"/>
             <SkillsItem
@@ -20,5 +20,5 @@ function Abt() {
         </>
     )
 }
-    
+
 export default memo(Abt)

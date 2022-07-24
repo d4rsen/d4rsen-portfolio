@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react'
 import JobsButton from '../../atoms/JobsButton/JobsButton'
 import NumberedHeading from '../../atoms/NumberedHeading/NumberedHeading'
 import Abt from '../../molecules/Abt/Abt'
+import Elbrus from '../../molecules/Elbrus/Elbrus'
 import Home from '../../molecules/Home/Home'
 import './Jobs.scss'
 
@@ -9,6 +10,7 @@ function Jobs() {
     const [jobs, setJobs] = useState({
         abt: true,
         home: false,
+        elbrus: false
     })
 
     return (
@@ -19,18 +21,24 @@ function Jobs() {
                     <JobsButton
                         jobs={jobs}
                         setJobs={setJobs}
+                        text="Elbrus"
+                        active={jobs.elbrus}
+                    />
+                    <JobsButton
+                        jobs={jobs}
+                        setJobs={setJobs}
                         text="ABT"
-                        active={jobs.abt === true}
+                        active={jobs.abt}
                     />
                     <JobsButton
                         jobs={jobs}
                         setJobs={setJobs}
                         text="Home"
-                        active={jobs.home === true}
+                        active={jobs.home}
                     />
                 </div>
                 <div className="jobs__right">
-                    {jobs.abt ? <Abt/> : <Home/>}
+                    {jobs.abt ? <Abt/> : jobs.elbrus ? <Elbrus/> : <Home/>}
                 </div>
             </div>
         </div>
