@@ -37,7 +37,10 @@ export function init() {
 
     window.addEventListener('resize', onWindowResize, false)
     onWindowResize(null)
-    setInterval(() => onWindowResize(), 20000)
+    setInterval(() => {
+        Configs.base = Math.random() * 10000
+        onWindowResize()
+    }, 10000)
 
     let i = 0, len = Configs.particleNum
     for (; i < len; i++) {

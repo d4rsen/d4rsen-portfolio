@@ -33,8 +33,8 @@ const App = observer(() => {
                     <Router/>
                 </main>
                 <Bar/>
-                <Footer/>
             </div>
+            <Footer/>
         </div>
     )
 })

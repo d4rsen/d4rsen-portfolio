@@ -8,9 +8,9 @@ import './Jobs.scss'
 
 function Jobs() {
     const [jobs, setJobs] = useState({
-        abt: true,
+        abt: false,
         home: false,
-        elbrus: false
+        elbrus: true
     })
 
     return (

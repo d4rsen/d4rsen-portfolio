@@ -1,5 +1,5 @@
 @import "src/App/App";
-    
+
 .about {
     display: flex;
     justify-content: center;
@@ -73,6 +73,7 @@
     &__right {
         position: relative;
         max-width: 300px;
+        background-color: $--navy;
 
         &:hover {
             animation: $--superfade 3000ms;
@@ -118,7 +119,7 @@
         }
 
         &:after {
-            border: 2px solid $--green-tint;
+            border: 2px solid $--green;
             top: 20px;
             left: 20px;
             z-index: 1;
@@ -140,7 +141,7 @@
         mix-blend-mode: multiply;
         filter: grayscale(100%) contrast(1);
         transition: $--transition;
-
+        z-index: 2;
     }
 
     &__imageBlocker {
@@ -153,13 +154,11 @@
         max-width: 100%;
         display: block;
         position: static;
-
     }
 
     &__hidden {
         opacity: 0;
         transition: opacity 500ms linear 0s;
-        background-color: rgb(232, 232, 232);
         position: absolute;
         inset: 0px;
         object-fit: cover;
