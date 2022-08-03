@@ -88,7 +88,6 @@
         display: block;
         position: relative;
         width: 100%;
-        border-radius: $--border-radius;
         background-color: $--green;
 
         @include mobile {
@@ -151,13 +150,5 @@
         max-width: 100%;
         display: block;
         position: static;
-    }
-
-    &__hidden {
-        opacity: 0;
-        transition: opacity 500ms linear 0s;
-        position: absolute;
-        inset: 0px;
-        object-fit: cover;
     }
 }

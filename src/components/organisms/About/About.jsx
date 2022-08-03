@@ -42,7 +42,6 @@ function About() {
                                     alt="darsen"
                                 />
                             </div>
-                            <div className="about__hidden"/>
                         </div>
                     </div>
                 </a>
