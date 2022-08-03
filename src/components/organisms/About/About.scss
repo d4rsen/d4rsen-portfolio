@@ -35,7 +35,6 @@
         margin: 20px 0px 0px;
         overflow: hidden;
         list-style: none;
-
     }
 
     &__left {
@@ -73,7 +72,6 @@
     &__right {
         position: relative;
         max-width: 300px;
-        background-color: $--navy;
 
         &:hover {
             animation: $--superfade 3000ms;
@@ -106,7 +104,6 @@
         &:before {
             top: 0px;
             left: 0px;
-            background-color: $--navy;
             mix-blend-mode: screen;
             content: "";
             display: block;
