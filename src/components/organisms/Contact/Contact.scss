@@ -1,14 +1,18 @@
 @import "src/App/App";
 
+
+.contactButton {
+    width: 150px;
+}
+
 .contact {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 100px 0;
-    //margin: 0px auto 100px;
+    padding: 100px 0 0 0;
     margin: 0px auto;
-    min-height: 100vh;
+    min-height: 90vh;
     text-align: center;
     z-index: 2;
 

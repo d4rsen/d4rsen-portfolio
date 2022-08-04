@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App/App';
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+
+root.render(
     <BrowserRouter>
         <App />
         <canvas id="c" />
-    </BrowserRouter>,
-    document.getElementById('root')
+    </BrowserRouter>
 );

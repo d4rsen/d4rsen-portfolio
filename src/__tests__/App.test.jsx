@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from '../components/atoms/Footer/Footer';
 import MusicPlayer from '../components/atoms/MusicPlayer/MusicPlayer';
@@ -10,8 +10,9 @@ import Router from '../router/Router';
 import { menu } from '../store/menu';
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
+    const root = createRoot(document.createElement('div'));
+
+    root.render(
         <BrowserRouter>
             <div className="wrapper">
                 <Background />
@@ -25,7 +26,6 @@ it('renders without crashing', () => {
                     <Footer />
                 </div>
             </div>
-        </BrowserRouter>,
-        div
+        </BrowserRouter>
     );
 });
