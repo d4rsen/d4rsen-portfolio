@@ -1,10 +1,12 @@
 import React, { memo } from 'react';
+import MusicPlayer from '../../atoms/MusicPlayer/MusicPlayer';
 import { darsenGitHub } from '../../organisms/Projects/constants';
 import './bar.scss';
 
 function Bar() {
     return (
         <div className="bar barfade">
+            <MusicPlayer />
             <div className="bar__list ">
                 <a className="bar__email" href="mailto:darsenungarlinov00@gmail.com">
                     darsenungarlinov00@gmail.com

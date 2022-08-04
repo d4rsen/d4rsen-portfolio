@@ -1,13 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import "src/App/App";
 
-.player {
+.playerWrapper {
     position: fixed;
-    top: 50%;
-    left: 5px;
+    width: 40px;
+    top: 70px;
+    right: auto;
+    left: 40px;
+    z-index: 10;
     color: $--light-slate;
     line-height: 1.3;
-    z-index: 15;
 
     @include mobile {
         display: none;
@@ -15,6 +16,62 @@
     @include miniMobile {
         display: none;
     }
+    @include tablet {
+        display: none;
+    }
+
+    @media (max-width: 1150px) {
+        display: none;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        -webkit-box-align: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &:before {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 150px;
+            background-color: $--light-slate;
+            margin: 0 auto 10px;
+        }
+    }
+
+    &__musicLink {
+        margin: 20px auto;
+        padding: 10px;
+        font-family: $--font-mono;
+        font-size: $--fz-xxs;
+        line-height: $--fz-lg;
+        letter-spacing: 0.1em;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        display: inline-block;
+        text-decoration: none;
+        text-decoration-skip-ink: auto;
+        color: inherit;
+        position: relative;
+        transition: $--transition;
+
+        &:hover {
+            color: $--green;
+            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
+        }
+    }
+}
+
+
+.player {
+    color: $--light-slate;
+    line-height: 1.3;
+    z-index: 15;
 
     .control-panel {
         display: flex;

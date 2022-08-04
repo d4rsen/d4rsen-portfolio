@@ -79,6 +79,14 @@ body {
     -o-animation: $--barfade 5000ms ease;
 }
 
+.playerfade {
+    animation: $--playerfade 5000ms ease;
+    -webkit-animation: $--playerfade 5000ms ease;
+    -moz-animation: $--playerfade 5000ms ease;
+    -ms-animation: $--playerfade 5000ms ease;
+    -o-animation: $--playerfade 5000ms ease;
+}
+
 .superfade {
     animation: $--superfade 5000ms;
     -webkit-animation: $--superfade 5000ms;

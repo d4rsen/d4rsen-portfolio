@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import React, { memo, useEffect, useState } from 'react';
 import Footer from '../components/atoms/Footer/Footer';
 import Loader from '../components/atoms/Loader/Loader';
-import MusicPlayer from '../components/atoms/MusicPlayer/MusicPlayer';
 import Background from '../components/molecules/Background/Background';
 import Bar from '../components/molecules/Bar/Bar';
 import Header from '../components/organisms/Header/Header';
@@ -26,7 +25,6 @@ const App = observer(() => {
     return (
         <div className="wrapper">
             <Background />
-            <MusicPlayer />
             <div className="_main-container">
                 <Header />
                 <main className={menu.open ? 'main--blur' : 'main'}>

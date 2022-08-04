@@ -37,6 +37,7 @@ $--ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0
 $--fadein: fadein;
 $--superfade: superfade;
 $--barfade: barfade;
+$--playerfade: playerfade;
 $--onappear: onAppear;
 $miniMobile: 390px;
 $mobile: 480px;
@@ -59,6 +60,17 @@ $tablet: 768px;
     to {
         opacity: 1;
         margin-bottom: 0;
+    }
+}
+
+@keyframes playerfade {
+    from {
+        top: 100vh;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 70px;
     }
 }
 
