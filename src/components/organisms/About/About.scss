@@ -42,7 +42,7 @@
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        color: $subtitleColor;
+        color: $--slate;
         padding-right: 50px;
 
         @include mobile {

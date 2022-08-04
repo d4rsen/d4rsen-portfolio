@@ -1,15 +1,15 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable } from 'mobx';
 
 class Menu {
-    open = false
+    open = false;
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 
     setMenu(value) {
-        this.open = value
+        this.open = value;
     }
 }
 
-export const menu = new Menu()
+export const menu = new Menu();

@@ -3,17 +3,17 @@
 .button {
     font-size: 14px;
     line-height: 1;
-    color: $limeColor;
+    color: $--green;
     background-color: transparent;
-    border: 1px solid $limeColor;
+    border: 1px solid $--green;
     padding: 1.1rem;
-    border-radius: $border-radius;
+    border-radius: $--border-radius;
     text-decoration: none;
     transition: $--transition;
     backdrop-filter: blur(5px);
 
     &:hover {
-        background-color: $hoverColor;
+        background-color: $--lightest-navy;
         transition: $--transition;
         cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }

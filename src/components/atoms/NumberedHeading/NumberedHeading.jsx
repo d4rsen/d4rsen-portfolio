@@ -1,5 +1,5 @@
-import React, { memo } from 'react'
-import './NumberedHeading.scss'
+import React, { memo } from 'react';
+import './NumberedHeading.scss';
 
 function NumberedHeading({ number, text }) {
     return (
@@ -7,7 +7,7 @@ function NumberedHeading({ number, text }) {
             <div className="numbered-heading__number">{number}</div>
             <div className="numbered-heading__text">{text}</div>
         </div>
-    )
+    );
 }
 
-export default memo(NumberedHeading)
+export default memo(NumberedHeading);

@@ -1,16 +1,12 @@
-import React, { memo } from 'react'
-import './Loader.scss'
+import React, { memo } from 'react';
+import './Loader.scss';
 
 function Loader() {
     return (
         <div className="loader ">
-            <img
-                src="assets/images/logo.png"
-                alt="loader"
-                className="loader__img "
-            />
+            <img src="assets/images/logo.png" alt="loader" className="loader__img " />
         </div>
-    )
+    );
 }
 
-export default memo(Loader)
+export default memo(Loader);

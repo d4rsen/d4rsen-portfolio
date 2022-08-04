@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;900&family=Space+Mono&display=swap');
-
 *,
 *::before,
 *::after {
@@ -28,28 +26,11 @@ dd {
     margin: 0;
 }
 
-html {
-    background-color: #0a192f;
-}
-
 body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    background-color: #0a192f;
-
-    &::-webkit-scrollbar {
-        background-color: #0a192f;
-        width: 5px;
-        direction: ltr;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background-color: #64ffda;
-        border-radius: 10px;
-    }
 }
 
 ul[class],
@@ -86,9 +67,4 @@ select {
     }
 }
 
-* {
-    font-family: 'Space Mono', monospace;
-    scroll-behavior: smooth;
-    cursor: url('../public/assets/cursors/purple.png'), auto !important;
-}
 

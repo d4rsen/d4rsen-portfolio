@@ -30,7 +30,7 @@
     &__uptitle {
         font-size: 16px;
         line-height: 17px;
-        color: $limeColor;
+        color: $--green;
         text-align: start;
         transition: $--transition;
         display: flex;
@@ -43,7 +43,7 @@
     &__title {
         font-size: 80px;
         line-height: 88px;
-        color: $titleColor;
+        color: $--lightest-slate;
         font-weight: 600;
         margin-top: 30px;
         transition-delay: 200ms;
@@ -62,7 +62,7 @@
     &__undertitle {
         font-size: 80px;
         line-height: 72px;
-        color: $subtitleColor;
+        color: $--slate;
         font-weight: 600;
         margin-top: 10px;
         transition-delay: 300ms;
@@ -80,7 +80,7 @@
     &__text {
         font-size: 20px;
         line-height: 26px;
-        color: $subtitleColor;
+        color: $--slate;
         margin-top: 20px;
         max-width: 540px;
         transition-delay: 400ms;

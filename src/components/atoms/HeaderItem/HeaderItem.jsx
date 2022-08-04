@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
 const HeaderItem = ({ fade, href, number, text }) => {
     return (
@@ -8,8 +8,7 @@ const HeaderItem = ({ fade, href, number, text }) => {
                 <div className="item__text">{text}</div>
             </a>
         </div>
-    )
-}
+    );
+};
 
-export default memo(HeaderItem)
-
+export default memo(HeaderItem);

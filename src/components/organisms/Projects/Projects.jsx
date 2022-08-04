@@ -1,6 +1,6 @@
-import React, { memo } from 'react'
-import NumberedHeading from '../../atoms/NumberedHeading/NumberedHeading'
-import OneProject from '../OneProject/OneProject'
+import React, { memo } from 'react';
+import NumberedHeading from '../../atoms/NumberedHeading/NumberedHeading';
+import OneProject from '../OneProject/OneProject';
 import {
     coliseumGitLink,
     coliseumImgSrc,
@@ -25,14 +25,14 @@ import {
     translateItems,
     translateProjectLink,
     translateText,
-    translateTitle,
-} from './constants'
-import './Projects.scss'
+    translateTitle
+} from './constants';
+import './Projects.scss';
 
 function Projects() {
     return (
         <div id="projects" className="mainPage__projects projects">
-            <NumberedHeading number="03." text="Some Things I’ve Built"/>
+            <NumberedHeading number="03." text="Some Things I’ve Built" />
             <OneProject
                 title={coliseumTitle}
                 text={coliseumText}
@@ -66,7 +66,7 @@ function Projects() {
                 stackItems={translateItems}
             />
         </div>
-    )
+    );
 }
 
-export default memo(Projects)
+export default memo(Projects);

@@ -103,12 +103,12 @@
             }
 
             &__number {
-                color: $limeColor;
+                color: $--green;
                 margin-right: 5px;
             }
 
             &__text {
-                color: $subtitleColor;
+                color: $--slate;
             }
         }
     }

@@ -31,7 +31,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "CI=false react-scripts build",
-        "test": "react-scripts test --watchAll=false"
+        "test": "react-scripts test --watchAll=false",
+        "format": "prettier --write \"src/**/*.{ts,tsx,jsx,js}\""
     },
     "jest": {
         "testMatch": [
@@ -56,5 +57,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "prettier": "^2.7.1"
     }
 }

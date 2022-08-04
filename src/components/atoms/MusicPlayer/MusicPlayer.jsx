@@ -1,17 +1,17 @@
-import React, { memo, useState } from 'react'
-import useSound from 'use-sound'
-import './MusicPlayer.scss'
+import React, { memo, useState } from 'react';
+import useSound from 'use-sound';
+import './MusicPlayer.scss';
 
 const MusicPlayer = () => {
     const [play, { pause }] = useSound('assets/music/sublab.mp3', {
         volume: 0.8
-    })
-    const [isPlaying, setIsPlaying] = useState(false)
+    });
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const playHandler = () => {
-        isPlaying ? pause() : play()
-        setIsPlaying(prev => !prev)
-    }
+        isPlaying ? pause() : play();
+        setIsPlaying((prev) => !prev);
+    };
 
     return (
         <div className="player fade5">
@@ -25,7 +25,7 @@ const MusicPlayer = () => {
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default memo(MusicPlayer)
+export default memo(MusicPlayer);

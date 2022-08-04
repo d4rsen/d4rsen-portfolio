@@ -1,5 +1,5 @@
-import React, { memo } from 'react'
-import './Footer.scss'
+import React, { memo } from 'react';
+import './Footer.scss';
 
 const Footer = () => {
     return (
@@ -11,13 +11,11 @@ const Footer = () => {
                     className="footer__link"
                     rel="noreferrer"
                 >
-                    <div className="footer__title">
-                        {'Made by < Darsen Ungarlinov />'}
-                    </div>
+                    <div className="footer__title">{'Made by < Darsen Ungarlinov />'}</div>
                 </a>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default memo(Footer)
+export default memo(Footer);

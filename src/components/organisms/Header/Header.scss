@@ -1,5 +1,5 @@
 @import "src/App/App";
-    
+
 .header {
     display: flex;
     -webkit-box-pack: justify;
@@ -113,13 +113,13 @@
                 }
 
                 &__number {
-                    color: $limeColor;
+                    color: $--green;
                     margin-right: 5px;
                     cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
 
                 &__text {
-                    color: $subtitleColor;
+                    color: $--slate;
                     cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
             }

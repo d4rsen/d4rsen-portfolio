@@ -28,7 +28,7 @@
     }
 
     &__number {
-        color: $limeColor;
+        color: $--green;
         font-size: 20px;
         margin-right: 10px;
 
@@ -38,7 +38,7 @@
     }
 
     &__text {
-        color: $titleColor;
+        color: $--lightest-slate;
         font-size: 32px;
 
         @include mobile {
@@ -53,7 +53,7 @@
         width: 300px;
         height: 1px;
         margin-left: 20px;
-        background-color: $subtitleColor;
+        background-color: $--slate;
         @include miniMobile {
             display: none;
         }
