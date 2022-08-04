@@ -2,6 +2,7 @@
 
 .burger {
     display: none;
+    position: relative;
 
     @include mobile {
         width: 300px;
@@ -53,7 +54,6 @@
             height: 100vh;
             position: fixed;
             top: 0;
-            z-index: 200;
             background-color: $--light-navy;
             right: -300px;
         }
@@ -68,8 +68,6 @@
             height: 100vh;
             position: fixed;
             top: 0;
-            z-index: 200;
-            background-color: $--light-navy;
             right: -300px;
         }
 
