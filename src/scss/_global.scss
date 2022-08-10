@@ -3,7 +3,7 @@
 html,
 body {
     background-color: $--navy;
-    font-family: 'Space Mono', monospace;
+    font-family: $--font-mono;
     scroll-behavior: smooth;
     cursor: url('../../public/assets/cursors/purple.png'), auto !important;
 
