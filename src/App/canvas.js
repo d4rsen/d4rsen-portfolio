@@ -40,7 +40,7 @@ export function init() {
     window.addEventListener('resize', onWindowResize, false);
     onWindowResize(null);
     setInterval(() => {
-        Configs.base = Math.random() * 10000;
+        Configs.base = Math.random() * 3000;
         onWindowResize();
     }, 10000);
 
