@@ -17,7 +17,6 @@
     flex-direction: column;
     transition: background-color 1000ms linear;
     animation: .5s linear 0s 1 $--onappear;
-    z-index: 1;
 
     ._main-container {
         margin: 0 auto;
