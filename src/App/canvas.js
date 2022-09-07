@@ -4,10 +4,6 @@ import SimplexNoise from 'simplex-noise';
 window.requestAnimationFrame = (function () {
     return (
         window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
         function (callback) {
             window.setTimeout(callback, 1000 / 60);
         }
@@ -52,8 +48,6 @@ export function init() {
 
     simplexNoise = new SimplexNoise();
 
-    canvas.addEventListener('click', onCanvasClick, false);
-
     gui = new dat.GUI();
     gui.add(Configs, 'step', 1, 10);
     gui.add(Configs, 'base', 500, 3000);
@@ -64,7 +58,7 @@ export function init() {
     update();
 }
 
-function onWindowResize(e) {
+function onWindowResize() {
     screenWidth = canvas.width = window.innerWidth;
     screenHeight = canvas.height = window.innerHeight;
 
@@ -74,16 +68,6 @@ function onWindowResize(e) {
     context = canvas.getContext('2d');
     context.lineWidth = 0.3;
     context.lineCap = context.lineJoin = 'round';
-}
-
-function onCanvasClick(e) {
-    context.save();
-    context.globalAlpha = 0.8;
-    context.fillStyle = Configs.backgroundColor;
-    context.fillRect(0, 0, screenWidth, screenHeight);
-    context.restore();
-
-    simplexNoise = new SimplexNoise();
 }
 
 function getNoise(x, y, z) {
