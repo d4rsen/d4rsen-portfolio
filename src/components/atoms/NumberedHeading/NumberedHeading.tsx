@@ -1,7 +1,12 @@
 import React, { memo } from 'react';
 import './NumberedHeading.scss';
 
-function NumberedHeading({ number, text }) {
+interface NumberedHeadingProps {
+    number: string | number;
+    text: string;
+}
+
+function NumberedHeading({ number, text }: NumberedHeadingProps) {
     return (
         <div className="numbered-heading">
             <div className="numbered-heading__number">{number}</div>

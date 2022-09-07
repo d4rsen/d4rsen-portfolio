@@ -43,8 +43,7 @@
     &__text {
         margin: 0px;
         width: 100%;
-        min-height: 100%;
-        overflow-x: hidden;
+        height: 100%;
         -webkit-font-smoothing: antialiased;
         background-color: transparent;
         color: $--slate;
@@ -52,7 +51,6 @@
         font-size: $--fz-xl;
         line-height: 1.3;
         text-align: center;
-
 
         @include mobile {
             font-size: $--fz-md;

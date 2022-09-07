@@ -1,7 +1,16 @@
 import React, { memo } from 'react';
 import './OneProject.scss';
 
-function OneProject({ title, text, stackItems, imgSrc, gitLink, projectLink }) {
+interface OneProjectProps {
+    title: string;
+    text: string;
+    stackItems?: string[];
+    imgSrc?: string;
+    gitLink?: string;
+    projectLink?: string;
+}
+
+function OneProject({ title, text, stackItems, imgSrc, gitLink, projectLink }: OneProjectProps) {
     return (
         <div className="projects__project project">
             <div className="project__left">

@@ -1,44 +1,44 @@
 @import "src/scss/style";
 
 ._container {
-    max-width: 1000px;
-    width: 1000px;
-    margin: 0 auto;
-    box-sizing: content-box;
+  max-width: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  box-sizing: content-box;
 }
 
 .wrapper {
-    background-color: $--navy;
-    min-height: 100%;
-    overflow: hidden;
+  background-color: $--navy;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background-color 1000ms linear;
+  animation: .5s linear 0s 1 $--onappear;
+
+  ._main-container {
+    margin: 0 auto;
+    box-sizing: content-box;
+    max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    transition: background-color 1000ms linear;
-    animation: .5s linear 0s 1 $--onappear;
+    z-index: 1;
 
-    ._main-container {
-        margin: 0 auto;
-        box-sizing: content-box;
-        max-width: 1000px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
+    .main {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        .main {
-            flex: 1 1 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &--blur {
-                filter: blur(5px) brightness(0.7);
-                transition: $--transition;
-                pointer-events: none;
-                user-select: none;
-            }
-        }
+      &--blur {
+        filter: blur(5px) brightness(0.7);
+        transition: $--transition;
+        pointer-events: none;
+        user-select: none;
+      }
     }
+  }
 }

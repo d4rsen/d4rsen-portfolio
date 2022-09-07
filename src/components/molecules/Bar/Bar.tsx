@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import MusicPlayer from '../../atoms/MusicPlayer/MusicPlayer';
 import { darsenGitHub } from '../../organisms/Projects/constants';
-import './bar.scss';
+import './Bar.scss';
 
 function Bar() {
     return (

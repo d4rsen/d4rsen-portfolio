@@ -8,7 +8,7 @@ import Header from '../components/organisms/Header/Header';
 import Router from '../router/Router';
 import { menu } from '../store/menu';
 import './App.scss';
-import { init } from './canvas.js';
+import { init } from './canvas';
 
 const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true);

@@ -1,6 +1,13 @@
-import { memo } from 'react';
+import { FC, memo } from 'react';
 
-const HeaderItem = ({ fade, href, number, text }) => {
+interface HeaderItemProps {
+    href: string;
+    number: string;
+    text: string;
+    fade?: string;
+}
+
+const HeaderItem: FC<HeaderItemProps> = ({ fade, href, number, text }) => {
     return (
         <div className={`right__item item ${fade}`}>
             <a href={href}>

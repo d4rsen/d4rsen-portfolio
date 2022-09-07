@@ -33,7 +33,7 @@ const MusicPlayer = () => {
                     href="https://music.youtube.com/watch?v=0Mi-PG3uR1Q&list=RDAMVM0Mi-PG3uR1Q"
                     rel="noreferrer"
                 >
-                    Cowbell City > ROMANE
+                    Cowbell City {'>'} ROMANE
                 </a>
             </div>
         </div>

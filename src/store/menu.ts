@@ -7,7 +7,7 @@ class Menu {
         makeAutoObservable(this);
     }
 
-    setMenu(value) {
+    setMenu(value: boolean) {
         this.open = value;
     }
 }

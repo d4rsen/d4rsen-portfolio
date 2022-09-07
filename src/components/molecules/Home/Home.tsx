@@ -13,7 +13,6 @@ function Home() {
             <SkillsItem text="Sleep" />
             <SkillsItem text="Study" />
             <SkillsItem text="Code" />
-            <SkillsItem text="Play" />
             <SkillsItem text="Repeat" />
         </>
     );
