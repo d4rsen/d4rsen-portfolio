@@ -1,10 +1,10 @@
 import dat from 'dat.gui/src/dat';
 import SimplexNoise from 'simplex-noise';
 
-window.requestAnimationFrame = (function () {
+window.requestAnimationFrame = (function() {
     return (
         window.requestAnimationFrame ||
-        function (callback) {
+        function(callback) {
             window.setTimeout(callback, 1000 / 60);
         }
     );
@@ -34,7 +34,7 @@ export function init() {
     canvas = document.getElementById('c');
 
     window.addEventListener('resize', onWindowResize, false);
-    onWindowResize(null);
+    onWindowResize();
     setInterval(() => {
         Configs.base = Math.random() * 3000;
         onWindowResize();
@@ -99,7 +99,6 @@ function initParticle(p) {
 function update() {
     let step = Configs.step,
         base = Configs.base,
-        i,
         p,
         angle;
 
@@ -139,7 +138,7 @@ function HSLA(h, s, l, a) {
     this.a = a || 0;
 }
 
-HSLA.prototype.toString = function () {
+HSLA.prototype.toString = function() {
     return 'hsla(' + this.h + ',' + this.s * 100 + '%,' + this.l * 100 + '%,' + this.a + ')';
 };
 

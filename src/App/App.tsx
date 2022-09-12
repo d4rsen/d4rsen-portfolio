@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import Footer from '../components/atoms/Footer/Footer';
 import Loader from '../components/atoms/Loader/Loader';
 import Background from '../components/molecules/Background/Background';
@@ -23,9 +23,9 @@ const App = observer(() => {
     }
 
     return (
-        <div className="wrapper">
+        <div className='wrapper'>
             <Background />
-            <div className="_main-container">
+            <div className='_main-container'>
                 <Header />
                 <main className={menu.open ? 'main--blur' : 'main'}>
                     <Router />
