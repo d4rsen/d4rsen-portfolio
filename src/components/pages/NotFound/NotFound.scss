@@ -44,9 +44,9 @@
         font-family: $--font-mono;
         line-height: 1;
         text-decoration: none;
-        cursor: pointer;
         transition: $--transition;
         margin-top: 40px;
+        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
 
         &:hover {
             background-color: $--lightest-navy;

@@ -138,6 +138,7 @@
         filter: grayscale(100%) contrast(1);
         transition: $--transition;
         z-index: 2;
+        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }
 
     &__imageBlocker {

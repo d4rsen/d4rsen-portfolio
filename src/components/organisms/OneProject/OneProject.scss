@@ -91,7 +91,6 @@
             mix-blend-mode: multiply;
             filter: grayscale(100%) contrast(1);
             transition: $--transition;
-            cursor: pointer;
         }
 
         &__imageBlocker {
