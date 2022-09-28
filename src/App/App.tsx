@@ -12,10 +12,10 @@ import { init } from './canvas';
 import { Cursor } from '../components/atoms/Cursor/Cursor';
 
 const App = observer(() => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // setTimeout(() => setIsLoading(false), 4000);
+        setTimeout(() => setIsLoading(false), 4000);
         init();
     }, []);
 

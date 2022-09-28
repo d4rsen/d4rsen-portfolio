@@ -9,6 +9,7 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {
         background-color: $--navy;
