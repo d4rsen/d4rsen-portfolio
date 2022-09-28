@@ -43,7 +43,6 @@
         font-family: $--font-mono;
         font-size: $--fz-xxs;
         line-height: 1;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }
 
     &__link {
@@ -54,7 +53,6 @@
         color: inherit;
         position: relative;
         transition: $--transition;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
 
         &:hover {
             color: $--green;
@@ -64,6 +62,5 @@
     &__title {
         font-size: $--fz-xxs;
         line-height: 1;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }
 }

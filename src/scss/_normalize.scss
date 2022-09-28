@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+* {
+    cursor: none !important;
+
+    &:hover {
+        cursor: none !important;
+    }
+}
+
 ul[class],
 ol[class] {
     padding: 0;

@@ -28,7 +28,7 @@ const JobsButton: FC<JobsButtonProps> = ({ text, active, setJobs }) => {
     const setJobsHandler = useCallback(() => setJobs(newJobs), [newJobs, setJobs]);
 
     return (
-        <button type="button" onClick={setJobsHandler} className={`jobs__button ${color}`}>
+        <button data-hover type="button" onClick={setJobsHandler} className={`jobs__button ${color}`}>
             {text}
         </button>
     );

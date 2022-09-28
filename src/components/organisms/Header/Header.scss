@@ -68,7 +68,6 @@
             width: 100%;
             height: 100%;
             transition: $--transition;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 
@@ -109,18 +108,15 @@
                     color: inherit;
                     position: relative;
                     transition: $--transition;
-                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
 
                 &__number {
                     color: $--green;
                     margin-right: 5px;
-                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
 
                 &__text {
                     color: $--slate;
-                    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
                 }
             }
         }

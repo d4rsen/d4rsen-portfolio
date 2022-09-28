@@ -15,7 +15,7 @@ const BurgerItem: FC<BurgerItemProps> = observer(({ href, number, text }) => {
 
     return (
         <div role="navigation" onClick={closeHandler} className="burger__item item ">
-            <a href={href}>
+            <a data-hover href={href}>
                 <div className="item__number">{number}</div>
                 <div className="item__text">{text}</div>
             </a>

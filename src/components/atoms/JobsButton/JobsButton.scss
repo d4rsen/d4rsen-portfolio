@@ -18,7 +18,6 @@
     font-size: $--fz-xs;
     text-align: left;
     white-space: nowrap;
-    cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     border-radius: 0px;
     backdrop-filter: blur(5px);
 
@@ -28,7 +27,6 @@
         -moz-animation: $--superfade 3000ms;
         -ms-animation: $--superfade 3000ms;
         -o-animation: $--superfade 3000ms;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }
 }
 

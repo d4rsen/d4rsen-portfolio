@@ -6,6 +6,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer__container">
                 <a
+                    data-hover
                     href="https://github.com/d4rsen/d4rsen-portfolio"
                     target="_blank"
                     className="footer__link"

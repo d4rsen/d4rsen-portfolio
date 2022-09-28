@@ -12,7 +12,7 @@ function Header() {
             <div className="header-container">
                 <div className="header__left left">
                     <div className="left__logo fade5">
-                        <a href="#">
+                        <a data-hover href="#">
                             <img src="assets/images/logo.png" alt="logo" className="left__img superfade" />
                         </a>
                     </div>

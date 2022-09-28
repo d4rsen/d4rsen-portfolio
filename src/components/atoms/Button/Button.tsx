@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ text, href, className, target = '_blank' }) => {
     return (
-        <a href={href} target={target} className={`button ${className}`} rel="noreferrer">
+        <a data-hover href={href} target={target} className={`button ${className}`} rel="noreferrer">
             {text}
         </a>
     );

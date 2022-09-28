@@ -128,7 +128,6 @@
             border-radius: $--border-radius;
             transition: $--transition;
             box-sizing: inherit;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 
@@ -138,7 +137,6 @@
         filter: grayscale(100%) contrast(1);
         transition: $--transition;
         z-index: 2;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
     }
 
     &__imageBlocker {

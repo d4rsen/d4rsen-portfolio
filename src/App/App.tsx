@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Footer from '../components/atoms/Footer/Footer';
 import Loader from '../components/atoms/Loader/Loader';
 import Background from '../components/molecules/Background/Background';
@@ -9,12 +9,13 @@ import Router from '../router/Router';
 import { menu } from '../store/menu';
 import './App.scss';
 import { init } from './canvas';
+import { Cursor } from '../components/atoms/Cursor/Cursor';
 
 const App = observer(() => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 4000);
+        // setTimeout(() => setIsLoading(false), 4000);
         init();
     }, []);
 
@@ -23,9 +24,10 @@ const App = observer(() => {
     }
 
     return (
-        <div className='wrapper'>
+        <div className="wrapper">
             <Background />
-            <div className='_main-container'>
+            <Cursor />
+            <div className="_main-container">
                 <Header />
                 <main className={menu.open ? 'main--blur' : 'main'}>
                     <Router />

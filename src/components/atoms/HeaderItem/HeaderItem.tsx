@@ -10,7 +10,7 @@ interface HeaderItemProps {
 const HeaderItem: FC<HeaderItemProps> = ({ fade, href, number, text }) => {
     return (
         <div className={`right__item item ${fade}`}>
-            <a href={href}>
+            <a data-hover href={href}>
                 <div className="item__number">{number}</div>
                 <div className="item__text">{text}</div>
             </a>

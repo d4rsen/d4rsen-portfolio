@@ -62,7 +62,6 @@
 
         &:hover {
             color: $--green;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 }
@@ -92,7 +91,6 @@
             background-repeat: no-repeat;
             background-size: 20px;
             margin: 5px 0;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
             transition: background-color .3s ease;
             -webkit-transition: background-color .3s ease;
         }
@@ -100,7 +98,6 @@
         .play:hover {
             transition: background-color .3s ease;
             -webkit-transition: background-color .3s ease;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 }

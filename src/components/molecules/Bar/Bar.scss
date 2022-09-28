@@ -61,7 +61,6 @@
 
         &:hover {
             color: $--green;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 
@@ -73,7 +72,6 @@
         position: relative;
         transition: $--transition;
         padding: 10px;
-        cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
 
         &:hover {
             color: $--green;
@@ -85,7 +83,6 @@
             fill: none;
             text-decoration-skip-ink: auto;
             color: inherit;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 }

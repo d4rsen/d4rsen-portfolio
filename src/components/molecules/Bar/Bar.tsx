@@ -8,10 +8,10 @@ function Bar() {
         <div className="bar barfade">
             <MusicPlayer />
             <div className="bar__list ">
-                <a className="bar__email" href="mailto:darsenungarlinov00@gmail.com">
+                <a data-hover className="bar__email" href="mailto:darsenungarlinov00@gmail.com">
                     darsenungarlinov00@gmail.com
                 </a>
-                <a href={darsenGitHub} className="bar__item" target="_blank" rel="noreferrer">
+                <a data-hover href={darsenGitHub} className="bar__item" target="_blank" rel="noreferrer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         role="img"

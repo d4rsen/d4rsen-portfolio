@@ -10,7 +10,7 @@ root.render(
     <BrowserRouter>
         <ErrorBoundary>
             <App />
-            <canvas id='c' />
+            <canvas id="c" />
         </ErrorBoundary>
     </BrowserRouter>
 );

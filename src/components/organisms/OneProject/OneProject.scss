@@ -114,7 +114,6 @@
             position: absolute;
             inset: 0px;
             object-fit: cover;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
         }
     }
 
@@ -206,10 +205,6 @@
         color: $--lightest-slate;
         width: 100%;
 
-        path {
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
-        }
-
         &__github {
             display: flex;
             -webkit-box-pack: center;
@@ -219,7 +214,6 @@
             padding: 10px;
             color: inherit;
             transition: $--transition;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
 
             &:hover {
                 color: $--green;
@@ -232,7 +226,6 @@
                 fill: none;
                 text-decoration-skip-ink: auto;
                 color: inherit;
-                cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
             }
         }
 
@@ -245,7 +238,6 @@
             padding: 10px;
             color: inherit;
             transition: $--transition;
-            cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
 
             &:hover {
                 color: $--green;
@@ -258,7 +250,6 @@
                 fill: none;
                 text-decoration-skip-ink: auto;
                 color: inherit;
-                cursor: url('../../../../public/assets/cursors/purple_pointer.png'), auto !important;
             }
         }
     }
