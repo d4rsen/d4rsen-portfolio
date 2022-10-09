@@ -4,35 +4,35 @@ import './Background.scss';
 const Background = () => {
     return (
         <>
-            <div className="cube">
-                <img src="assets/svg/react.svg" alt="react" />
+            <div className='cube'>
+                <img src='assets/svg/react.svg' alt='react' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/redux.svg" alt="redux" />
+            <div className='cube'>
+                <img src='assets/svg/redux.svg' alt='redux' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/javascript.svg" alt="javascript" />
+            <div className='cube'>
+                <img src='assets/svg/javascript.svg' alt='javascript' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/nodejs.svg" alt="nodejs" />
+            <div className='cube'>
+                <img src='assets/svg/mobx.svg' alt='mobx' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/typescript.svg" alt="typescript" />
+            <div className='cube'>
+                <img src='assets/svg/typescript.svg' alt='typescript' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/reactquery.svg" alt="reactquery" />
+            <div className='cube'>
+                <img src='assets/images/styled-components.png' alt='styled-components' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/css.svg" alt="css" />
+            <div className='cube'>
+                <img src='assets/svg/gitlab.svg' alt='git' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/socket-io.svg" alt="docker" />
+            <div className='cube'>
+                <img src='assets/images/storybook.png' alt='storybook' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/html.svg" alt="html" />
+            <div className='cube'>
+                <img src='assets/svg/github.svg' alt='github' />
             </div>
-            <div className="cube">
-                <img src="assets/svg/sass.svg" alt="sass" />
+            <div className='cube'>
+                <img src='assets/images/sass.png' alt='sass' />
             </div>
         </>
     );
