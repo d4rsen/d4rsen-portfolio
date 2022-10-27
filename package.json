@@ -1,53 +1,36 @@
 {
-  "name": "d4rsen-portfolio-2",
-  "version": "0.1.0",
+  "name": "d4rsen-portfolio",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "dat.gui": "^0.7.9",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
     "sass": "^1.54.8",
     "simplex-noise": "^3.0.1",
-    "typescript": "^4.8.2",
     "use-sound": "^4.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "format": "prettier --write \"src/**/*.{ts,tsx,jsx,js}\""
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "@types/react": "^18.0.22",
+    "typescript": "^4.8.2",
+    "@types/react-dom": "^18.0.7",
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^3.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/dat.gui": "^0.7.7",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.56",
-    "@types/react": "^18.0.18",
-    "@types/react-dom": "^18.0.6",
     "prettier": "^2.7.1"
   }
 }

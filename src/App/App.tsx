@@ -8,6 +8,7 @@ import Header from '../components/organisms/Header/Header';
 import Router from '../router/Router';
 import { menu } from '../store/menu';
 import './App.scss';
+// @ts-ignore
 import { init } from './canvas';
 import { Cursor } from '../components/atoms/Cursor/Cursor';
 

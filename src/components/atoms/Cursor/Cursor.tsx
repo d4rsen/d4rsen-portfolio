@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Cursor.scss';
+// @ts-ignore
 import { CursorFx } from './cursorClass';
 
 export const Cursor = () => {
