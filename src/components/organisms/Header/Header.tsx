@@ -3,6 +3,7 @@ import Button from '../../atoms/Button/Button';
 import HeaderItem from '../../atoms/HeaderItem/HeaderItem';
 import BurgerTemplate from '../../molecules/BurgerTemplate/BurgerTemplate';
 import './Header.scss';
+import logoUrl from '../../../assets/images/logo.png'
 
 function Header() {
     const url = useMemo(() => window.location.pathname, []);
@@ -13,7 +14,7 @@ function Header() {
                 <div className="header__left left">
                     <div className="left__logo fade5">
                         <a data-hover href="#">
-                            <img src="assets/images/logo.png" alt="logo" className="left__img superfade" />
+                            <img src={logoUrl} alt="logo" className="left__img superfade" />
                         </a>
                     </div>
                 </div>

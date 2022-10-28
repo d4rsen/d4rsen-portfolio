@@ -3,6 +3,10 @@ import NumberedHeading from '../../atoms/NumberedHeading/NumberedHeading';
 import OneProject from '../OneProject/OneProject';
 import * as CONSTANTS from './constants';
 import './Projects.scss';
+import coliseumImgSrc from  '../../../assets/images/coliseum.jpg';
+import jsonImgSrc from  '../../../assets/images/json.png';
+import gradientImgSrc from  '../../../assets/images/gradient.jpg';
+import translateImgSrc from  '../../../assets/images/translate.jpg';
 
 function Projects() {
     return (
@@ -12,7 +16,7 @@ function Projects() {
                 title={CONSTANTS.coliseumTitle}
                 text={CONSTANTS.coliseumText}
                 gitLink={CONSTANTS.coliseumGitLink}
-                imgSrc={CONSTANTS.coliseumImgSrc}
+                imgSrc={coliseumImgSrc}
                 projectLink={CONSTANTS.coliseumProjectLink}
                 stackItems={CONSTANTS.coliseumItems}
             />
@@ -20,7 +24,7 @@ function Projects() {
                 title={CONSTANTS.jsonTitle}
                 text={CONSTANTS.jsonText}
                 gitLink={CONSTANTS.jsonGitLink}
-                imgSrc={CONSTANTS.jsonImgSrc}
+                imgSrc={jsonImgSrc}
                 projectLink={CONSTANTS.jsonProjectLink}
                 stackItems={CONSTANTS.jsonItems}
             />
@@ -28,7 +32,7 @@ function Projects() {
                 title={CONSTANTS.gradientTitle}
                 text={CONSTANTS.gradientText}
                 gitLink={CONSTANTS.gradientGitLink}
-                imgSrc={CONSTANTS.gradientImgSrc}
+                imgSrc={gradientImgSrc}
                 projectLink={CONSTANTS.gradientProjectLink}
                 stackItems={CONSTANTS.gradientItems}
             />
@@ -36,7 +40,7 @@ function Projects() {
                 title={CONSTANTS.translateTitle}
                 text={CONSTANTS.translateText}
                 gitLink={CONSTANTS.translateGitLink}
-                imgSrc={CONSTANTS.translateImgSrc}
+                imgSrc={translateImgSrc}
                 projectLink={CONSTANTS.translateProjectLink}
                 stackItems={CONSTANTS.translateItems}
             />

@@ -1,9 +1,12 @@
 import React, { memo, useState } from 'react';
 import useSound from 'use-sound';
 import './MusicPlayer.scss';
+import musicUrl from '../../../assets/music/sublab.mp3'
+import playUrl from '../../../assets/svg/play.svg'
+import pauseUrl from '../../../assets/svg/pause.svg'
 
 const MusicPlayer = () => {
-    const [play, { pause }] = useSound('assets/music/sublab.mp3', {
+    const [play, { pause }] = useSound(musicUrl, {
         volume: 0.8
     });
     const [isPlaying, setIsPlaying] = useState(false);
@@ -23,7 +26,7 @@ const MusicPlayer = () => {
                             id="play"
                             className="play"
                             onClick={playHandler}
-                            src={`assets/svg/${isPlaying ? 'pause.svg' : 'play.svg'}`}
+                            src={isPlaying ? pauseUrl : playUrl}
                             alt="play-pause"
                         />
                     </div>

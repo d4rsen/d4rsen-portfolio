@@ -1,38 +1,48 @@
 import React, { memo } from 'react';
 import './Background.scss';
+import reactUrl from '../../../assets/svg/react.svg'
+import reduxUrl from '../../../assets/svg/redux.svg'
+import javascriptUrl from '../../../assets/svg/javascript.svg'
+import mobxUrl from '../../../assets/svg/mobx.svg'
+import typescriptUrl from '../../../assets/svg/typescript.svg'
+import gitlabUrl from '../../../assets/svg/gitlab.svg'
+import githubUrl from '../../../assets/svg/github.svg'
+import styledComponentsUrl from '../../../assets/images/styled-components.png'
+import storybookUrl from '../../../assets/images/storybook.png'
+import sassUrl from '../../../assets/images/sass.png'
 
 const Background = () => {
     return (
         <>
             <div className='cube'>
-                <img src='assets/svg/react.svg' alt='react' />
+                <img src={reactUrl} alt='react' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/redux.svg' alt='redux' />
+                <img src={reduxUrl} alt='redux' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/javascript.svg' alt='javascript' />
+                <img src={javascriptUrl} alt='javascript' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/mobx.svg' alt='mobx' />
+                <img src={mobxUrl} alt='mobx' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/typescript.svg' alt='typescript' />
+                <img src={typescriptUrl} alt='typescript' />
             </div>
             <div className='cube'>
-                <img src='assets/images/styled-components.png' alt='styled-components' />
+                <img src={styledComponentsUrl} alt='styled-components' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/gitlab.svg' alt='git' />
+                <img src={gitlabUrl} alt='git' />
             </div>
             <div className='cube'>
-                <img src='assets/images/storybook.png' alt='storybook' />
+                <img src={storybookUrl} alt='storybook' />
             </div>
             <div className='cube'>
-                <img src='assets/svg/github.svg' alt='github' />
+                <img src={githubUrl} alt='github' />
             </div>
             <div className='cube'>
-                <img src='assets/images/sass.png' alt='sass' />
+                <img src={sassUrl} alt='sass' />
             </div>
         </>
     );

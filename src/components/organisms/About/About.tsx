@@ -3,6 +3,7 @@ import NumberedHeading from '../../atoms/NumberedHeading/NumberedHeading';
 import SkillsItem from '../../atoms/SkillsItem/SkillsItem';
 import { darsenGitHub } from '../Projects/constants';
 import './About.scss';
+import darsenUrl from '../../../assets/images/darsen.jpeg'
 
 function About() {
     return (
@@ -29,7 +30,7 @@ function About() {
                     <div className="about__wrapper">
                         <div className="about__imageWrapper">
                             <div className="about__imageBlocker">
-                                <img className="about__darsen" src="assets/images/darsen.jpeg" alt="darsen" />
+                                <img className="about__darsen" src={darsenUrl} alt="darsen" />
                             </div>
                         </div>
                     </div>
