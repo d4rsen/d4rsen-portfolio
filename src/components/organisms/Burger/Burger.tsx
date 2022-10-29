@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { memo } from 'react';
-import { menu } from '../../../store/menu';
+import { menu } from '../../../store/menu.store';
 import BurgerItem from '../../atoms/BurgerItem/BurgerItem';
 import Button from '../../atoms/Button/Button';
 import './Burger.scss';

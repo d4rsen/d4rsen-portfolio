@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { FC, memo, useCallback } from 'react';
-import { menu } from '../../../store/menu';
+import { menu } from '../../../store/menu.store';
 
 interface BurgerItemProps {
     href: string;
@@ -10,7 +10,7 @@ interface BurgerItemProps {
 
 const BurgerItem: FC<BurgerItemProps> = observer(({ href, number, text }) => {
     const closeHandler = useCallback(() => {
-        menu.setMenu(false);
+        menu.open = false;
     }, []);
 
     return (

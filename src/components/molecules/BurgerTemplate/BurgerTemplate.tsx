@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import React, { memo, useCallback } from 'react';
-import { menu } from '../../../store/menu';
+import { menu } from '../../../store/menu.store';
 import HeaderLines from '../../atoms/HeaderLines/HeaderLines';
 import Burger from '../../organisms/Burger/Burger';
 
 const BurgerTemplate = observer(() => {
     const burgerHandler = useCallback(() => {
-        menu.setMenu(!menu.open);
+        menu.open = !menu.open;
     }, []);
 
     return (
