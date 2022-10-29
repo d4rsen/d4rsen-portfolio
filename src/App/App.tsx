@@ -14,7 +14,7 @@ import { Cursor } from '../components/atoms/Cursor/Cursor';
 import { useScrollPercentage } from 'react-scroll-percentage';
 
 const App = observer(() => {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [scrollRef, percentage] = useScrollPercentage();
 
     useEffect(() => {
