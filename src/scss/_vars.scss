@@ -43,72 +43,74 @@ $mobile: 480px;
 $tablet: 768px;
 
 @keyframes onAppear {
-    0% {
-        background-color: $--dark-navy;
-    }
-    100% {
-        background-color: $--navy;
-    }
+  0% {
+    background-color: $--dark-navy;
+  }
+  100% {
+    background-color: $--navy;
+  }
 }
 
 @keyframes barfade {
-    from {
-        margin-bottom: 100vh;
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-        margin-bottom: 0;
-    }
+  from {
+    margin-bottom: 100vh;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0;
+  }
 }
 
 @keyframes playerfade {
-    from {
-        top: 100vh;
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-        top: 70px;
-    }
+  from {
+    top: 100vh;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    top: 70px;
+  }
 }
 
 @keyframes fadein {
-    from {
-        margin-bottom: 500px;
-        opacity: 0;
-        transform: scale(0) rotate(300deg);
-    }
-    to {
-        opacity: 1;
-        margin-bottom: 0;
-        transform: scale(1) rotate(0deg);
-    }
+  from {
+    margin-bottom: 500px;
+    opacity: 0;
+    transform: scale(0) rotate(300deg);
+    -webkit-transform: scale(0) rotate(300deg);
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0;
+    transform: scale(1) rotate(0deg);
+    -webkit-transform: scale(1) rotate(0deg);
+  }
 }
 
 @keyframes superfade {
-    from {
-        filter: hue-rotate(0deg);
-    }
-    to {
-        filter: hue-rotate(360deg);
-    }
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 
 @mixin mobile {
-    @media (max-width: #{$mobile}) {
-        @content
-    }
+  @media (max-width: #{$mobile}) {
+    @content
+  }
 }
 
 @mixin miniMobile {
-    @media (max-width: #{$miniMobile}) {
-        @content
-    }
+  @media (max-width: #{$miniMobile}) {
+    @content
+  }
 }
 
 @mixin tablet {
-    @media (max-width: #{$tablet}) {
-        @content
-    }
+  @media (max-width: #{$tablet}) {
+    @content
+  }
 }
