@@ -15,7 +15,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scroll-percentage": "^4.2.0",
+    "react-scroll-percentage": "^4.3.0",
     "react-top-loading-bar": "^2.3.1",
     "sass": "^1.54.8",
     "simplex-noise": "^3.0.1",
