@@ -1,16 +1,16 @@
 import { observer } from 'mobx-react-lite';
 import React, { memo, useEffect, useState } from 'react';
-import Footer from '../components/atoms/Footer/Footer';
-import Loader from '../components/atoms/Loader/Loader';
-import Background from '../components/molecules/Background/Background';
-import Bar from '../components/molecules/Bar/Bar';
-import Header from '../components/organisms/Header/Header';
+import Footer from '../components/atoms/Footer';
+import Loader from '../components/atoms/Loader';
+import Background from '../components/molecules/Background';
+import Bar from '../components/molecules/Bar';
+import Header from '../components/organisms/Header';
 import Router from '../router/Router';
 import { menu } from '../store/menu.store';
-import './App.scss';
+import '../scss/style.scss';
 // @ts-ignore
 import { init } from './canvas';
-import { Cursor } from '../components/atoms/Cursor/Cursor';
+import { Cursor } from '../components/atoms/Cursor';
 
 const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true);

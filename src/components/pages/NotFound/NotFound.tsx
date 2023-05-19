@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-import Button from '../../atoms/Button/Button';
-import './NotFound.scss';
+import Button from '../../atoms/Button';
 
 function NotFound() {
     return (

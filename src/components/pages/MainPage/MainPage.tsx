@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
-import About from '../../organisms/About/About';
-import Contact from '../../organisms/Contact/Contact';
-import Hello from '../../organisms/Hello/Hello';
-import Jobs from '../../organisms/Jobs/Jobs';
-import Projects from '../../organisms/Projects/Projects';
-import './MainPage.scss';
+import About from '../../organisms/About';
+import Contact from '../../organisms/Contact';
+import Hello from '../../organisms/Hello';
+import Jobs from '../../organisms/Jobs';
+import Projects from '../../organisms/Projects';
 
 function MainPage() {
     return (

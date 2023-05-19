@@ -1,11 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import Footer from '../components/atoms/Footer/Footer';
-import MusicPlayer from '../components/atoms/MusicPlayer/MusicPlayer';
-import Background from '../components/molecules/Background/Background';
-import Bar from '../components/molecules/Bar/Bar';
-import Header from '../components/organisms/Header/Header';
+import Footer from '../components/atoms/Footer';
+import MusicPlayer from '../components/atoms/MusicPlayer';
+import Background from '../components/molecules/Background';
+import Bar from '../components/molecules/Bar';
+import Header from '../components/organisms/Header';
 import Router from '../router/Router';
 import { menu } from '../store/menu.store';
 
