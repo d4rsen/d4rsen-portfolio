@@ -195,9 +195,6 @@ body {
   font-family: $font-mono;
   scroll-behavior: smooth;
   user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
@@ -225,67 +222,34 @@ body {
 
 .fade1 {
   animation: fadein 500ms;
-  -webkit-animation: fadein 500ms;
-  -moz-animation: fadein 500ms;
-  -ms-animation: fadein 500ms;
-  -o-animation: fadein 500ms;
 }
 
 .fade2 {
   animation: fadein 1000ms;
-  -webkit-animation: fadein 1000ms;
-  -moz-animation: fadein 1000ms;
-  -ms-animation: fadein 1000ms;
-  -o-animation: fadein 1000ms;
 }
 
 .fade3 {
   animation: fadein 1500ms;
-  -webkit-animation: fadein 1500ms;
-  -moz-animation: fadein 1500ms;
-  -ms-animation: fadein 1500ms;
-  -o-animation: fadein 1500ms;
-
 }
 
 .fade4 {
   animation: fadein 2000ms;
-  -webkit-animation: fadein 2000ms;
-  -moz-animation: fadein 2000ms;
-  -ms-animation: fadein 2000ms;
-  -o-animation: fadein 2000ms;
 }
 
 .fade5 {
   animation: fadein 2500ms;
-  -webkit-animation: fadein 2500ms;
-  -moz-animation: fadein 2500ms;
-  -ms-animation: fadein 2500ms;
-  -o-animation: fadein 2500ms;
 }
 
 .barfade {
   animation: barfade 5000ms ease;
-  -webkit-animation: barfade 5000ms ease;
-  -moz-animation: barfade 5000ms ease;
-  -ms-animation: barfade 5000ms ease;
-  -o-animation: barfade 5000ms ease;
 }
 
 .playerfade {
   animation: playerfade 5000ms ease;
-  -webkit-animation: playerfade 5000ms ease;
-  -moz-animation: playerfade 5000ms ease;
-  -ms-animation: playerfade 5000ms ease;
-  -o-animation: playerfade 5000ms ease;
 }
 
 .superfade {
   animation: superfade 5000ms;
-  -webkit-animation: superfade 5000ms;
-  -moz-animation: superfade 5000ms;
-  -ms-animation: superfade 5000ms;
-  -o-animation: superfade 5000ms;
 }
 
 
@@ -463,14 +427,12 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-box-align: center;
   height: 50px;
   padding: 15px;
   text-align: center;
   position: relative;
   width: 100%;
   z-index: 10;
-  -webkit-box-pack: justify;
   min-width: 100vw;
   background-color: transparent;
   filter: none !important;
@@ -530,7 +492,6 @@ select {
   position: relative;
   transition: $transition;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   width: 100%;
   height: $tab-height;
@@ -547,10 +508,6 @@ select {
 
   &:hover {
     animation: $superfade 3000ms;
-    -webkit-animation: $superfade 3000ms;
-    -moz-animation: $superfade 3000ms;
-    -ms-animation: $superfade 3000ms;
-    -o-animation: $superfade 3000ms;
   }
 }
 
@@ -591,18 +548,14 @@ select {
 
     @keyframes jump {
       from, 20%, 53%, 80%, to {
-        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         opacity: 0;
         filter: hue-rotate(0deg);
       }
 
       40%, 43% {
-        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
         animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        -webkit-transform: translate3d(0, -30px, 0);
         transform: translate3d(0, -30px, 0);
         opacity: 1;
         filter: hue-rotate(360deg);
@@ -610,9 +563,7 @@ select {
       }
 
       70% {
-        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
         animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-        -webkit-transform: translate3d(0, -15px, 0);
         transform: translate3d(0, -15px, 0);
         opacity: 1;
         filter: hue-rotate(360deg);
@@ -620,7 +571,6 @@ select {
       }
 
       90% {
-        -webkit-transform: translate3d(0, -4px, 0);
         transform: translate3d(0, -4px, 0);
         opacity: 1;
         filter: hue-rotate(360deg);
@@ -629,9 +579,7 @@ select {
     }
 
     .jump {
-      -webkit-animation-name: bounce;
       animation-name: bounce;
-      -webkit-transform-origin: center bottom;
       transform-origin: center bottom;
 
     }
@@ -731,12 +679,10 @@ select {
       background-size: 20px;
       margin: 5px 0;
       transition: background-color .3s ease;
-      -webkit-transition: background-color .3s ease;
     }
 
     .play:hover {
       transition: background-color .3s ease;
-      -webkit-transition: background-color .3s ease;
     }
   }
 }
@@ -754,10 +700,6 @@ select {
 
   &:hover {
     animation: $superfade 3000ms;
-    -webkit-animation: $superfade 3000ms;
-    -moz-animation: $superfade 3000ms;
-    -ms-animation: $superfade 3000ms;
-    -o-animation: $superfade 3000ms;
   }
 
   @include mobile {
@@ -812,10 +754,6 @@ select {
 
   &:hover {
     animation: $superfade 3000ms;
-    -webkit-animation: $superfade 3000ms;
-    -moz-animation: $superfade 3000ms;
-    -ms-animation: $superfade 3000ms;
-    -o-animation: $superfade 3000ms;
   }
 
   &:before {
@@ -1099,10 +1037,6 @@ select {
 
       &:hover {
         animation: $superfade 3000ms;
-        -webkit-animation: $superfade 3000ms;
-        -moz-animation: $superfade 3000ms;
-        -ms-animation: $superfade 3000ms;
-        -o-animation: $superfade 3000ms;
       }
     }
   }
@@ -1113,10 +1047,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
   }
 
@@ -1276,10 +1206,6 @@ select {
 
       &:hover {
         animation: $superfade 3000ms;
-        -webkit-animation: $superfade 3000ms;
-        -moz-animation: $superfade 3000ms;
-        -ms-animation: $superfade 3000ms;
-        -o-animation: $superfade 3000ms;
       }
 
       a {
@@ -1332,10 +1258,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
 
     @include mobile {
@@ -1774,10 +1696,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
 
     &__company {
@@ -1793,10 +1711,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
   }
 }
@@ -1830,10 +1744,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
 
     &__wrapper {
@@ -1934,10 +1844,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
   }
 
@@ -1949,10 +1855,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
   }
 
@@ -1979,10 +1881,6 @@ select {
 
     &:hover {
       animation: $superfade 3000ms;
-      -webkit-animation: $superfade 3000ms;
-      -moz-animation: $superfade 3000ms;
-      -ms-animation: $superfade 3000ms;
-      -o-animation: $superfade 3000ms;
     }
 
     &__item {
