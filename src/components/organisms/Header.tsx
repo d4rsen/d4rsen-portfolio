@@ -12,7 +12,7 @@ function Header() {
             <div className="header-container">
                 <div className="header__left left">
                     <div className="left__logo fade5">
-                        <a data-hover href="Header#">
+                        <a data-hover href="#">
                             <img src={logoUrl} alt="logo" className="left__img superfade" />
                         </a>
                     </div>
@@ -24,7 +24,7 @@ function Header() {
                             <HeaderItem fade="fade2" href="#jobs" number="02." text="Experience" />
                             <HeaderItem fade="fade3" href="#projects" number="03." text="Work" />
                             <HeaderItem fade="fade4" href="#contact" number="04." text="Contact" />
-                            <Button className="fade5" text="Resume" href="/resume.pdf" />
+                            {/*<Button  className="fade5" text="Resume" href="/resume.pdf" />*/}
                         </div>
                         <BurgerTemplate />
                     </div>

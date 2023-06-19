@@ -111,6 +111,7 @@ $tablet: 768px;
     @content
   }
 }
+
 *,
 *::before,
 *::after {
@@ -219,7 +220,7 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  opacity: 0.5;
+  filter: blur(2px);
 }
 
 .fade1 {
@@ -850,6 +851,10 @@ select {
     width: 70px;
     height: 70px;
   }
+}
+
+.cube {
+  filter: blur(2px);
 }
 
 .cube:nth-child(2n) {
