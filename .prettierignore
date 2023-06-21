@@ -1,0 +1,10 @@
+package.json
+package-lock.json
+.gitconfig
+dist
+build
+
+**/*.svg
+**/*.yml
+**/*.css
+
