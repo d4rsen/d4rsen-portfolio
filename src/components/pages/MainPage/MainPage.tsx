@@ -13,7 +13,7 @@ function MainPage() {
                 <About />
                 <Jobs />
                 <Projects />
-                <Contact />
+                {/* <Contact /> */}
             </div>
         </div>
     );
