@@ -11,8 +11,8 @@ const Burger = observer(() => {
                 <div className={menu.open ? 'burger__list active' : 'burger__list'}>
                     <BurgerItem number="01." href="#about" text="About" />
                     <BurgerItem number="02." href="#jobs" text="Experience" />
-                    <BurgerItem number="03." href="#projects" text="Work" />
-                    <BurgerItem number="04." href="#contact" text="Contact" />
+                    {/* <BurgerItem number="03." href="#projects" text="Work" /> */}
+                    <BurgerItem number="03." href="#contact" text="Contact" />
                     {/* <Button className="" text="Resume" href="/resume.pdf" /> */}
                 </div>
             </aside>
