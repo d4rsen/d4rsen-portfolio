@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { memo, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Footer from '../components/atoms/Footer';
 import Loader from '../components/atoms/Loader';
 import Background from '../components/molecules/Background';
@@ -14,14 +14,20 @@ import { Cursor } from '../components/atoms/Cursor';
 
 const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true);
+    const animation = useCallback(init, []);
 
     useEffect(() => {
+        animation();
         setTimeout(() => setIsLoading(false), 4000);
-        init();
     }, []);
 
     if (isLoading) {
-        return <Loader />;
+        return (
+            <>
+                <Loader />
+                <Cursor />
+            </>
+        );
     }
 
     return (
@@ -40,4 +46,4 @@ const App = observer(() => {
     );
 });
 
-export default memo(App);
+export default App;

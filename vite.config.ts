@@ -6,9 +6,5 @@ export default defineConfig({
         react({
             tsDecorators: true
         })
-        // delete PWA for now
-        // VitePWA({
-        //     injectRegister: 'auto'
-        // })
     ]
 });

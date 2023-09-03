@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
 interface ButtonProps {
     href: string;
@@ -15,4 +15,4 @@ const Button: FC<ButtonProps> = ({ text, href, className, target = '_blank' }) =
     );
 };
 
-export default memo(Button);
+export default Button;

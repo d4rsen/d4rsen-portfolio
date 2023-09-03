@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import logoUrl from '../../assets/images/logo.png'
+import React from 'react';
+import logoUrl from '../../assets/images/logo.png';
 
 function Loader() {
     return (
@@ -9,4 +9,4 @@ function Loader() {
     );
 }
 
-export default memo(Loader);
+export default Loader;

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import MusicPlayer from '../atoms/MusicPlayer';
 import { darsenGitHub } from '../organisms/constants';
 
@@ -31,4 +31,4 @@ function Bar() {
     );
 }
 
-export default memo(Bar);
+export default Bar;

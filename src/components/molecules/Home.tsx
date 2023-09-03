@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import SkillsItem from '../atoms/SkillsItem';
 
 function Home() {
@@ -18,4 +18,4 @@ function Home() {
     );
 }
 
-export default memo(Home);
+export default Home;

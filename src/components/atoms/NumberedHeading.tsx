@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 interface NumberedHeadingProps {
     number: string | number;
@@ -14,4 +14,4 @@ function NumberedHeading({ number, text }: NumberedHeadingProps) {
     );
 }
 
-export default memo(NumberedHeading);
+export default NumberedHeading;

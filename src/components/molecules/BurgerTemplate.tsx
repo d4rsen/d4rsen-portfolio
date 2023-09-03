@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { memo, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { menu } from '../../store/menu.store';
 import HeaderLines from '../atoms/HeaderLines';
 import Burger from '../organisms/Burger';
@@ -19,4 +19,4 @@ const BurgerTemplate = observer(() => {
     );
 });
 
-export default memo(BurgerTemplate);
+export default BurgerTemplate;

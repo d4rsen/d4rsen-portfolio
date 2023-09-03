@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from '../atoms/Button';
 import Background from './Background';
 
@@ -19,4 +19,4 @@ function ErrorComponent() {
     );
 }
 
-export default memo(ErrorComponent);
+export default ErrorComponent;

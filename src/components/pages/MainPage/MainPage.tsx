@@ -1,9 +1,8 @@
-import React, { memo } from 'react';
+import React from 'react';
 import About from '../../organisms/About';
 import Contact from '../../organisms/Contact';
 import Hello from '../../organisms/Hello';
 import Jobs from '../../organisms/Jobs';
-import Projects from '../../organisms/Projects';
 
 function MainPage() {
     return (
@@ -12,11 +11,11 @@ function MainPage() {
                 <Hello />
                 <About />
                 <Jobs />
-                <Projects />
-                {/* <Contact /> */}
+                {/*<Projects />*/}
+                <Contact />
             </div>
         </div>
     );
 }
 
-export default memo(MainPage);
+export default MainPage;

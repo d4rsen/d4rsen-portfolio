@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 interface OneProjectProps {
     title: string;
@@ -89,4 +89,4 @@ function OneProject({ title, text, stackItems, imgSrc, gitLink, projectLink }: O
     );
 }
 
-export default memo(OneProject);
+export default OneProject;

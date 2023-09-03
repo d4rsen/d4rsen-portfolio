@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 const HeaderLines = () => {
     return (
@@ -10,4 +10,4 @@ const HeaderLines = () => {
     );
 };
 
-export default memo(HeaderLines);
+export default HeaderLines;

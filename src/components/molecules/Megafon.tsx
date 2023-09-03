@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import SkillsItem from '../atoms/SkillsItem';
 
 function Megafon() {
@@ -16,4 +16,4 @@ function Megafon() {
     );
 }
 
-export default memo(Megafon);
+export default Megafon;

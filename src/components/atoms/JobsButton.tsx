@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useMemo } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 
 interface JobI {
     elbrus: boolean;
@@ -33,4 +33,4 @@ const JobsButton: FC<JobsButtonProps> = ({ text, active, setJobs }) => {
     );
 };
 
-export default memo(JobsButton);
+export default JobsButton;

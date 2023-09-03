@@ -1,10 +1,10 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import JobsButton from '../atoms/JobsButton';
 import NumberedHeading from '../atoms/NumberedHeading';
 import Abt from '../molecules/Abt';
 import Elbrus from '../molecules/Elbrus';
 import Megafon from '../molecules/Megafon';
-import Home from "../molecules/Home";
+import Home from '../molecules/Home';
 
 function Jobs() {
     const [jobs, setJobs] = useState({
@@ -24,10 +24,12 @@ function Jobs() {
                     <JobsButton setJobs={setJobs} text="ABT" active={jobs.abt} />
                     <JobsButton setJobs={setJobs} text="Home" active={jobs.home} />
                 </div>
-                <div className="jobs__right">{jobs.abt ? <Abt /> : jobs.elbrus ? <Elbrus /> : jobs.home ? <Home/> : <Megafon />}</div>
+                <div className="jobs__right">
+                    {jobs.abt ? <Abt /> : jobs.elbrus ? <Elbrus /> : jobs.home ? <Home /> : <Megafon />}
+                </div>
             </div>
         </div>
     );
 }
 
-export default memo(Jobs);
+export default Jobs;

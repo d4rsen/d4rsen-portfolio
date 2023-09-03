@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import NumberedHeading from '../atoms/NumberedHeading';
 import OneProject from './OneProject';
 import * as CONSTANTS from './constants';
@@ -47,4 +47,4 @@ function Projects() {
     );
 }
 
-export default memo(Projects);
+export default Projects;

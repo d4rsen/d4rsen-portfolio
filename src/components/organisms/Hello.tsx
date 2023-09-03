@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from '../atoms/Button';
 
 function Hello() {
@@ -18,4 +18,4 @@ function Hello() {
     );
 }
 
-export default memo(Hello);
+export default Hello;

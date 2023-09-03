@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import SkillsItem from '../atoms/SkillsItem';
 
 function Abt() {
@@ -16,4 +16,4 @@ function Abt() {
     );
 }
 
-export default memo(Abt);
+export default Abt;

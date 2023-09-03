@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC } from 'react';
 
 interface HeaderItemProps {
     href: string;
@@ -18,4 +18,4 @@ const HeaderItem: FC<HeaderItemProps> = ({ fade, href, number, text }) => {
     );
 };
 
-export default memo(HeaderItem);
+export default HeaderItem;

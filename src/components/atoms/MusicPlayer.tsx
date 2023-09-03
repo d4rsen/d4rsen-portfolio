@@ -1,9 +1,9 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 // @ts-ignore
 import useSound from 'use-sound';
-import musicUrl from '../../assets/music/sublab.mp3'
-import playUrl from '../../assets/svg/play.svg'
-import pauseUrl from '../../assets/svg/pause.svg'
+import musicUrl from '../../assets/music/sublab.mp3';
+import playUrl from '../../assets/svg/play.svg';
+import pauseUrl from '../../assets/svg/pause.svg';
 
 const MusicPlayer = () => {
     const [play, { pause }] = useSound(musicUrl, {
@@ -45,4 +45,4 @@ const MusicPlayer = () => {
     );
 };
 
-export default memo(MusicPlayer);
+export default MusicPlayer;

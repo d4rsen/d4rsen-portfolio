@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Button from '../../atoms/Button';
 
 function NotFound() {
@@ -11,4 +11,4 @@ function NotFound() {
     );
 }
 
-export default memo(NotFound);
+export default NotFound;

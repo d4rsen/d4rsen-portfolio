@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { FC, memo, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import { menu } from '../../store/menu.store';
 
 interface BurgerItemProps {
@@ -23,4 +23,4 @@ const BurgerItem: FC<BurgerItemProps> = observer(({ href, number, text }) => {
     );
 });
 
-export default memo(BurgerItem);
+export default BurgerItem;

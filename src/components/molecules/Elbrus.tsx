@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import SkillsItem from '../atoms/SkillsItem';
 
 const Elbrus = () => {
@@ -16,4 +16,4 @@ const Elbrus = () => {
     );
 };
 
-export default memo(Elbrus);
+export default Elbrus;
