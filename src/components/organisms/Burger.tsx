@@ -13,7 +13,7 @@ const Burger = observer(() => {
                     <BurgerItem number="02." href="#jobs" text="Experience" />
                     <BurgerItem number="03." href="#projects" text="Work" />
                     <BurgerItem number="04." href="#contact" text="Contact" />
-                    <Button className="" text="Resume" href="/resume.pdf" />
+                    {/* <Button className="" text="Resume" href="/resume.pdf" /> */}
                 </div>
             </aside>
         </div>
