@@ -1443,7 +1443,6 @@ select {
   pointer-events: auto !important;
   user-select: auto !important;
   transition: $transition;
-  animation: .5s linear 0s 1 $onappear;
 
   @include mobile {
     padding: 0px 50px;
