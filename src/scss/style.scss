@@ -1437,13 +1437,12 @@ select {
   width: 100vw;
   min-width: 100vw;
   height: 70px;
-  background-color: $navy;
+  background: transparent;
   backdrop-filter: blur(5px);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
   transition: $transition;
-  box-shadow: 0 10px 30px -10px $navy-shadow;
   animation: .5s linear 0s 1 $onappear;
 
   @include mobile {
