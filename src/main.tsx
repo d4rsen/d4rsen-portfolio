@@ -10,7 +10,10 @@ root.render(
     <BrowserRouter>
         <ErrorBoundary>
             <App />
-            <canvas id="c" />
+            <div id="c"></div>
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
         </ErrorBoundary>
     </BrowserRouter>
 );
