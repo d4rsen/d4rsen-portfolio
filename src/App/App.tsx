@@ -9,6 +9,7 @@ import Router from '../router/Router';
 import { menu } from '../store/menu.store';
 import '../scss/style.scss';
 import { Cursor } from '../components/atoms/Cursor';
+import { isMobile } from 'react-device-detect';
 
 const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true);
@@ -17,19 +18,12 @@ const App = observer(() => {
         setTimeout(() => setIsLoading(false), 4000);
     }, []);
 
-    if (isLoading) {
-        return (
-            <>
-                <Loader />
-                <Cursor />
-            </>
-        );
-    }
+    if (isLoading) return <Loader />;
 
     return (
         <div className="wrapper">
             <Background />
-            <Cursor />
+            {!isMobile && <Cursor />}
             <div className="_main-container">
                 <Header />
                 <main className={menu.open ? 'main--blur' : 'main'}>
