@@ -42,14 +42,111 @@ $mobile: 480px;
 $tablet: 768px;
 
 
+// cursor black hole
+
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: fixed;
+  transition-duration: 10ms;
+  transition-timing-function: ease-out;
+  animation: pulse .8s infinite;
+  display: none;
+  z-index: 1;
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale(.5, .5);
+    opacity: .5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  from {
+    transform: scale(.5, .5);
+    opacity: 1;
+    box-shadow: 0 0 10px 8px $green;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
+.explosion {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 10ms;
+  transition-timing-function: ease-out;
+  animation: explosion .5s;
+  z-index: 1;
+}
+
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0px 0px $green;
+  }
+  50% {
+    transform: scale(3);
+    box-shadow: 0 0 10px 8px $green;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0px 0px $green;
+  }
+}
+
+blackhole {
+  border-radius: 100%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -4px;
+  left: -4px;
+  border: 1px solid #20e3a2;
+  box-shadow: -10px -10px 30px #31c8a2,
+  10px 10px 30px #31c8a2;
+  animation: falling 2s linear;
+  animation-delay: 1s;
+  transform: translate(-50%, -50%);
+  background: black;
+}
+
+@keyframes falling {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+
+  }
+}
+
+
+// cursor black hole
+
 //black hole
 
 .blackhole {
-  width: 5em;
-  height: 5em;
-  left: calc(50vw - 2.5em);
-  top: calc(50vh - 2.5em);
-  z-index: 1;
+  width: 25em;
+  height: 25em;
+  left: calc(100vw - 12.5em);
+  top: calc(50vh - 12.5em);
+  z-index: 2;
   position: fixed;
 }
 
@@ -57,15 +154,16 @@ $tablet: 768px;
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background: linear-gradient(#ff4500, #ff4500, #ff9900);
-  box-shadow: 0 0 60px 30px #fcbd3e, /* inner white */
-  0 0 100px 60px #fd7a4d,
+  background: linear-gradient(#64ffda, #57cbff);
+  box-shadow: 0 0 60px 30px rgba(100, 255, 218, 0.66), /* inner white */
+  0 0 100px 60px rgba(100, 255, 218, 0.31),
     /* middle magenta */
-  0 0 140px 90px #ff0b6b; /* outer cyan */
+  0 0 140px 90px rgba(100, 255, 218, 0.15); /* outer cyan */
   display: flex;
   justify-content: center;
   align-items: center;
   filter: blur(5px);
+  animation: hole 0.1s linear infinite normal;
 }
 
 .blackhole .black {
@@ -74,7 +172,6 @@ $tablet: 768px;
   border-radius: 45% 50% 50% 50%;
   background-color: black;
   transform: rotate(0deg);
-  animation: hole 0.1s linear infinite normal;
 }
 
 @keyframes hole {
@@ -553,7 +650,7 @@ select {
   &--circle {
     width: 20px;
     height: 20px;
-    border: 1px solid $green
+    border: 1px solid $green;
   }
 }
 

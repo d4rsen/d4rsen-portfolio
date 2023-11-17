@@ -1,3 +1,49 @@
+export const initBlackHoles = () => {
+    let curs = document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+        curs.style.left = x - 15 + 'px';
+        curs.style.top = y - 15 + 'px';
+        curs.style.display = 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+
+        curs.classList.add('explosion');
+        setTimeout(function () {
+            curs.classList.remove('explosion');
+        }, 900);
+
+        let blackhole = document.createElement('blackhole');
+        blackhole.classList.add('blackhole');
+        blackhole.style.zIndex = '1';
+
+        let megna = document.createElement('div');
+        megna.classList.add('megna');
+
+        let blackHoleInner = document.createElement('div');
+        blackHoleInner.classList.add('black');
+
+        blackhole.appendChild(megna);
+        megna.appendChild(blackHoleInner);
+
+        blackhole.style.left = x + 'px';
+        blackhole.style.top = y + 'px';
+        document.body.appendChild(blackhole);
+        let size = Math.random() * 80;
+        blackhole.style.width = 20 + size + 'px';
+        blackhole.style.height = 20 + size + 'px';
+
+        setTimeout(function () {
+            blackhole.remove();
+        }, 3000);
+    });
+};
+
 const lerp = (a, b, n) => (1 - n) * a + n * b;
 const body = document.body;
 const getMousePos = (e) => {
