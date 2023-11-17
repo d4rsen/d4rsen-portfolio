@@ -7,6 +7,7 @@ export const Cursor = () => {
     const refHoles = useRef(null);
 
     useEffect(() => {
+        refHoles.current = initBlackHoles();
         const cursor = new CursorFx(ref.current);
         // @ts-ignore
         [...document.querySelectorAll('[data-hover]')].forEach((link) => {
@@ -14,8 +15,6 @@ export const Cursor = () => {
             link.addEventListener('mouseleave', () => cursor.leave());
             link.addEventListener('click', () => cursor.click());
         });
-
-        refHoles.current = initBlackHoles();
     }, []);
 
     return (

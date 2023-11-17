@@ -8,6 +8,8 @@ import Header from '../components/organisms/Header';
 import Router from '../router/Router';
 import { menu } from '../store/menu.store';
 import '../scss/style.scss';
+import { isMobile } from 'react-device-detect';
+import { Cursor } from '../components/atoms/Cursor.tsx';
 
 const App = observer(() => {
     const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +23,7 @@ const App = observer(() => {
     return (
         <div className="wrapper">
             <Background />
+            {!isMobile && <Cursor />}
             <div className="_main-container">
                 <Header />
                 <main className={menu.open ? 'main--blur' : 'main'}>
