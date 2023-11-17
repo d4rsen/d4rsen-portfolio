@@ -41,6 +41,50 @@ $miniMobile: 390px;
 $mobile: 480px;
 $tablet: 768px;
 
+
+//black hole
+
+.blackhole {
+  width: 5em;
+  height: 5em;
+  left: calc(50vw - 2.5em);
+  top: calc(50vh - 2.5em);
+  z-index: 1;
+  position: fixed;
+}
+
+.blackhole .megna {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: linear-gradient(#ff4500, #ff4500, #ff9900);
+  box-shadow: 0 0 60px 30px #fcbd3e, /* inner white */
+  0 0 100px 60px #fd7a4d,
+    /* middle magenta */
+  0 0 140px 90px #ff0b6b; /* outer cyan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(5px);
+}
+
+.blackhole .black {
+  width: 90%;
+  height: 90%;
+  border-radius: 45% 50% 50% 50%;
+  background-color: black;
+  transform: rotate(0deg);
+  animation: hole 0.1s linear infinite normal;
+}
+
+@keyframes hole {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//black hole
+
 @keyframes onAppear {
   0% {
     background-color: $dark-navy;
@@ -364,13 +408,6 @@ $shadows-big: multiple-box-shadow(100);
   box-sizing: border-box;
 }
 
-* {
-  cursor: none !important;
-
-  &:hover {
-    cursor: none !important;
-  }
-}
 
 ul[class],
 ol[class] {
