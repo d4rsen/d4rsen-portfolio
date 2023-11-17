@@ -2,16 +2,16 @@ export const initBlackHoles = () => {
     let curs = document.querySelector('.cursor');
 
     document.addEventListener('mousemove', (e) => {
-        let x = e.pageX;
-        let y = e.pageY;
+        let x = e.clientX;
+        let y = e.clientY;
         curs.style.left = x - 15 + 'px';
         curs.style.top = y - 15 + 'px';
         curs.style.display = 'block';
     });
 
     document.addEventListener('click', (e) => {
-        let x = e.pageX;
-        let y = e.pageY;
+        let x = e.clientX;
+        let y = e.clientY;
 
         curs.classList.add('explosion');
         setTimeout(function () {
@@ -20,7 +20,7 @@ export const initBlackHoles = () => {
 
         let blackhole = document.createElement('blackhole');
         blackhole.classList.add('blackhole');
-        blackhole.style.zIndex = '1';
+        blackhole.style.zIndex = '0';
 
         let megna = document.createElement('div');
         megna.classList.add('megna');

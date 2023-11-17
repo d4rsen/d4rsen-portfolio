@@ -4,6 +4,7 @@ import { CursorFx, initBlackHoles } from './cursorClass';
 
 export const Cursor = () => {
     const ref = useRef(null);
+    const refHoles = useRef(null);
 
     useEffect(() => {
         const cursor = new CursorFx(ref.current);
@@ -14,7 +15,7 @@ export const Cursor = () => {
             link.addEventListener('click', () => cursor.click());
         });
 
-        initBlackHoles();
+        refHoles.current = initBlackHoles();
     }, []);
 
     return (

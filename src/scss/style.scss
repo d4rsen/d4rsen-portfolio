@@ -41,147 +41,6 @@ $miniMobile: 390px;
 $mobile: 480px;
 $tablet: 768px;
 
-
-// cursor black hole
-
-
-.cursor {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 50%;
-  position: fixed;
-  transition-duration: 10ms;
-  transition-timing-function: ease-out;
-  animation: pulse .8s infinite;
-  display: none;
-  z-index: 1;
-}
-
-
-@keyframes pulse {
-  from {
-    transform: scale(.5, .5);
-    opacity: .5;
-  }
-  to {
-    transform: scale(2.5, 2.5);
-    opacity: 0;
-  }
-}
-
-@keyframes pulse2 {
-  from {
-    transform: scale(.5, .5);
-    opacity: 1;
-    box-shadow: 0 0 10px 8px $green;
-  }
-  to {
-    transform: scale(2.5, 2.5);
-    opacity: 0;
-  }
-}
-
-.explosion {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  transition-duration: 10ms;
-  transition-timing-function: ease-out;
-  animation: explosion .5s;
-  z-index: 1;
-}
-
-@keyframes explosion {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0px 0px $green;
-  }
-  50% {
-    transform: scale(3);
-    box-shadow: 0 0 10px 8px $green;
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0px 0px $green;
-  }
-}
-
-blackhole {
-  border-radius: 100%;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: -4px;
-  left: -4px;
-  border: 1px solid #20e3a2;
-  box-shadow: -10px -10px 30px #31c8a2,
-  10px 10px 30px #31c8a2;
-  animation: falling 2s linear;
-  animation-delay: 1s;
-  transform: translate(-50%, -50%);
-  background: black;
-}
-
-@keyframes falling {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-
-  }
-}
-
-
-// cursor black hole
-
-//black hole
-
-.blackhole {
-  width: 25em;
-  height: 25em;
-  left: calc(100vw - 12.5em);
-  top: calc(50vh - 12.5em);
-  z-index: 2;
-  position: fixed;
-}
-
-.blackhole .megna {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  background: linear-gradient(#64ffda, #57cbff);
-  box-shadow: 0 0 60px 30px rgba(100, 255, 218, 0.66), /* inner white */
-  0 0 100px 60px rgba(100, 255, 218, 0.31),
-    /* middle magenta */
-  0 0 140px 90px rgba(100, 255, 218, 0.15); /* outer cyan */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: blur(5px);
-  animation: hole 0.1s linear infinite normal;
-}
-
-.blackhole .black {
-  width: 90%;
-  height: 90%;
-  border-radius: 45% 50% 50% 50%;
-  background-color: black;
-  transform: rotate(0deg);
-}
-
-@keyframes hole {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-//black hole
-
 @keyframes onAppear {
   0% {
     background-color: $dark-navy;
@@ -727,7 +586,7 @@ select {
   align-items: center;
   width: 100%;
   height: $tab-height;
-  padding: 0px 20px 2px;
+  padding: 0 20px 2px;
   border: 2px solid $lightest-navy;
   background-color: transparent;
   color: $slate;
@@ -735,7 +594,7 @@ select {
   font-size: $fz-xs;
   text-align: left;
   white-space: nowrap;
-  border-radius: 0px;
+  border-radius: 0;
   backdrop-filter: blur(5px);
 
   &:hover {
@@ -936,11 +795,11 @@ select {
   }
 
   @include mobile {
-    margin: 10px 0px;
+    margin: 10px 0;
   }
 
   @include miniMobile {
-    margin: 10px 0px;
+    margin: 10px 0;
   }
 
   &__number {
@@ -1216,32 +1075,32 @@ select {
   padding: 100px 0;
   width: 100%;
   z-index: 2;
-  margin: 0px auto;
+  margin: 0 auto;
   min-height: 100vh;
 
   @include mobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
     flex-direction: column;
   }
 
   @include miniMobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
     flex-direction: column;
     margin: 0;
   }
 
   @include tablet {
-    padding: 80px 0px;
+    padding: 80px 0;
   }
 
   &__skills {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
-    gap: 0px 10px;
-    padding: 0px;
-    margin: 20px 0px 0px;
+    gap: 0 10px;
+    padding: 0;
+    margin: 20px 0 0;
     overflow: hidden;
     list-style: none;
   }
@@ -1304,8 +1163,8 @@ select {
     }
 
     &:before {
-      top: 0px;
-      left: 0px;
+      top: 0;
+      left: 0;
       mix-blend-mode: screen;
       content: "";
       display: block;
@@ -1476,7 +1335,7 @@ select {
   align-items: center;
   flex-direction: column;
   padding: 100px 0 0 0;
-  margin: 0px auto;
+  margin: 0 auto;
   min-height: 90vh;
   text-align: center;
   z-index: 2;
@@ -1502,7 +1361,7 @@ select {
   }
 
   &__text {
-    margin: 0px;
+    margin: 0;
     width: 100%;
     height: 100%;
     -webkit-font-smoothing: antialiased;
@@ -1564,10 +1423,10 @@ select {
   -webkit-box-align: center;
   align-items: center;
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   z-index: 11;
-  padding: 0px 50px;
+  padding: 0 50px;
   width: 100vw;
   min-width: 100vw;
   height: 70px;
@@ -1579,12 +1438,12 @@ select {
   transition: $transition;
 
   @include mobile {
-    padding: 0px 50px;
+    padding: 0 50px;
     height: 70px;
   }
 
   @include miniMobile {
-    padding: 0px 50px;
+    padding: 0 50px;
     height: 70px;
   }
 
@@ -1730,24 +1589,24 @@ select {
   align-items: flex-start;
   flex-direction: column;
   padding: 100px 0;
-  margin: 0px auto;
+  margin: 0 auto;
   min-height: 100vh;
   width: 100%;
   z-index: 2;
 
   @include mobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
   }
 
   @include miniMobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
     margin-left: 0;
   }
 
   @include tablet {
-    padding: 80px 0px;
+    padding: 80px 0;
   }
 
 
@@ -1842,21 +1701,21 @@ select {
   color: #8892b0;
   width: 100%;
   z-index: 2;
-  margin: 0px auto;
+  margin: 0 auto;
   min-height: 100vh;
 
   @include mobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
   }
 
   @include miniMobile {
-    padding: 60px 0px;
+    padding: 60px 0;
     font-size: $fz-lg;
   }
 
   @include tablet {
-    padding: 80px 0px;
+    padding: 80px 0;
   }
 
 
@@ -1885,8 +1744,8 @@ select {
     position: relative;
     z-index: 3;
     width: max-content;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     list-style: none;
 
     @include mobile {
@@ -1922,7 +1781,7 @@ select {
     font-size: $fz-xxl;
     color: $lightest-slate;
     font-weight: 500;
-    margin: 0px 0px 10px;
+    margin: 0 0 10px;
     line-height: 1.3;
 
     &:hover {
@@ -1997,8 +1856,8 @@ select {
       }
 
       &:before {
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         background-color: $navy;
         mix-blend-mode: screen;
         content: "";
@@ -2054,7 +1913,7 @@ select {
       transition: opacity 500ms linear 0s;
       background-color: rgb(232, 232, 232);
       position: absolute;
-      inset: 0px;
+      inset: 0;
       object-fit: cover;
     }
   }
@@ -2226,7 +2085,7 @@ select {
   -webkit-box-align: center;
   align-items: center;
   flex-direction: column;
-  margin: 0px;
+  margin: 0;
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
@@ -2241,13 +2100,13 @@ select {
     color: $green;
     font-size: clamp(100px, 25vw, 200px);
     line-height: 1;
-    margin: 0px 0px 10px;
+    margin: 0 0 10px;
   }
 
   &__subtitle {
     font-size: clamp(30px, 5vw, 50px);
     font-weight: 400;
-    margin: 0px 0px 10px;
+    margin: 0 0 10px;
     color: $lightest-slate;
     line-height: 1.1;
     text-align: center;
@@ -2271,4 +2130,151 @@ select {
     }
   }
 }
+
+// cursor black hole
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: fixed;
+  transition-duration: 10ms;
+  transition-timing-function: ease-out;
+  animation: pulse .8s infinite;
+  display: none;
+  z-index: 1;
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale(.5, .5);
+    opacity: .5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse2 {
+  from {
+    transform: scale(.5, .5);
+    opacity: 1;
+    box-shadow: 0 0 10px 8px $green;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
+.explosion {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 10ms;
+  transition-timing-function: ease-out;
+  animation: explosion .5s;
+  z-index: 1;
+  border: 0;
+}
+
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 #64ffda;
+  }
+  50% {
+    transform: scale(3);
+    box-shadow: 0 0 10px 8px rgba(100, 255, 218, 0.66);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.33);
+  }
+}
+
+blackhole {
+  border-radius: 100%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -4px;
+  left: -4px;
+  border: 1px solid #20e3a2;
+  box-shadow: -10px -10px 30px #31c8a2,
+  10px 10px 30px #31c8a2;
+  animation: falling 2s linear;
+  animation-delay: 1s;
+  transform: translate(-50%, -50%);
+  background: black;
+}
+
+@keyframes falling {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+
+  }
+}
+
+
+// cursor black hole
+
+//black hole
+
+.blackhole {
+  width: 25em;
+  height: 25em;
+  left: calc(100vw - 12.5em);
+  top: calc(50vh - 12.5em);
+  z-index: 1;
+  position: fixed;
+
+  @include mobile {
+    width: 10em;
+    height: 10em;
+    left: calc(100vw - 5em);
+    top: calc(50vh - 5em);
+  }
+}
+
+.blackhole .megna {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: linear-gradient(#64ffda, #57cbff);
+  box-shadow: 0 0 60px 30px rgba(100, 255, 218, 0.66), /* inner white */
+  0 0 100px 60px rgba(100, 255, 218, 0.31),
+    /* middle magenta */
+  0 0 140px 90px rgba(100, 255, 218, 0.15); /* outer cyan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(5px);
+  animation: hole 0.1s linear infinite normal;
+}
+
+.blackhole .black {
+  width: 90%;
+  height: 90%;
+  border-radius: 45% 50% 50% 50%;
+  background-color: black;
+  transform: rotate(0deg);
+}
+
+@keyframes hole {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//black hole
 

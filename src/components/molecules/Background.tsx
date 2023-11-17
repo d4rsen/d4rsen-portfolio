@@ -43,11 +43,6 @@ const Background = () => {
             <div className="cube">
                 <img src={sassUrl} alt="sass" />
             </div>
-            <div className="blackhole">
-                <div className="megna">
-                    <div className="black"></div>
-                </div>
-            </div>
         </>
     );
 };

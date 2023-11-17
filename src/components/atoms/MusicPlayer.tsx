@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // @ts-ignore
 import useSound from 'use-sound';
-import musicUrl from '../../assets/music/sublab.mp3';
+import musicUrl from '../../assets/music/first-step.mp3';
 import playUrl from '../../assets/svg/play.svg';
 import pauseUrl from '../../assets/svg/pause.svg';
 
@@ -38,7 +38,7 @@ const MusicPlayer = () => {
                     href="https://music.youtube.com/watch?v=0Mi-PG3uR1Q&list=RDAMVM0Mi-PG3uR1Q"
                     rel="noreferrer"
                 >
-                    Cowbell City {'>'} ROMANE
+                    Hans Zimmer {'>'} FIRST STEP
                 </a>
             </div>
         </div>
