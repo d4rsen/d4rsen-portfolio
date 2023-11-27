@@ -1,19 +1,17 @@
-import { computed, makeAutoObservable, observable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 class MenuStore {
-    constructor() {
-        makeAutoObservable(this);
-    }
-
-    @observable
     private _open = false;
 
-    @computed
-    get open(): boolean {
+    public constructor() {
+        makeAutoObservable(this, {}, { autoBind: true });
+    }
+
+    public get open(): boolean {
         return this._open;
     }
 
-    set open(value: boolean) {
+    public set open(value: boolean) {
         this._open = value;
     }
 }
