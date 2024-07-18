@@ -1,7 +1,6 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 
 interface JobI {
-    elbrus: boolean;
     abt: boolean;
     home: boolean;
     megafon: boolean;
@@ -13,10 +12,10 @@ interface JobsButtonProps {
     setJobs: (job: JobI) => void;
 }
 
-const elbrus: JobI = { elbrus: true, home: false, abt: false, megafon: false };
-const abt: JobI = { elbrus: false, home: false, abt: true, megafon: false };
-const home: JobI = { elbrus: false, home: true, abt: false, megafon: false };
-const megafon: JobI = { elbrus: false, home: false, abt: false, megafon: true };
+const elbrus: JobI = { home: false, abt: false, megafon: false };
+const abt: JobI = { home: false, abt: true, megafon: false };
+const home: JobI = { home: true, abt: false, megafon: false };
+const megafon: JobI = { home: false, abt: false, megafon: true };
 
 const JobsButton: FC<JobsButtonProps> = ({ text, active, setJobs }) => {
     const color = useMemo(() => (active ? 'active' : ''), [active]);
@@ -27,7 +26,7 @@ const JobsButton: FC<JobsButtonProps> = ({ text, active, setJobs }) => {
     const setJobsHandler = useCallback(() => setJobs(newJobs), [newJobs, setJobs]);
 
     return (
-        <button data-hover type="button" onClick={setJobsHandler} className={`jobs__button ${color}`}>
+        <button data-hover type='button' onClick={setJobsHandler} className={`jobs__button ${color}`}>
             {text}
         </button>
     );
