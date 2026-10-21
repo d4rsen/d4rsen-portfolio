@@ -96,3 +96,49 @@
     opacity: 0;
   }
 }
+
+.sky__constellations {
+  left: 0;
+}
+
+.constellations {
+  display: block;
+  overflow: visible;
+
+  &__figure {
+    line {
+      stroke: rgba($blue, 0.16);
+      stroke-width: 1;
+      transition: stroke 0.6s ease;
+    }
+
+    circle {
+      fill: rgba($white, 0.55);
+      transition: fill 0.6s ease;
+    }
+
+    text {
+      fill: rgba($light-slate, 0.22);
+      font-family: $font-mono;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-anchor: middle;
+      text-transform: uppercase;
+      transition: fill 0.6s ease;
+    }
+  }
+
+  &__figure--active {
+    line {
+      stroke: rgba($green, 0.55);
+    }
+
+    circle {
+      fill: $white;
+    }
+
+    text {
+      fill: rgba($green, 0.85);
+    }
+  }
+}

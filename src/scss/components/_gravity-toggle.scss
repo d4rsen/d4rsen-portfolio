@@ -1,0 +1,77 @@
+@use '../abstracts' as *;
+
+.gravity-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 16px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid rgba($green, 0.35);
+  border-radius: 20px;
+  background: rgba($navy, 0.6);
+  backdrop-filter: blur(4px);
+  color: $light-slate;
+  font-family: $font-mono;
+  font-size: $fz-xxs;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $green;
+    color: $green;
+  }
+
+  // On phones just the icon, so it doesn't cover content
+  @include tablet {
+    padding: 8px;
+
+    &__label {
+      display: none;
+    }
+  }
+
+  // A tiny planet circling a dot; stops when gravity is off
+  &__orbit {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba($green, 0.5);
+    border-radius: 50%;
+    animation: gravity-orbit 2.4s linear infinite;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -2.5px;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      margin-left: -2px;
+      border-radius: 50%;
+      background: $green;
+    }
+  }
+
+  &--off {
+    color: $slate;
+    border-color: rgba($slate, 0.4);
+
+    .gravity-toggle__orbit {
+      border-color: rgba($slate, 0.5);
+      animation: none;
+
+      &::after {
+        background: $slate;
+      }
+    }
+  }
+}
+
+@keyframes gravity-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}

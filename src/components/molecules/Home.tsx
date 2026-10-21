@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillsItem from '../atoms/SkillsItem';
+import { TelemetryLog } from '../atoms/TelemetryLog';
 
 function Home() {
     return (
@@ -9,11 +9,7 @@ function Home() {
                 <span className="title__company">{' Home'}</span>
             </div>
             <div className="jobs__subtitle">Whole life</div>
-            <SkillsItem text="Eat" />
-            <SkillsItem text="Sleep" />
-            <SkillsItem text="Study" />
-            <SkillsItem text="Code" />
-            <SkillsItem text="Repeat" />
+            <TelemetryLog lines={['Eat', 'Sleep', 'Study', 'Code', 'Repeat']} />
         </>
     );
 }

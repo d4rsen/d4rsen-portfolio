@@ -56,6 +56,22 @@
   &--signal::after {
     animation-delay: 0.2s;
   }
+
+  // Over anything clickable: the dish keeps transmitting and the probe glows
+  &--hover {
+    svg {
+      filter: drop-shadow(0 0 6px rgba($green, 0.9));
+    }
+
+    &::before,
+    &::after {
+      animation: voyager-signal 1.2s ease-out infinite;
+    }
+
+    &::after {
+      animation-delay: 0.6s;
+    }
+  }
 }
 
 @keyframes voyager-signal {

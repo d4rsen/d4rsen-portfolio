@@ -11,7 +11,6 @@ function MainPage() {
                 <Hello />
                 <About />
                 <Jobs />
-                {/*<Projects />*/}
                 <Contact />
             </div>
         </div>

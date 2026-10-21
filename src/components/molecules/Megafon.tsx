@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillsItem from '../atoms/SkillsItem';
+import { TelemetryLog } from '../atoms/TelemetryLog';
 
 function Megafon() {
     return (
@@ -9,9 +9,13 @@ function Megafon() {
                 <span className="title__company">{' MegaFon'}</span>
             </div>
             <div className="jobs__subtitle">July 2022 - now</div>
-            <SkillsItem text="Develop beautiful projects" />
-            <SkillsItem text="Work with my team && create new digital things" />
-            <SkillsItem text="Communicate with other engineers, designers" />
+            <TelemetryLog
+                lines={[
+                    'Develop beautiful projects',
+                    'Work with my team && create new digital things',
+                    'Communicate with other engineers, designers'
+                ]}
+            />
         </>
     );
 }

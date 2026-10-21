@@ -166,3 +166,65 @@
     }
   }
 }
+
+// Anchors: on hover an orbit is drawn under the text and a satellite runs
+// along it, so it's obvious what's clickable (the Voyager cursor alone isn't)
+.item a {
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    pointer-events: none;
+  }
+
+  &::after {
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba($green, 0), $green 30%, $green 70%, rgba($green, 0));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease;
+  }
+
+  &::before {
+    width: 5px;
+    height: 5px;
+    margin-bottom: -2px;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 0 6px 2px rgba($green, 0.8);
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus-visible {
+    .item__text {
+      color: $green;
+    }
+
+    &::after {
+      transform: scaleX(1);
+    }
+
+    &::before {
+      animation: anchor-satellite 1.4s ease-in-out infinite alternate;
+    }
+  }
+}
+
+.item__text {
+  transition: color 0.25s ease;
+}
+
+@keyframes anchor-satellite {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    left: calc(100% - 5px);
+    opacity: 1;
+  }
+}

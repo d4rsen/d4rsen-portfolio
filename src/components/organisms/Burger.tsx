@@ -12,7 +12,6 @@ const Burger = () => {
                     <BurgerItem number="00." href="#" text="Greeting" />
                     <BurgerItem number="01." href="#about" text="About" />
                     <BurgerItem number="02." href="#jobs" text="Experience" />
-                    {/*<BurgerItem number="03." href="#projects" text="Work" /> */}
                     <BurgerItem number="03." href="#contact" text="Contact" />
                     {/*<Button className="" text="Resume" href="/resume.pdf" /> */}
                 </div>

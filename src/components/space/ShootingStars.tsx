@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useEffectsEnabled } from '../../space/effects';
 
 const FIRST_DELAY_MS = 2500;
 const MIN_INTERVAL_MS = 4000;
@@ -14,9 +15,13 @@ interface Meteor {
 /** Every few seconds a meteor streaks across the sky */
 export const ShootingStars = () => {
     const [meteors, setMeteors] = useState<Meteor[]>([]);
+    const effects = useEffectsEnabled();
 
     useEffect(() => {
-        if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+        if (!effects) {
+            setMeteors([]);
+            return;
+        }
         let timer = 0;
         let id = 0;
 
@@ -39,7 +44,7 @@ export const ShootingStars = () => {
 
         schedule(FIRST_DELAY_MS);
         return () => window.clearTimeout(timer);
-    }, []);
+    }, [effects]);
 
     return (
         <>

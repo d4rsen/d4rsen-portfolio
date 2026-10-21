@@ -1,6 +1,7 @@
 import React from 'react';
 import NumberedHeading from '../atoms/NumberedHeading';
 import SkillsItem from '../atoms/SkillsItem';
+import { SkillsConstellation } from '../molecules/SkillsConstellation';
 import { darsenGitHub } from './constants';
 import darsenUrl from '../../assets/images/darsen.webp';
 
@@ -11,18 +12,18 @@ function About() {
                 <NumberedHeading number="01." text="About Me" />
                 <p>Hello! My name is Darsen and I enjoy creating things that live on the internet.</p>
                 <p>Here are a few technologies I’ve been working with recently:</p>
-                <div className="about__skills skills">
-                    <SkillsItem text="JavaScript" />
-                    <SkillsItem text="TypeScript" />
-                    <SkillsItem text="React" />
-                    <SkillsItem text="Node.js" />
-                    <SkillsItem text="Redux" />
-                    <SkillsItem text="Styled components" />
-                    <SkillsItem text="Sass" />
-                    <SkillsItem text="Storybook" />
-                    <SkillsItem text="MobX" />
-                    <SkillsItem text="Node.js" />
-                </div>
+                <SkillsConstellation>
+                    <SkillsItem star text="JavaScript" />
+                    <SkillsItem star text="TypeScript" />
+                    <SkillsItem star text="React" />
+                    <SkillsItem star text="Node.js" />
+                    <SkillsItem star text="Redux" />
+                    <SkillsItem star text="Styled components" />
+                    <SkillsItem star text="Sass" />
+                    <SkillsItem star text="Storybook" />
+                    <SkillsItem star text="MobX" />
+                    <SkillsItem star text="Node.js" />
+                </SkillsConstellation>
             </div>
             <div className="about__right">
                 <div className="about__lens" aria-hidden="true" />

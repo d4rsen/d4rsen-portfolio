@@ -8,7 +8,7 @@
 
 // Hide the native cursor only where the custom one is rendered (see App.tsx)
 @media (hover: hover) and (pointer: fine) {
-  * {
+  :root:not(.gravity-off) * {
     cursor: none !important;
 
     &:hover {
@@ -71,6 +71,7 @@ select {
   font: inherit;
 }
 
+// Same for the "Gravity off" toggle (GravityToggle.tsx)
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -78,6 +79,12 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.gravity-off * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
 }
 
 html,

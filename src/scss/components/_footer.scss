@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   padding: 15px;
   text-align: center;
   position: relative;
@@ -26,15 +26,16 @@
   }
 
   @include mobile {
-    height: 50px;
+    min-height: 50px;
   }
 
   @include miniMobile {
-    height: 50px;
+    min-height: 50px;
   }
 
   &__container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: $light-slate;
@@ -60,5 +61,20 @@
   &__title {
     font-size: $fz-xxs;
     line-height: 1;
+  }
+}
+
+.voyager-distance {
+  padding-bottom: 6px;
+  color: $slate;
+  font-family: $font-mono;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  &__km {
+    color: $green;
+    // Digits don't jitter while the number ticks
+    font-variant-numeric: tabular-nums;
   }
 }

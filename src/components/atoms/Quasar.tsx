@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { QuasarCore } from '../../space/QuasarCore';
+import { useEffectsEnabled } from '../../space/effects';
 import { onQuasarFeed, placeQuasar, quasar } from '../../space/quasar';
 
 const FLARE_MS = 2500;
@@ -47,14 +48,14 @@ const Jet = ({ side }: { side: 'approaching' | 'receding' }) => (
 export const Quasar = () => {
     const rootRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const effects = useEffectsEnabled();
 
     useEffect(() => {
         const root = rootRef.current;
         const canvas = canvasRef.current;
         if (!root || !canvas) return;
 
-        const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-        const core = new QuasarCore(canvas, { animate: !reducedMotion });
+        const core = new QuasarCore(canvas, { animate: effects });
         let flareTimer = 0;
 
         const place = () => {
@@ -85,7 +86,7 @@ export const Quasar = () => {
             window.clearTimeout(flareTimer);
             window.removeEventListener('resize', place);
         };
-    }, []);
+    }, [effects]);
 
     return (
         <div ref={rootRef} className="quasar" aria-hidden="true">

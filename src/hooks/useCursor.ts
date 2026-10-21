@@ -82,12 +82,18 @@ export const useCursor = (rootRef: RefObject<HTMLElement>) => {
         // Delegated, so links rendered after mount (route changes) work too
         const onMouseOver = (e: MouseEvent) => {
             const link = closestHoverTarget(e.target);
-            if (link && !link.contains(e.relatedTarget as Node | null)) targetScale = HOVER_SCALE;
+            if (link && !link.contains(e.relatedTarget as Node | null)) {
+                targetScale = HOVER_SCALE;
+                voyager.classList.add('cursor__voyager--hover');
+            }
         };
 
         const onMouseOut = (e: MouseEvent) => {
             const link = closestHoverTarget(e.target);
-            if (link && !link.contains(e.relatedTarget as Node | null)) targetScale = 1;
+            if (link && !link.contains(e.relatedTarget as Node | null)) {
+                targetScale = 1;
+                voyager.classList.remove('cursor__voyager--hover');
+            }
         };
 
         const onClick = (e: MouseEvent) => {

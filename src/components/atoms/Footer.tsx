@@ -1,4 +1,5 @@
 import React from 'react';
+import { VoyagerDistance } from './VoyagerDistance';
 
 const Footer = () => {
     return (
@@ -13,6 +14,7 @@ const Footer = () => {
                 >
                     <div className="footer__title">{'Made by < Darsen Ungarlinov />'}</div>
                 </a>
+                <VoyagerDistance />
             </div>
         </footer>
     );

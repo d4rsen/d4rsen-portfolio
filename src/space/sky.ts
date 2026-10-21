@@ -232,3 +232,29 @@ export const renderGalaxy = (width: number, height: number, extra: number) => {
 
     return canvas;
 };
+
+/**
+ * Where the drawn sky layers currently sit on screen (index 0 is the galaxy),
+ * so effects like gravitational lensing can sample the stars behind a point
+ */
+export interface SkyLayer {
+    canvas: HTMLCanvasElement;
+    x: number;
+    y: number;
+}
+
+export const skyLayers: SkyLayer[] = [];
+let baseX = 0;
+
+export const setSkyCanvases = (galaxy: HTMLCanvasElement, stars: HTMLCanvasElement[], left: number) => {
+    baseX = left;
+    skyLayers.length = 0;
+    [galaxy, ...stars].forEach((canvas) => skyLayers.push({ canvas, x: left, y: 0 }));
+};
+
+export const moveSkyLayer = (index: number, dx: number, dy: number) => {
+    const layer = skyLayers[index];
+    if (!layer) return;
+    layer.x = baseX + dx;
+    layer.y = dy;
+};
