@@ -6,47 +6,18 @@ interface Point {
 }
 
 const HOVER_SELECTOR = '[data-hover]';
-// Clicks on these don't spawn a black hole
-const CLICKABLE_SELECTOR = `${HOVER_SELECTOR}, a, button, input, select, textarea, label, [role="button"], .hamburger`;
 const HOVER_SCALE = 2.7;
 const EXPLOSION_MS = 900;
-const BLACKHOLE_LIFETIME_MS = 3000;
 
 const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
 
-const closest = (target: EventTarget | null, selector: string) =>
-    target instanceof Element ? target.closest(selector) : null;
-
-const closestHoverTarget = (target: EventTarget | null) => closest(target, HOVER_SELECTOR);
-
-const spawnBlackHole = (x: number, y: number) => {
-    const blackhole = document.createElement('blackhole');
-    blackhole.classList.add('blackhole');
-    blackhole.style.zIndex = '0';
-
-    const megna = document.createElement('div');
-    megna.classList.add('megna');
-
-    const inner = document.createElement('div');
-    inner.classList.add('black');
-
-    blackhole.appendChild(megna);
-    megna.appendChild(inner);
-
-    const size = 20 + Math.random() * 80;
-    blackhole.style.left = `${x}px`;
-    blackhole.style.top = `${y}px`;
-    blackhole.style.width = `${size}px`;
-    blackhole.style.height = `${size}px`;
-    document.body.appendChild(blackhole);
-
-    setTimeout(() => blackhole.remove(), BLACKHOLE_LIFETIME_MS);
-};
+const closestHoverTarget = (target: EventTarget | null) =>
+    target instanceof Element ? target.closest(HOVER_SELECTOR) : null;
 
 /**
  * Custom cursor: a dot that follows the mouse exactly, a circle that trails
- * behind it (and grows over [data-hover] elements), a pulsing ring, and
- * black holes spawned on every click.
+ * behind it (and grows over [data-hover] elements) and a pulsing ring.
+ * Black holes on click live in BlackHoles.tsx.
  */
 export const useCursor = (rootRef: RefObject<HTMLElement>) => {
     useEffect(() => {
@@ -109,7 +80,6 @@ export const useCursor = (rootRef: RefObject<HTMLElement>) => {
 
             pulse.classList.add('explosion');
             setTimeout(() => pulse.classList.remove('explosion'), EXPLOSION_MS);
-            if (!closest(e.target, CLICKABLE_SELECTOR)) spawnBlackHole(e.clientX, e.clientY);
         };
 
         window.addEventListener('mousemove', onMouseMove);

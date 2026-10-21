@@ -8,6 +8,7 @@ import Router from '../router/Router';
 import { useMenu } from '../store/MenuContext';
 import '../scss/style.scss';
 import { Cursor } from '../components/atoms/Cursor.tsx';
+import { BlackHoles } from '../components/atoms/BlackHoles';
 
 const LOADER_MIN_MS = 2000;
 // Custom cursor only makes sense with a real mouse (iPads report a desktop UA)
@@ -41,6 +42,7 @@ const App = () => {
     return (
         <div className="wrapper">
             <Background />
+            {hasFinePointer && <BlackHoles />}
             {hasFinePointer && <Cursor />}
             <div className="_main-container">
                 <Header />
