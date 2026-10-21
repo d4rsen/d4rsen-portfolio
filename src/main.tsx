@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App/App';
 import ErrorBoundary from './components/atoms/ErrorBoundary';
 import { MenuProvider } from './store/MenuContext';
+import { Sky } from './components/space/Sky';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
@@ -13,10 +14,7 @@ root.render(
             <MenuProvider>
                 <App />
             </MenuProvider>
-            <div id="c"></div>
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
+            <Sky />
         </ErrorBoundary>
     </BrowserRouter>
 );

@@ -69,6 +69,11 @@
     position: relative;
     max-width: 300px;
 
+    > a {
+      position: relative;
+      z-index: 1;
+    }
+
     &:hover {
       animation: $superfade 3000ms;
     }
@@ -144,5 +149,63 @@
     position: static;
     border-radius: $border-radius;
 
+  }
+
+  // Gravitational lensing glow hugging the photo's edges, with a bright arc
+  // of bent light travelling around the frame
+  &__lens {
+    position: absolute;
+    inset: -10px;
+    border-radius: 10px;
+    pointer-events: none;
+    box-shadow:
+      0 0 24px 4px rgba($blue, 0.25),
+      0 0 60px 10px rgba($green, 0.12),
+      inset 0 0 18px rgba($white, 0.12);
+    animation: lens-breathe 6s ease-in-out infinite alternate;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      border-radius: inherit;
+      background: conic-gradient(
+          from var(--lens-angle),
+          transparent 0deg 260deg,
+          rgba($blue, 0.6) 320deg,
+          $white 350deg,
+          transparent 360deg
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+      animation: lens-spin 8s linear infinite;
+    }
+
+    @include mobile {
+      top: 20px;
+    }
+  }
+}
+
+@property --lens-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes lens-breathe {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lens-spin {
+  to {
+    --lens-angle: 360deg;
   }
 }

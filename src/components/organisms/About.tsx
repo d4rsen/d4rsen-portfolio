@@ -25,6 +25,7 @@ function About() {
                 </div>
             </div>
             <div className="about__right">
+                <div className="about__lens" aria-hidden="true" />
                 <a data-hover href={darsenGitHub} target="_blank" rel="noreferrer">
                     <div className="about__wrapper">
                         <div className="about__imageWrapper">

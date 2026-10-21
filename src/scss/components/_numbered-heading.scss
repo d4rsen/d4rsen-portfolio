@@ -42,19 +42,62 @@
     }
   }
 
-  &:after {
-    content: "";
-    display: block;
-    top: -5px;
+  &__catalog {
+    margin-right: 6px;
+    font-size: 0.6em;
+    letter-spacing: 0.1em;
+    vertical-align: super;
+    opacity: 0.7;
+  }
+
+  // Line next to the heading, drawn like a trajectory once in view
+  &__trajectory {
+    position: relative;
     width: 300px;
     height: 1px;
     margin-left: 20px;
-    background-color: $slate;
-    @include miniMobile {
-      display: none;
-    }
+    background: linear-gradient(to right, $slate, rgba($slate, 0.3));
+    transform: scaleX(0);
+    transform-origin: left center;
+
     @include mobile {
       display: none;
     }
+  }
+
+  &__probe {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $green;
+    box-shadow: 0 0 8px 2px rgba($green, 0.6);
+    opacity: 0;
+  }
+
+  &--visible &__trajectory {
+    animation: trajectory 1.4s cubic-bezier(0.25, 0.8, 0.3, 1) forwards;
+  }
+
+  &--visible &__probe {
+    animation: probe-blink 2.4s ease-in-out 1.4s infinite;
+  }
+}
+
+@keyframes trajectory {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes probe-blink {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
   }
 }

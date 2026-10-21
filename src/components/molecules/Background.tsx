@@ -10,18 +10,20 @@ import styledComponentsUrl from '../../assets/images/styled-components.webp';
 import storybookUrl from '../../assets/images/storybook.png';
 import sassUrl from '../../assets/images/sass.webp';
 import { useOrbits } from '../../hooks/useOrbits';
+import { Quasar } from '../atoms/Quasar';
 
+// color: what the icon's debris looks like when a black hole tears it apart
 const ICONS = [
-    { src: reactUrl, alt: 'react' },
-    { src: reduxUrl, alt: 'redux' },
-    { src: javascriptUrl, alt: 'javascript' },
-    { src: mobxUrl, alt: 'mobx' },
-    { src: typescriptUrl, alt: 'typescript' },
-    { src: styledComponentsUrl, alt: 'styled-components' },
-    { src: gitlabUrl, alt: 'git' },
-    { src: storybookUrl, alt: 'storybook' },
-    { src: githubUrl, alt: 'github' },
-    { src: sassUrl, alt: 'sass' }
+    { src: reactUrl, alt: 'react', color: '#61dafb' },
+    { src: reduxUrl, alt: 'redux', color: '#9b72e0' },
+    { src: javascriptUrl, alt: 'javascript', color: '#f7df1e' },
+    { src: mobxUrl, alt: 'mobx', color: '#ff9955' },
+    { src: typescriptUrl, alt: 'typescript', color: '#4a90e2' },
+    { src: styledComponentsUrl, alt: 'styled-components', color: '#e07aa8' },
+    { src: gitlabUrl, alt: 'git', color: '#fc6d26' },
+    { src: storybookUrl, alt: 'storybook', color: '#ff4785' },
+    { src: githubUrl, alt: 'github', color: '#e6f1ff' },
+    { src: sassUrl, alt: 'sass', color: '#cc6699' }
 ];
 
 const Background = () => {
@@ -30,8 +32,9 @@ const Background = () => {
 
     return (
         <div ref={ref} className="orbits" aria-hidden="true">
-            {ICONS.map(({ src, alt }) => (
-                <div key={alt} className="orbits__planet">
+            <Quasar />
+            {ICONS.map(({ src, alt, color }) => (
+                <div key={alt} className="orbits__planet" data-color={color}>
                     <img src={src} alt={alt} />
                 </div>
             ))}

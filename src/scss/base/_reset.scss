@@ -89,13 +89,23 @@ body {
 
   &::-webkit-scrollbar {
     background-color: $navy;
-    width: 5px;
+    width: 8px;
     direction: ltr;
   }
 
+  // A comet: bright head at the bottom, tail fading out behind it
   &::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: $green;
+    background: linear-gradient(to bottom, transparent, rgba($green, 0.35) 45%, $green 88%, $white);
     border-radius: 10px;
+    box-shadow: 0 0 6px rgba($green, 0.6);
+  }
+}
+
+// Firefox has no styleable thumb, only colors. Kept out of other browsers on
+// purpose: Chrome 121+ ignores ::-webkit-scrollbar once scrollbar-color is set
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: $green $navy;
+    scrollbar-width: thin;
   }
 }

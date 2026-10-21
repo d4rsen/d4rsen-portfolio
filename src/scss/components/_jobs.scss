@@ -147,3 +147,53 @@
     }
   }
 }
+
+// Switching jobs = jumping to another star system: stars streak past...
+.jobs__warp {
+  position: absolute;
+  inset: -40% -20%;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 5deg,
+      rgba($white, 0.55) 5deg 5.3deg,
+      transparent 5.3deg 9deg,
+      rgba($green, 0.4) 9deg 9.2deg
+  );
+  -webkit-mask: radial-gradient(closest-side, transparent 18%, #000 45%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 18%, #000 45%, transparent 100%);
+  opacity: 0;
+  animation: warp-streaks 0.55s ease-out;
+}
+
+// ...and the new system comes out of hyperspace
+.jobs__panel--arrived {
+  animation: warp-arrive 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+@keyframes warp-streaks {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes warp-arrive {
+  0%,
+  25% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

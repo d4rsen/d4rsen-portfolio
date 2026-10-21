@@ -1,5 +1,8 @@
 import { RefObject, useEffect } from 'react';
+import { requestDisruption } from '../space/debris';
 import { GravityWell, getWells } from '../space/gravity';
+import { getSystemCenter } from '../space/quasar';
+import { getWaves, waveStrain } from '../space/waves';
 
 interface Orbit {
     /** Semi-major axis as a fraction of half the viewport width */
@@ -22,12 +25,16 @@ const ORBIT_HEIGHT = 0.6;
 const BASE_PERIOD_S = 80;
 
 /** A black hole starts tugging at icons this many horizon radii away */
-const PULL_RANGE = 12;
-const PULL_STRENGTH = 8;
+const PULL_RANGE = 24;
+const PULL_STRENGTH = 14;
 /** ...and swallows them at this distance */
-const SWALLOW_RANGE = 1.8;
-const SWALLOW_MS = 700;
+const SWALLOW_RANGE = 3.5;
+/** The icon itself vanishes quickly; its debris stream carries on on the canvas */
+const SWALLOW_MS = 450;
 const REAPPEAR_MS = 1500;
+/** How hard a passing gravitational wave stretches/squeezes and shoves an icon */
+const WAVE_STRETCH = 0.35;
+const WAVE_SHOVE = 14;
 
 const TAU = Math.PI * 2;
 
@@ -40,13 +47,15 @@ interface Icon {
     phase: number;
     period: number;
     half: number;
+    /** Color of its tidal debris stream */
+    color: string;
     eatenBy: GravityWell | null;
     eatenAt: number;
     reappearAt: number;
 }
 
 const createIcons = (container: HTMLElement): Icon[] => {
-    const elements = Array.from(container.children) as HTMLElement[];
+    const elements = Array.from(container.querySelectorAll<HTMLElement>('.orbits__planet'));
     const perOrbit = ORBITS.map((_, i) => ICON_ORBITS.filter((orbit) => orbit === i).length);
     const seen = ORBITS.map(() => 0);
 
@@ -62,6 +71,7 @@ const createIcons = (container: HTMLElement): Icon[] => {
             phase,
             period: BASE_PERIOD_S * orbit.size ** 1.5,
             half: el.offsetWidth / 2,
+            color: el.dataset.color ?? '#64ffda',
             eatenBy: null,
             eatenAt: 0,
             reappearAt: -Infinity
@@ -70,8 +80,9 @@ const createIcons = (container: HTMLElement): Icon[] => {
 };
 
 /**
- * Tech icons orbiting the page like planets: elliptical orbits, near side
- * bigger and brighter, inner orbits faster. Black holes pull them in.
+ * Tech icons orbiting the quasar like planets: elliptical orbits, near side
+ * bigger and brighter, inner orbits faster. Black holes pull them in and
+ * gravitational waves ripple through them.
  */
 export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
     useEffect(() => {
@@ -94,9 +105,9 @@ export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
 
         const render = (now: number) => {
             const t = reducedMotion ? 0 : (now - start) / 1000;
-            const cx = width / 2;
-            const cy = height / 2;
+            const { x: cx, y: cy } = getSystemCenter(width, height);
             const wells = getWells();
+            const waves = getWaves(now);
 
             for (const icon of icons) {
                 const { orbit } = icon;
@@ -130,7 +141,7 @@ export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
                     x += (well.x - x) * k;
                     y += (well.y - y) * k;
                     // Tidal forces stretch it towards the hole as it falls in
-                    stretch = 1 + 2.5 * p;
+                    stretch = 1 + 4 * p;
                     scale *= 1 - p;
                     opacity *= 1 - p;
                 } else {
@@ -150,6 +161,8 @@ export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
                         if (distance - pull < well.radius * SWALLOW_RANGE) {
                             icon.eatenBy = well;
                             icon.eatenAt = now;
+                            // Torn apart by tides (spaghettification)
+                            requestDisruption({ host: well, x, y, color: icon.color, size: icon.half * 2 * scale });
                             break;
                         }
                     }
@@ -159,11 +172,26 @@ export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
                     opacity *= reappear;
                 }
 
+                // Gravitational waves stretch space along one axis and squeeze
+                // it along the other ("plus" polarization)
+                let strain = 0;
+                for (const wave of waves) {
+                    const h = waveStrain(wave, x, y, now);
+                    if (!h) continue;
+                    const distance = Math.hypot(x - wave.x, y - wave.y) || 1;
+                    x += ((x - wave.x) / distance) * h * WAVE_SHOVE;
+                    y += ((y - wave.y) / distance) * h * WAVE_SHOVE;
+                    strain += h;
+                }
+                const scaleX = scale * stretch * (1 + strain * WAVE_STRETCH);
+                const scaleY = (scale / Math.sqrt(stretch)) * (1 - strain * WAVE_STRETCH);
+
                 icon.el.style.transform =
                     `translate3d(${x - icon.half}px, ${y - icon.half}px, 0) ` +
-                    `rotate(${rotation}deg) scale(${scale * stretch}, ${scale / Math.sqrt(stretch)})`;
+                    `rotate(${rotation}deg) scale(${scaleX}, ${scaleY})`;
                 icon.el.style.opacity = String(opacity);
-                icon.el.style.zIndex = depth > 0.5 ? '2' : '1';
+                // The quasar sits at z-index 2: far side of the orbit passes behind it
+                icon.el.style.zIndex = depth > 0.5 ? '3' : '1';
             }
 
             if (!reducedMotion) rafId = requestAnimationFrame(render);

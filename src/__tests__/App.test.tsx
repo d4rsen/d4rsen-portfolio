@@ -37,6 +37,6 @@ describe('App', () => {
 
     it('renders 404 for unknown routes', () => {
         renderAt('/does-not-exist');
-        expect(screen.getByText('Page Not Found')).toBeInTheDocument();
+        expect(screen.getByLabelText('Page Not Found')).toBeInTheDocument();
     });
 });

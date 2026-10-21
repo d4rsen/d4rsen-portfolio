@@ -6,69 +6,65 @@
   position: absolute;
   top: 0;
   left: 0;
-  mix-blend-mode: difference;
   border-radius: 50%;
 
+  // The actual pointer: small and precise
   &--dot {
     width: 6px;
     height: 6px;
-    background: $green;
+    background: $white;
+    box-shadow: 0 0 6px 2px rgba($green, 0.8);
+  }
+}
+
+// Positioned and rotated by useCursor.ts
+.cursor__voyager {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  z-index: 999998;
+  pointer-events: none;
+  will-change: transform;
+
+  svg {
+    display: block;
+    filter: drop-shadow(0 0 4px rgba($green, 0.35));
   }
 
-  &--circle {
+  // Radio signal from the dish (its center is at 50% / 37.5% of the probe)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 37.5%;
+    left: 50%;
     width: 20px;
     height: 20px;
+    margin: -10px 0 0 -10px;
     border: 1px solid $green;
-  }
-}
-
-.cursor {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 50%;
-  position: fixed;
-  transition-duration: 10ms;
-  transition-timing-function: ease-out;
-  animation: pulse .8s infinite;
-  display: none;
-  z-index: 1;
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(.5, .5);
-    opacity: .5;
-  }
-  to {
-    transform: scale(2.5, 2.5);
+    border-radius: 50%;
     opacity: 0;
   }
+
+  &--signal::before,
+  &--signal::after {
+    animation: voyager-signal 0.9s ease-out;
+  }
+
+  &--signal::after {
+    animation-delay: 0.2s;
+  }
 }
 
-.explosion {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  transition-duration: 10ms;
-  transition-timing-function: ease-out;
-  animation: explosion .5s;
-  z-index: 1;
-  border: 0;
-}
-
-@keyframes explosion {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 #64ffda;
+@keyframes voyager-signal {
+  from {
+    transform: scale(0.6);
+    opacity: 1;
   }
-  50% {
-    transform: scale(3);
-    box-shadow: 0 0 10px 8px rgba(100, 255, 218, 0.66);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.33);
+  to {
+    transform: scale(3.5);
+    opacity: 0;
   }
 }

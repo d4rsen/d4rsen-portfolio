@@ -1,4 +1,9 @@
 import { GravityWell, addWell } from './gravity';
+import { DISK_INNER, DISK_SQUASH, HoleRenderer } from './HoleRenderer';
+import { TAU, clamp01, easeInCubic, easeOutBack, lerp, random } from './math';
+import { feedQuasar, quasar } from './quasar';
+import { Debris, drawDebris, takeDisruptions, tidalDisruption, tidalTail, updateDebris } from './debris';
+import { WAVE_WIDTH, emitWave, getWaves, waveDecay, waveRadius } from './waves';
 
 const MAX_HOLES = 4;
 
@@ -7,51 +12,57 @@ const LIFE_MS = 3800;
 const DEATH_MS = 900;
 const SHOCKWAVE_MS = 800;
 
-const MIN_RADIUS = 12;
-const MAX_RADIUS = 26;
+// Stellar-mass holes: tiny next to the supermassive quasar
+const MIN_RADIUS = 6;
+const MAX_RADIUS = 10;
 /** How much the horizon grows over its life from everything it eats */
 const GROWTH = 0.25;
-
-/** Accretion disk seen almost edge-on, like Gargantua in Interstellar */
-const DISK_SQUASH = 0.24;
 const DISK_PARTICLES = 170;
-const DISK_INNER = 1.5;
-const DISK_OUTER = 3.8;
 
 const DUST_AT_BIRTH = 50;
 const DUST_PER_SECOND = 22;
-const DUST_MIN_DISTANCE = 4;
-const DUST_MAX_DISTANCE = 11;
+const DUST_MIN_DISTANCE = 6;
+const DUST_MAX_DISTANCE = 20;
 
-const TAU = Math.PI * 2;
-
-const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
-const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
-const easeOutBack = (t: number) => 1 + 2.7 * (t - 1) ** 3 + 1.7 * (t - 1) ** 2;
-const easeInCubic = (t: number) => t ** 3;
-const random = (min: number, max: number) => min + Math.random() * (max - min);
-
-// Hot inner disk is white-blue, cooling to the theme green on the outside
-const diskColor = (rel: number) => {
-    const t = clamp01((rel - DISK_INNER) / (DISK_OUTER - DISK_INNER));
-    if (t < 0.25) return '#e6f1ff';
-    if (t < 0.6) return '#57cbff';
-    return '#64ffda';
-};
-
-interface DiskParticle {
-    rel: number;
-    angle: number;
-    speed: number;
-    width: number;
-    color: string;
-}
+/** Holes spawned within this many quasar radii get captured by it */
+const CAPTURE_RANGE = 10;
+/** Time from capture to merger */
+const INSPIRAL_S = 7;
+/**
+ * Separation shrinks as a = a0 * (1 - t/T)^DECAY. Real GW inspirals use 1/4,
+ * which keeps the orbit almost constant and then plunges in a blink; a bit
+ * higher reads better on screen while keeping the accelerating "chirp".
+ */
+const INSPIRAL_DECAY = 0.4;
+/** Angular speed at capture, rad/s (~5 orbits in total) */
+const INSPIRAL_SPEED = 1.8;
+const MAX_ORBIT_SPEED = 30;
+/** The inspiral orbit is inclined, so it looks like an ellipse */
+const ORBIT_SQUASH = 0.5;
+/** Ringdown after the merger: [delay ms, amplitude] */
+const RINGDOWN: [number, number][] = [
+    [0, 1],
+    [160, 0.55],
+    [320, 0.3]
+];
+const MERGER_FLASH_MS = 900;
+/** Tidal tails: debris pairs per second once the quasar strips the disk completely */
+const STRIP_RATE = 110;
 
 interface Dust {
     r: number;
     angle: number;
     prevX: number;
     prevY: number;
+}
+
+interface Inspiral {
+    a0: number;
+    a: number;
+    angle: number;
+    time: number;
+    /** Gravitational waves go out twice per orbit */
+    halfOrbits: number;
 }
 
 class BlackHole implements GravityWell {
@@ -61,30 +72,32 @@ class BlackHole implements GravityWell {
     age = 0;
     dying = false;
     deathAge = 0;
+    merged = false;
 
     readonly baseRadius = random(MIN_RADIUS, MAX_RADIUS);
-    readonly tilt = random(-0.35, 0.35);
-    readonly spin = Math.random() < 0.5 ? 1 : -1;
-    readonly disk: DiskParticle[] = [];
+    readonly renderer = new HoleRenderer({
+        particles: DISK_PARTICLES,
+        tilt: random(-0.35, 0.35),
+        spin: Math.random() < 0.5 ? 1 : -1
+    });
     readonly dust: Dust[] = [];
     readonly unregister: () => void;
     dustDebt = 0;
+    stripDebt = 0;
+    /** 0..1, how much of its disk the quasar has torn off */
+    stripped = 0;
+    inspiral: Inspiral | null = null;
 
-    constructor(x: number, y: number) {
+    constructor(x: number, y: number, captured: boolean) {
         this.x = x;
         this.y = y;
 
-        for (let i = 0; i < DISK_PARTICLES; i++) {
-            // Bias towards the inner edge, where the disk is densest
-            const rel = DISK_INNER + (DISK_OUTER - DISK_INNER) * Math.random() ** 1.6;
-            this.disk.push({
-                rel,
-                angle: random(0, TAU),
-                // Keplerian: inner matter orbits much faster
-                speed: (4.5 / rel ** 1.5) * random(0.85, 1.15),
-                width: random(0.8, 2),
-                color: diskColor(rel)
-            });
+        if (captured) {
+            const dx = x - quasar.x;
+            const dy = (y - quasar.y) / ORBIT_SQUASH;
+            const a0 = Math.max(Math.hypot(dx, dy), quasar.radius * 3);
+            const angle = Math.atan2(dy, dx);
+            this.inspiral = { a0, a: a0, angle, time: 0, halfOrbits: Math.floor(angle / Math.PI) };
         }
 
         for (let i = 0; i < DUST_AT_BIRTH; i++) this.spawnDust();
@@ -92,7 +105,7 @@ class BlackHole implements GravityWell {
     }
 
     get finished() {
-        return this.dying && this.deathAge >= DEATH_MS;
+        return this.merged || (this.dying && this.deathAge >= DEATH_MS);
     }
 
     die() {
@@ -102,23 +115,21 @@ class BlackHole implements GravityWell {
     spawnDust() {
         const r = this.baseRadius * random(DUST_MIN_DISTANCE, DUST_MAX_DISTANCE);
         const angle = random(0, TAU);
-        const [x, y] = this.project(r, angle);
+        const [x, y] = this.renderer.project(this.x, this.y, r, angle);
         this.dust.push({ r, angle, prevX: x, prevY: y });
     }
 
-    /** Polar coords in the disk plane -> screen coords */
-    project(r: number, angle: number, squash = DISK_SQUASH): [number, number] {
-        const dx = Math.cos(angle) * r;
-        const dy = Math.sin(angle) * r * squash;
-        const cos = Math.cos(this.tilt);
-        const sin = Math.sin(this.tilt);
-        return [this.x + dx * cos - dy * sin, this.y + dx * sin + dy * cos];
+    /** Dust falls in from all directions and flattens into the disk plane as it nears */
+    dustSquash(r: number) {
+        return lerp(DISK_SQUASH, 1, clamp01((r / this.baseRadius - DISK_INNER) / 5));
     }
 
-    update(dt: number) {
+    /** Returns true when the hole has just merged into the quasar */
+    update(dt: number, now: number, debris: Debris[]): boolean {
         const ms = dt * 1000;
         this.age += ms;
-        if (this.age > BIRTH_MS + LIFE_MS) this.dying = true;
+        // Captured holes don't evaporate: they end by merging
+        if (!this.inspiral && this.age > BIRTH_MS + LIFE_MS) this.dying = true;
         if (this.dying) this.deathAge += ms;
 
         const grown = this.baseRadius * (1 + GROWTH * clamp01((this.age - BIRTH_MS) / LIFE_MS));
@@ -130,14 +141,12 @@ class BlackHole implements GravityWell {
             this.radius = grown;
         }
 
-        const evaporation = this.dying ? clamp01(this.deathAge / DEATH_MS) : 0;
-        for (const p of this.disk) {
-            p.angle += p.speed * this.spin * dt;
-            // While evaporating, the disk loses its anchor and drifts apart
-            if (evaporation > 0) p.rel += dt * 2.5 * evaporation;
-        }
+        const merged = this.inspiral ? this.updateInspiral(this.inspiral, dt, now, debris) : false;
 
-        if (!this.dying) {
+        this.renderer.update(dt, this.dying ? clamp01(this.deathAge / DEATH_MS) : 0);
+
+        // Once captured, the quasar strips away anything that would feed it
+        if (!this.dying && !this.inspiral) {
             this.dustDebt += DUST_PER_SECOND * dt;
             for (; this.dustDebt >= 1; this.dustDebt--) this.spawnDust();
         }
@@ -145,64 +154,91 @@ class BlackHole implements GravityWell {
         const R = Math.max(this.radius, 1);
         for (let i = this.dust.length - 1; i >= 0; i--) {
             const d = this.dust[i];
-            const [x, y] = this.project(d.r, d.angle, this.dustSquash(d.r));
+            const [x, y] = this.renderer.project(this.x, this.y, d.r, d.angle, this.dustSquash(d.r));
             d.prevX = x;
             d.prevY = y;
 
             const closeness = this.baseRadius / d.r;
             d.r -= this.baseRadius * (0.8 + 16 * closeness ** 2) * dt;
-            d.angle += 6 * closeness ** 1.5 * this.spin * dt;
+            d.angle += 6 * closeness ** 1.5 * this.renderer.spin * dt;
 
             if (d.r <= R * 1.05) this.dust.splice(i, 1);
         }
+
+        return merged;
     }
 
-    /** Dust falls in from all directions and flattens into the disk plane as it nears */
-    dustSquash(r: number) {
-        return lerp(DISK_SQUASH, 1, clamp01((r / this.baseRadius - DISK_INNER) / 5));
+    /**
+     * Gravitational-wave driven inspiral: slow at first, then faster and
+     * faster. Orbital speed follows Kepler, giving the characteristic "chirp".
+     */
+    private updateInspiral(orbit: Inspiral, dt: number, now: number, debris: Debris[]) {
+        orbit.time += dt;
+        const left = Math.max(0, 1 - orbit.time / INSPIRAL_S);
+        orbit.a = orbit.a0 * left ** INSPIRAL_DECAY;
+
+        const speed = Math.min(MAX_ORBIT_SPEED, INSPIRAL_SPEED * (orbit.a0 / Math.max(orbit.a, 1)) ** 1.5);
+        orbit.angle += speed * quasar.spin * dt;
+        this.x = quasar.x + Math.cos(orbit.angle) * orbit.a;
+        this.y = quasar.y + Math.sin(orbit.angle) * orbit.a * ORBIT_SQUASH;
+
+        // The quasar's tides tear the small hole's disk into two tails: matter
+        // on the inside runs ahead, matter on the outside falls behind
+        this.stripped = clamp01((orbit.time / INSPIRAL_S - 0.1) / 0.6);
+        this.stripDebt += STRIP_RATE * this.stripped * dt;
+        for (; this.stripDebt >= 1; this.stripDebt--) {
+            debris.push(
+                ...tidalTail(
+                    quasar,
+                    orbit.a,
+                    orbit.angle,
+                    ORBIT_SQUASH,
+                    INSPIRAL_SPEED * quasar.spin,
+                    orbit.a0,
+                    quasar.radius * 3.5,
+                    this.radius * 3
+                )
+            );
+        }
+
+        const halfOrbits = Math.floor(orbit.angle / Math.PI);
+        if (halfOrbits !== orbit.halfOrbits) {
+            orbit.halfOrbits = halfOrbits;
+            const closeness = 1 - orbit.a / orbit.a0;
+            emitWave(quasar.x, quasar.y, 0.12 + 0.55 * closeness ** 2, now);
+        }
+
+        if (orbit.a <= quasar.radius + this.radius * 0.5 || left === 0) {
+            this.merged = true;
+            return true;
+        }
+        return false;
     }
 
     draw(ctx: CanvasRenderingContext2D) {
         const R = this.radius;
         const fade = this.dying ? 1 - clamp01(this.deathAge / DEATH_MS) : clamp01(this.age / BIRTH_MS);
 
-        ctx.globalCompositeOperation = 'lighter';
-        this.drawGlow(ctx, R, fade);
+        const diskFade = fade * (1 - 0.85 * this.stripped);
+
+        this.renderer.drawBack(ctx, this.x, this.y, R, fade, true, diskFade);
         this.drawDust(ctx, this.dying ? fade : 1);
-        this.drawDisk(ctx, R, fade, true);
-        this.drawLensedRing(ctx, R, fade);
-
-        ctx.globalCompositeOperation = 'source-over';
-        this.drawHorizon(ctx, R);
-
-        ctx.globalCompositeOperation = 'lighter';
-        this.drawDisk(ctx, R, fade, false);
+        this.renderer.drawFront(ctx, this.x, this.y, R, diskFade);
         this.drawShockwave(ctx);
         this.drawEvaporationFlash(ctx);
         ctx.globalAlpha = 1;
     }
 
-    drawGlow(ctx: CanvasRenderingContext2D, R: number, fade: number) {
-        if (R <= 0) return;
-        const glow = ctx.createRadialGradient(this.x, this.y, R, this.x, this.y, R * 7);
-        glow.addColorStop(0, 'rgba(100, 255, 218, 0.18)');
-        glow.addColorStop(1, 'rgba(100, 255, 218, 0)');
-        ctx.globalAlpha = fade;
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, R * 7, 0, TAU);
-        ctx.fill();
-    }
-
-    drawDust(ctx: CanvasRenderingContext2D, fade: number) {
+    private drawDust(ctx: CanvasRenderingContext2D, fade: number) {
+        ctx.globalCompositeOperation = 'lighter';
         ctx.lineCap = 'round';
         ctx.lineWidth = 1.2;
         ctx.strokeStyle = '#e6f1ff';
         for (const d of this.dust) {
-            const [x, y] = this.project(d.r, d.angle, this.dustSquash(d.r));
+            const [x, y] = this.renderer.project(this.x, this.y, d.r, d.angle, this.dustSquash(d.r));
             // Gets brighter as it heats up on the way in; motion stretches it
             // into a streak right before the horizon (spaghettification)
-            ctx.globalAlpha = fade * (0.2 + 0.8 * clamp01(1 - (d.r - this.baseRadius) / (this.baseRadius * 8)));
+            ctx.globalAlpha = fade * (0.2 + 0.8 * clamp01(1 - (d.r - this.baseRadius) / (this.baseRadius * 14)));
             ctx.beginPath();
             ctx.moveTo(d.prevX, d.prevY);
             ctx.lineTo(x, y);
@@ -210,96 +246,19 @@ class BlackHole implements GravityWell {
         }
     }
 
-    /** The disk is split in two passes: the far half behind the horizon, the near half in front of it */
-    drawDisk(ctx: CanvasRenderingContext2D, R: number, fade: number, farSide: boolean) {
-        if (R <= 0) return;
-        this.drawDiskBand(ctx, R, fade, farSide);
-
-        ctx.lineCap = 'round';
-        for (const p of this.disk) {
-            const isFar = Math.sin(p.angle) < 0;
-            if (isFar !== farSide) continue;
-
-            const r = p.rel * R;
-            const trail = p.speed * this.spin * 0.1;
-            const [x1, y1] = this.project(r, p.angle - trail);
-            const [x2, y2] = this.project(r, p.angle);
-            // Doppler beaming: the side moving towards us is much brighter
-            const doppler = 0.35 + 0.65 * (0.5 + 0.5 * Math.cos(p.angle) * this.spin);
-
-            ctx.globalAlpha = fade * doppler;
-            ctx.strokeStyle = p.color;
-            ctx.lineWidth = p.width;
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
-        }
-    }
-
-    /** Continuous glowing gas underneath the individual streaks */
-    drawDiskBand(ctx: CanvasRenderingContext2D, R: number, fade: number, farSide: boolean) {
-        const inner = R * DISK_INNER * 0.9;
-        const outer = R * DISK_OUTER;
-        const [from, to] = farSide ? [Math.PI, TAU] : [0, Math.PI];
-
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.tilt);
-        ctx.scale(1, DISK_SQUASH);
-
-        const band = ctx.createRadialGradient(0, 0, inner, 0, 0, outer);
-        band.addColorStop(0, 'rgba(230, 241, 255, 0.6)');
-        band.addColorStop(0.2, 'rgba(87, 203, 255, 0.35)');
-        band.addColorStop(1, 'rgba(100, 255, 218, 0)');
-        ctx.globalAlpha = fade;
-        ctx.fillStyle = band;
-        ctx.beginPath();
-        ctx.arc(0, 0, outer, from, to);
-        ctx.arc(0, 0, inner, to, from, true);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-    }
-
-    /** Light from the far side of the disk bent around the hole, plus the photon ring */
-    drawLensedRing(ctx: CanvasRenderingContext2D, R: number, fade: number) {
-        if (R <= 0) return;
-        const ring = ctx.createRadialGradient(this.x, this.y, R, this.x, this.y, R * 2);
-        ring.addColorStop(0, 'rgba(230, 241, 255, 0)');
-        ring.addColorStop(0.06, 'rgba(230, 241, 255, 0.95)');
-        ring.addColorStop(0.25, 'rgba(87, 203, 255, 0.45)');
-        ring.addColorStop(0.6, 'rgba(100, 255, 218, 0.12)');
-        ring.addColorStop(1, 'rgba(100, 255, 218, 0)');
-        ctx.globalAlpha = fade;
-        ctx.fillStyle = ring;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, R * 2, 0, TAU);
-        ctx.fill();
-    }
-
-    drawHorizon(ctx: CanvasRenderingContext2D, R: number) {
-        if (R <= 0) return;
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = '#000';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, R, 0, TAU);
-        ctx.fill();
-    }
-
-    drawShockwave(ctx: CanvasRenderingContext2D) {
+    private drawShockwave(ctx: CanvasRenderingContext2D) {
         if (this.age > SHOCKWAVE_MS) return;
         const t = this.age / SHOCKWAVE_MS;
         ctx.globalAlpha = (1 - t) ** 2 * 0.7;
         ctx.strokeStyle = '#64ffda';
         ctx.lineWidth = 2 * (1 - t) + 0.5;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.baseRadius * (1 + 9 * Math.sqrt(t)), 0, TAU);
+        ctx.arc(this.x, this.y, this.baseRadius * (1 + 14 * Math.sqrt(t)), 0, TAU);
         ctx.stroke();
     }
 
     /** Final burst of Hawking radiation as the hole evaporates */
-    drawEvaporationFlash(ctx: CanvasRenderingContext2D) {
+    private drawEvaporationFlash(ctx: CanvasRenderingContext2D) {
         if (!this.dying) return;
         const t = clamp01((this.deathAge / DEATH_MS - 0.6) / 0.4);
         if (t <= 0) return;
@@ -317,12 +276,15 @@ class BlackHole implements GravityWell {
 }
 
 /**
- * Full-screen canvas of black holes. The render loop only runs while at
- * least one hole exists, so an idle page costs nothing.
+ * Full-screen canvas of black holes, their mergers with the quasar and the
+ * gravitational waves those produce. The render loop only runs while there
+ * is something to draw, so an idle page costs nothing.
  */
 export class BlackHoleField {
     private readonly ctx: CanvasRenderingContext2D | null;
     private holes: BlackHole[] = [];
+    private debris: Debris[] = [];
+    private mergerFlashes: number[] = [];
     private rafId = 0;
     private lastTime = 0;
 
@@ -334,14 +296,12 @@ export class BlackHoleField {
 
     spawn(x: number, y: number) {
         if (!this.ctx) return;
-        const alive = this.holes.filter((hole) => !hole.dying);
+        const alive = this.holes.filter((hole) => !hole.dying && !hole.inspiral);
         if (alive.length >= MAX_HOLES) alive[0].die();
 
-        this.holes.push(new BlackHole(x, y));
-        if (!this.rafId) {
-            this.lastTime = performance.now();
-            this.rafId = requestAnimationFrame(this.frame);
-        }
+        const captured = quasar.radius > 0 && Math.hypot(x - quasar.x, y - quasar.y) < quasar.radius * CAPTURE_RANGE;
+        this.holes.push(new BlackHole(x, y, captured));
+        this.start();
     }
 
     destroy() {
@@ -349,6 +309,13 @@ export class BlackHoleField {
         window.removeEventListener('resize', this.resize);
         this.holes.forEach((hole) => hole.unregister());
         this.holes = [];
+        this.debris = [];
+    }
+
+    private start() {
+        if (this.rafId) return;
+        this.lastTime = performance.now();
+        this.rafId = requestAnimationFrame(this.frame);
     }
 
     private resize = () => {
@@ -358,6 +325,12 @@ export class BlackHoleField {
         this.ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
+    private merge(now: number) {
+        for (const [delay, amplitude] of RINGDOWN) emitWave(quasar.x, quasar.y, amplitude, now + delay);
+        this.mergerFlashes.push(now);
+        feedQuasar();
+    }
+
     private frame = (now: number) => {
         const ctx = this.ctx!;
         // Clamp so a backgrounded tab doesn't make everything jump on return
@@ -365,15 +338,75 @@ export class BlackHoleField {
         this.lastTime = now;
 
         ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        this.drawWaves(ctx, now);
+        this.drawMergerFlashes(ctx, now);
+
+        for (const request of takeDisruptions()) {
+            this.debris.push(...tidalDisruption(request.host, request.x, request.y, request.color, request.size));
+        }
 
         for (const hole of this.holes) {
-            hole.update(dt);
+            if (hole.update(dt, now, this.debris)) this.merge(now);
             if (hole.finished) hole.unregister();
-            else hole.draw(ctx);
         }
+        const finished = new Set(this.holes.filter((hole) => hole.finished));
         this.holes = this.holes.filter((hole) => !hole.finished);
 
-        this.rafId = this.holes.length ? requestAnimationFrame(this.frame) : 0;
-        if (!this.rafId) ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        // Debris orbiting a hole that's gone has nothing left to hold it
+        this.debris = this.debris.filter((d) => !finished.has(d.host as BlackHole) && updateDebris(d, dt));
+        // Drawn before the holes so their horizons hide whatever falls in
+        drawDebris(ctx, this.debris);
+        for (const hole of this.holes) hole.draw(ctx);
+
+        const busy =
+            this.holes.length > 0 ||
+            this.debris.length > 0 ||
+            this.mergerFlashes.length > 0 ||
+            getWaves(now).length > 0;
+        this.rafId = busy ? requestAnimationFrame(this.frame) : 0;
+        if (!busy) ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     };
+
+    /** Each ripple is drawn as a crest and a trough: spacetime stretched, then squeezed */
+    private drawWaves(ctx: CanvasRenderingContext2D, now: number) {
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.strokeStyle = '#64ffda';
+        for (const wave of getWaves(now)) {
+            const radius = waveRadius(wave, now);
+            if (radius <= 0) continue;
+            const alpha = wave.amplitude * waveDecay(wave, now) * 0.35;
+
+            ctx.lineWidth = 1 + 2 * wave.amplitude;
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.arc(wave.x, wave.y, radius, 0, TAU);
+            ctx.stroke();
+
+            ctx.lineWidth = 1;
+            ctx.globalAlpha = alpha * 0.5;
+            ctx.beginPath();
+            ctx.arc(wave.x, wave.y, Math.max(0, radius - WAVE_WIDTH * 0.5), 0, TAU);
+            ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+    }
+
+    private drawMergerFlashes(ctx: CanvasRenderingContext2D, now: number) {
+        this.mergerFlashes = this.mergerFlashes.filter((born) => now - born < MERGER_FLASH_MS);
+        ctx.globalCompositeOperation = 'lighter';
+        for (const born of this.mergerFlashes) {
+            const t = (now - born) / MERGER_FLASH_MS;
+            const r = quasar.radius * (1.5 + 6 * Math.sqrt(t));
+            const flash = ctx.createRadialGradient(quasar.x, quasar.y, 0, quasar.x, quasar.y, r);
+            flash.addColorStop(0, 'rgba(230, 241, 255, 1)');
+            flash.addColorStop(0.3, 'rgba(87, 203, 255, 0.6)');
+            flash.addColorStop(1, 'rgba(100, 255, 218, 0)');
+            ctx.globalAlpha = (1 - t) ** 2;
+            ctx.fillStyle = flash;
+            ctx.beginPath();
+            ctx.arc(quasar.x, quasar.y, r, 0, TAU);
+            ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+    }
 }
