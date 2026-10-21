@@ -8,7 +8,7 @@ function Hello() {
             <div className="hello__title fade2">Darsen Ungarlinov</div>
             <div className="hello__undertitle fade3">I build things for the web.</div>
             <div className="hello__text fade4">
-                I’m a fullstack JavaScript/TypeScript developer specializing in building exceptional digital
+                I’m a frontend JavaScript/TypeScript developer specializing in building exceptional digital
                 experiences. Currently, I’m focused on learning new technologies and my job
             </div>
             <div className="hello__button fade5">

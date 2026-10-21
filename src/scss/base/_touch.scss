@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+// Touch devices (mobile Safari especially) can't afford re-painting
+// animated drop-shadow + blur filters on 10 layers every frame.
+@media (hover: none), (max-width: #{$tablet}) {
+  .cube {
+    filter: none;
+
+    img {
+      animation: none;
+      filter: drop-shadow(0 0 12px $green);
+    }
+  }
+
+  .superfade,
+  .jobs__button:hover {
+    animation: none;
+  }
+}

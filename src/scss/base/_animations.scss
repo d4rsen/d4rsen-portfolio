@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+@keyframes onAppear {
+  0% {
+    background-color: $dark-navy;
+  }
+  100% {
+    background-color: $navy;
+  }
+}
+
+@keyframes barfade {
+  from {
+    margin-bottom: 100vh;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes playerfade {
+  from {
+    top: 100vh;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    top: 70px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -250px, 0) scale(0) rotate(300deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes superfade {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.fade1 {
+  animation: fadein 500ms;
+}
+
+.fade2 {
+  animation: fadein 1000ms;
+}
+
+.fade3 {
+  animation: fadein 1500ms;
+}
+
+.fade4 {
+  animation: fadein 2000ms;
+}
+
+.fade5 {
+  animation: fadein 2500ms;
+}
+
+.barfade {
+  animation: barfade 5000ms ease;
+}
+
+.playerfade {
+  animation: playerfade 5000ms ease;
+}
+
+.superfade {
+  animation: superfade 5000ms;
+}

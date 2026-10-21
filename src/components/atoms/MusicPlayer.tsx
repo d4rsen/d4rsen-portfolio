@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
-// @ts-ignore
-import useSound from 'use-sound';
+import React, { useEffect, useRef, useState } from 'react';
 import musicUrl from '../../assets/music/first-step.mp3';
 import playUrl from '../../assets/svg/play.svg';
 import pauseUrl from '../../assets/svg/pause.svg';
 
+const VOLUME = 0.8;
+
 const MusicPlayer = () => {
-    const [play, { pause }] = useSound(musicUrl, {
-        volume: 0.8
-    });
+    // 4MB track: created lazily so nothing is downloaded until the user presses play,
+    // then streamed. play() must run synchronously in the click for iOS Safari.
+    const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
+    useEffect(() => () => audioRef.current?.pause(), []);
+
+    const getAudio = () => {
+        if (!audioRef.current) {
+            const audio = new Audio(musicUrl);
+            audio.preload = 'none';
+            audio.volume = VOLUME;
+            audio.addEventListener('ended', () => setIsPlaying(false));
+            audioRef.current = audio;
+        }
+        return audioRef.current;
+    };
+
     const playHandler = () => {
-        isPlaying ? pause() : play();
-        setIsPlaying((prev) => !prev);
+        const audio = getAudio();
+
+        if (isPlaying) {
+            audio.pause();
+            setIsPlaying(false);
+        } else {
+            setIsPlaying(true);
+            audio.play().catch(() => setIsPlaying(false));
+        }
     };
 
     return (

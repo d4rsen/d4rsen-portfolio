@@ -1,6 +1,5 @@
-import { observer } from 'mobx-react-lite';
-import React, { FC, useCallback } from 'react';
-import { menu } from '../../store/menu.store';
+import React, { FC } from 'react';
+import { useMenu } from '../../store/MenuContext';
 
 interface BurgerItemProps {
     href: string;
@@ -8,19 +7,17 @@ interface BurgerItemProps {
     text: string;
 }
 
-const BurgerItem: FC<BurgerItemProps> = observer(({ href, number, text }) => {
-    const closeHandler = useCallback(() => {
-        menu.open = false;
-    }, []);
+const BurgerItem: FC<BurgerItemProps> = ({ href, number, text }) => {
+    const { setOpen } = useMenu();
 
     return (
-        <div role="navigation" onClick={closeHandler} className="burger__item item ">
+        <div role="navigation" onClick={() => setOpen(false)} className="burger__item item ">
             <a data-hover href={href}>
                 <div className="item__number">{number}</div>
                 <div className="item__text">{text}</div>
             </a>
         </div>
     );
-});
+};
 
 export default BurgerItem;

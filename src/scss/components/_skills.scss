@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.skills__item {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: $slate;
+
+  &:hover {
+    animation: $superfade 3000ms;
+  }
+
+  &:before {
+    content: "▹";
+    color: #64ffda;
+    font-size: 14px;
+    line-height: 12px;
+    margin-right: 10px;
+  }
+}
