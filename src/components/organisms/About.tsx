@@ -22,7 +22,11 @@ function About() {
                     <SkillsItem star text="Sass" />
                     <SkillsItem star text="Storybook" />
                     <SkillsItem star text="MobX" />
-                    <SkillsItem star text="Node.js" />
+                    <SkillsItem star text="Html5" />
+                    <SkillsItem star text="CSS3" />
+                    <SkillsItem star text="Vite" />
+                    <SkillsItem star text="Leaflet" />
+                    <SkillsItem star text="Git" />
                 </SkillsConstellation>
             </div>
             <div className="about__right">

@@ -21,6 +21,7 @@
 @use 'components/not-found';
 @use 'components/gravity-toggle';
 @use 'components/transmission';
+@use 'components/hyperspace';
 
 // Must stay last: overrides component animations on touch devices
 @use 'base/touch';

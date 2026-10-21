@@ -4,7 +4,8 @@ import { useEffectsEnabled } from '../../space/effects';
 import { unlockSpaceSound } from '../../space/sound';
 
 // Clicks on these don't spawn a black hole
-const CLICKABLE_SELECTOR = '[data-hover], a, button, input, select, textarea, label, [role="button"], .hamburger';
+const CLICKABLE_SELECTOR =
+    '[data-hover], a, button, input, select, textarea, label, [role="button"], [role="dialog"], .hamburger';
 /** On touch screens a black hole needs a long press, so taps and scrolling stay normal */
 const LONG_PRESS_MS = 450;
 const LONG_PRESS_SLOP = 10;

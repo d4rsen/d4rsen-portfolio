@@ -89,7 +89,9 @@ export const Typewriter = ({ text, className, delay, charMs, keepCaret, onDone }
     }, [done, onDone]);
 
     return (
-        <span ref={ref} className={`typewriter ${className ?? ''}`} aria-label={text}>
+        <span ref={ref} className={`typewriter ${className ?? ''}`}>
+            {/* Screen readers get the whole text at once */}
+            <span className="sr-only">{text}</span>
             <span aria-hidden="true">{text.slice(0, shown)}</span>
             {(seen && !done) || (done && keepCaret) ? <span className="typewriter__caret" aria-hidden="true" /> : null}
             <span className="typewriter__rest" aria-hidden="true">

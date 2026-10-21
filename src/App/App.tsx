@@ -11,9 +11,10 @@ import { Cursor } from '../components/atoms/Cursor.tsx';
 import { BlackHoles } from '../components/atoms/BlackHoles';
 import { GravityToggle } from '../components/atoms/GravityToggle';
 import { useGravityOff } from '../space/effects';
+import { Hyperspace, WarpButton } from '../components/space/Hyperspace';
 
-/** Long enough for the star birth intro to play out */
-const LOADER_MIN_MS = 2400;
+/** Long enough for the star birth intro to play out (no intro with reduced motion) */
+const LOADER_MIN_MS = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 300 : 2400;
 // Custom cursor only makes sense with a real mouse (iPads report a desktop UA)
 const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -57,9 +58,14 @@ const App = () => {
                         <Bar />
                     </div>
                     <Footer />
-                    <GravityToggle />
+                    <div className="space-controls">
+                        <GravityToggle />
+                        <WarpButton />
+                    </div>
                 </div>
             )}
+            {/* Outside the wrapper: the page itself flies away during the jump */}
+            {phase !== 'loading' && <Hyperspace />}
             {phase !== 'done' && <Loader leaving={phase === 'leaving'} onExited={onLoaderExited} />}
         </>
     );

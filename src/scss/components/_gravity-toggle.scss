@@ -1,10 +1,17 @@
 @use '../abstracts' as *;
 
-.gravity-toggle {
+// Bottom-left corner: the gravity toggle and the warp button
+.space-controls {
   position: fixed;
   left: 20px;
   bottom: 16px;
   z-index: 20;
+  display: flex;
+  gap: 8px;
+}
+
+.gravity-toggle,
+.warp-button {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -28,10 +35,15 @@
   @include tablet {
     padding: 8px;
 
-    &__label {
+    .gravity-toggle__label,
+    .warp-button__label,
+    .warp-button__key {
       display: none;
     }
   }
+}
+
+.gravity-toggle {
 
   // A tiny planet circling a dot; stops when gravity is off
   &__orbit {
@@ -73,5 +85,51 @@
 @keyframes gravity-orbit {
   to {
     transform: rotate(360deg);
+  }
+}
+
+// Hyperspace.tsx
+.warp-button {
+  cursor: pointer;
+
+  // Three streaks rushing past
+  &__icon {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background:
+      linear-gradient(to right, transparent, $green) 0 2px / 9px 1px no-repeat,
+      linear-gradient(to right, transparent, $green) 3px 6px / 9px 1px no-repeat,
+      linear-gradient(to right, transparent, $green) 0 10px / 9px 1px no-repeat;
+    animation: warp-streaks 1.2s linear infinite;
+  }
+
+  &__key {
+    padding: 0 5px;
+    border: 1px solid rgba($light-slate, 0.4);
+    border-radius: 3px;
+    color: $slate;
+    font-family: $font-mono;
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  &:hover &__key {
+    border-color: $green;
+    color: $green;
+  }
+}
+
+@keyframes warp-streaks {
+  50% {
+    transform: translateX(2px);
+    opacity: 0.6;
+  }
+}
+
+// No keyboard to press W on
+@media (hover: none) {
+  .warp-button__key {
+    display: none;
   }
 }

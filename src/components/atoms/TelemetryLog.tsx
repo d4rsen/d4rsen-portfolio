@@ -77,7 +77,8 @@ export const TelemetryLog = ({ lines }: TelemetryLogProps) => {
                 const typing = !done && elapsed >= starts[i] && shown < line.length;
                 const last = i === lines.length - 1;
                 return (
-                    <div key={i} className="skills__item telemetry__line" aria-label={line}>
+                    <div key={i} className="skills__item telemetry__line">
+                        <span className="sr-only">{line}</span>
                         <span aria-hidden="true">{line.slice(0, shown)}</span>
                         {(typing || (done && last)) && <span className="telemetry__caret" aria-hidden="true" />}
                         <span className="telemetry__rest" aria-hidden="true">

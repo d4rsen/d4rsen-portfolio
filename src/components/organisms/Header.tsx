@@ -1,18 +1,32 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import HeaderItem from '../atoms/HeaderItem';
 import BurgerTemplate from '../molecules/BurgerTemplate';
 import logoUrl from '../../assets/images/logo.png';
 import { SecretTransmission } from '../atoms/SecretTransmission';
+import { engageHyperspace } from '../space/Hyperspace';
+
+/** Tapping the logo this many times quickly is the touch-screen Konami code */
+const LOGO_TAPS = 5;
+const LOGO_TAPS_WINDOW_MS = 1500;
 
 function Header() {
     const url = useMemo(() => window.location.pathname, []);
+    const taps = useRef<number[]>([]);
+
+    const onLogoClick = () => {
+        const now = Date.now();
+        taps.current = [...taps.current.filter((t) => now - t < LOGO_TAPS_WINDOW_MS), now];
+        if (taps.current.length < LOGO_TAPS) return;
+        taps.current = [];
+        engageHyperspace();
+    };
 
     return (
         <header className="header">
             <div className="header-container">
                 <div className="header__left left">
                     <div className="left__logo fade5">
-                        <a data-hover href="#">
+                        <a data-hover href="#" onClick={onLogoClick}>
                             <img src={logoUrl} alt="logo" className="left__img superfade" />
                         </a>
                     </div>

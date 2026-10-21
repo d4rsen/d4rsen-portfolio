@@ -65,16 +65,135 @@
 }
 
 .voyager-distance {
-  padding-bottom: 6px;
+  display: block;
+  margin: 0 auto;
+  padding: 0 0 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: $light-slate;
+  }
+
   color: $slate;
   font-family: $font-mono;
   font-size: 11px;
   letter-spacing: 0.03em;
   text-align: center;
 
+  // Says the line is clickable: a little gold disc and a dashed link
+  &__record {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #f7c948;
+    border-bottom: 1px dashed rgba(#f7c948, 0.5);
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #8a6418 0 1.5px, #f7c948 2px, #d4a640 70%, #8a6418);
+      box-shadow: 0 0 6px rgba(#f7c948, 0.6);
+    }
+  }
+
+  &:hover &__record,
+  &:focus-visible &__record {
+    border-bottom-style: solid;
+  }
+
   &__km {
     color: $green;
     // Digits don't jitter while the number ticks
     font-variant-numeric: tabular-nums;
+  }
+}
+
+// Voyager's Golden Record: GoldenRecord.tsx
+.golden-record {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba($dark-navy, 0.8);
+  backdrop-filter: blur(6px);
+  animation: golden-record-in 0.35s ease both;
+
+  &__panel {
+    position: relative;
+    width: min(440px, 100%);
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 32px 28px 26px;
+    border: 1px solid rgba(#d4a640, 0.4);
+    border-radius: 8px;
+    background: rgba($light-navy, 0.95);
+    box-shadow: 0 20px 60px $navy-shadow;
+    text-align: center;
+  }
+
+  &__cover {
+    display: block;
+    width: min(240px, 70vw);
+    margin: 0 auto 22px;
+    filter: drop-shadow(0 0 22px rgba(#f7c948, 0.35));
+    animation: golden-record-spin 60s linear infinite;
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    color: #f7c948;
+    font-family: $font-mono;
+    font-size: $fz-lg;
+    letter-spacing: 0.1em;
+  }
+
+  &__text {
+    margin: 0 0 10px;
+    color: $light-slate;
+    font-size: $fz-sm;
+    line-height: 1.55;
+
+    a {
+      color: $green;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: none;
+    color: $slate;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      color: $green;
+    }
+  }
+}
+
+@keyframes golden-record-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes golden-record-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
