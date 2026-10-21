@@ -6,110 +6,98 @@ interface Point {
 }
 
 const HOVER_SELECTOR = '[data-hover]';
-// Clicks on these don't spawn a black hole
-const CLICKABLE_SELECTOR = `${HOVER_SELECTOR}, a, button, input, select, textarea, label, [role="button"], .hamburger`;
-const HOVER_SCALE = 2.7;
-const EXPLOSION_MS = 900;
-const BLACKHOLE_LIFETIME_MS = 3000;
+/** Voyager rests a little below-right of the pointer, so it never covers the target */
+const REST_OFFSET: Point = { x: 26, y: 26 };
+const FOLLOW = 0.1;
+const HOVER_SCALE = 1.3;
+/** Heading it settles to when the mouse stops, degrees */
+const REST_HEADING = -25;
+const SIGNAL_MS = 900;
 
 const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
 
-const closest = (target: EventTarget | null, selector: string) =>
-    target instanceof Element ? target.closest(selector) : null;
-
-const closestHoverTarget = (target: EventTarget | null) => closest(target, HOVER_SELECTOR);
-
-const spawnBlackHole = (x: number, y: number) => {
-    const blackhole = document.createElement('blackhole');
-    blackhole.classList.add('blackhole');
-    blackhole.style.zIndex = '0';
-
-    const megna = document.createElement('div');
-    megna.classList.add('megna');
-
-    const inner = document.createElement('div');
-    inner.classList.add('black');
-
-    blackhole.appendChild(megna);
-    megna.appendChild(inner);
-
-    const size = 20 + Math.random() * 80;
-    blackhole.style.left = `${x}px`;
-    blackhole.style.top = `${y}px`;
-    blackhole.style.width = `${size}px`;
-    blackhole.style.height = `${size}px`;
-    document.body.appendChild(blackhole);
-
-    setTimeout(() => blackhole.remove(), BLACKHOLE_LIFETIME_MS);
+/** Shortest way from one angle to another, so it never spins the long way round */
+const lerpAngle = (from: number, to: number, n: number) => {
+    const delta = ((((to - from) % 360) + 540) % 360) - 180;
+    return from + delta * n;
 };
 
+const closestHoverTarget = (target: EventTarget | null) =>
+    target instanceof Element ? target.closest(HOVER_SELECTOR) : null;
+
 /**
- * Custom cursor: a dot that follows the mouse exactly, a circle that trails
- * behind it (and grows over [data-hover] elements), a pulsing ring, and
- * black holes spawned on every click.
+ * Custom cursor: a precise dot, escorted by the Voyager probe. It trails the
+ * pointer, turns to face where it's heading, grows over links and sends a
+ * radio signal when one is clicked. Black holes on click live in BlackHoles.tsx.
  */
 export const useCursor = (rootRef: RefObject<HTMLElement>) => {
     useEffect(() => {
         const root = rootRef.current;
         const dot = root?.querySelector<HTMLElement>('.cursor__inner--dot');
-        const circle = root?.querySelector<HTMLElement>('.cursor__inner--circle');
-        const pulse = root?.querySelector<HTMLElement>('.cursor');
-        if (!dot || !circle || !pulse) return;
+        const voyager = root?.querySelector<HTMLElement>('.cursor__voyager');
+        if (!dot || !voyager) return;
 
-        const dotBounds = dot.getBoundingClientRect();
-        const circleBounds = circle.getBoundingClientRect();
+        const dotHalf = dot.getBoundingClientRect().width / 2;
+        const voyagerHalf = voyager.getBoundingClientRect().width / 2;
 
-        const mouse: Point = { x: 0, y: 0 };
-        const dotPos: Point = { x: 0, y: 0 };
-        const circlePos: Point = { x: 0, y: 0 };
+        const mouse: Point = { x: -100, y: -100 };
+        const probe: Point = { x: -100, y: -100 };
+        let heading = REST_HEADING;
         let scale = 1;
-        let opacity = 1;
-        let lastScale = 1;
-        let lastOpacity = 1;
+        let targetScale = 1;
         let rafId = 0;
+        let signalTimer = 0;
 
         const render = () => {
-            dotPos.x = mouse.x - dotBounds.width / 2;
-            dotPos.y = mouse.y - dotBounds.height / 2;
-            circlePos.x = lerp(circlePos.x, mouse.x - circleBounds.width / 2, 0.15);
-            circlePos.y = lerp(circlePos.y, mouse.y - circleBounds.height / 2, 0.15);
-            lastScale = lerp(lastScale, scale, 0.15);
-            lastOpacity = lerp(lastOpacity, opacity, 0.1);
+            const tx = mouse.x + REST_OFFSET.x;
+            const ty = mouse.y + REST_OFFSET.y;
+            const vx = tx - probe.x;
+            const vy = ty - probe.y;
+            probe.x = lerp(probe.x, tx, FOLLOW);
+            probe.y = lerp(probe.y, ty, FOLLOW);
 
-            dot.style.transform = `translateX(${dotPos.x}px) translateY(${dotPos.y}px)`;
-            circle.style.transform = `translateX(${circlePos.x}px) translateY(${circlePos.y}px) scale(${lastScale})`;
-            circle.style.opacity = String(lastOpacity);
+            // Face the direction of travel; drift back to a resting pose when still
+            const moving = Math.hypot(vx, vy) > 2;
+            const target = moving ? (Math.atan2(vy, vx) * 180) / Math.PI + 90 : REST_HEADING;
+            heading = lerpAngle(heading, target, moving ? 0.12 : 0.03);
+            scale = lerp(scale, targetScale, 0.15);
+
+            dot.style.transform = `translate3d(${mouse.x - dotHalf}px, ${mouse.y - dotHalf}px, 0)`;
+            voyager.style.transform =
+                `translate3d(${probe.x - voyagerHalf}px, ${probe.y - voyagerHalf}px, 0) ` +
+                `rotate(${heading}deg) scale(${scale})`;
             rafId = requestAnimationFrame(render);
         };
 
         const onMouseMove = (e: MouseEvent) => {
+            const first = mouse.x < 0;
             mouse.x = e.pageX;
             mouse.y = e.pageY;
-            pulse.style.left = `${e.clientX - 15}px`;
-            pulse.style.top = `${e.clientY - 15}px`;
-            pulse.style.display = 'block';
+            if (first) {
+                probe.x = mouse.x + REST_OFFSET.x;
+                probe.y = mouse.y + REST_OFFSET.y;
+            }
         };
 
         // Delegated, so links rendered after mount (route changes) work too
         const onMouseOver = (e: MouseEvent) => {
             const link = closestHoverTarget(e.target);
-            if (link && !link.contains(e.relatedTarget as Node | null)) scale = HOVER_SCALE;
+            if (link && !link.contains(e.relatedTarget as Node | null)) targetScale = HOVER_SCALE;
         };
 
         const onMouseOut = (e: MouseEvent) => {
             const link = closestHoverTarget(e.target);
-            if (link && !link.contains(e.relatedTarget as Node | null)) scale = 1;
+            if (link && !link.contains(e.relatedTarget as Node | null)) targetScale = 1;
         };
 
         const onClick = (e: MouseEvent) => {
-            if (closestHoverTarget(e.target)) {
-                lastScale = 1;
-                lastOpacity = 0;
-            }
-
-            pulse.classList.add('explosion');
-            setTimeout(() => pulse.classList.remove('explosion'), EXPLOSION_MS);
-            if (!closest(e.target, CLICKABLE_SELECTOR)) spawnBlackHole(e.clientX, e.clientY);
+            if (!closestHoverTarget(e.target)) return;
+            // Restart the radio signal animation
+            voyager.classList.remove('cursor__voyager--signal');
+            void voyager.offsetWidth;
+            voyager.classList.add('cursor__voyager--signal');
+            window.clearTimeout(signalTimer);
+            signalTimer = window.setTimeout(() => voyager.classList.remove('cursor__voyager--signal'), SIGNAL_MS);
         };
 
         window.addEventListener('mousemove', onMouseMove);
@@ -120,6 +108,7 @@ export const useCursor = (rootRef: RefObject<HTMLElement>) => {
 
         return () => {
             cancelAnimationFrame(rafId);
+            window.clearTimeout(signalTimer);
             window.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseover', onMouseOver);
             document.removeEventListener('mouseout', onMouseOut);

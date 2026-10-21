@@ -77,6 +77,30 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
+    // While the music plays, radio rings pulse out like from a pulsar
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $green;
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.active2::before,
+    &.active2::after {
+      animation: pulsar-ring 1.6s ease-out infinite;
+    }
+
+    &.active2::after {
+      animation-delay: 0.8s;
+    }
     background-color: transparent;
     border-radius: 15px;
     z-index: 15;
@@ -97,5 +121,16 @@
     .play:hover {
       transition: background-color .3s ease;
     }
+  }
+}
+
+@keyframes pulsar-ring {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2.8);
+    opacity: 0;
   }
 }

@@ -11,9 +11,49 @@
   text-decoration: none;
   transition: $transition;
   backdrop-filter: blur(5px);
+  position: relative;
+
+  // On hover a pulse of light runs around the frame, like light circling a horizon
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--pulse-angle),
+        transparent 0deg 250deg,
+        rgba($green, 0.6) 310deg,
+        $white 345deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
     background-color: $lightest-navy;
     transition: $transition;
+
+    &::before {
+      opacity: 1;
+      animation: button-pulse 1.6s linear infinite;
+    }
+  }
+}
+
+@property --pulse-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes button-pulse {
+  to {
+    --pulse-angle: 360deg;
   }
 }

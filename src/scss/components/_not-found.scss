@@ -10,7 +10,8 @@
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  // Letters fly out of the column towards the quasar; don't clip them
+  overflow: visible;
   -webkit-font-smoothing: antialiased;
   background-color: transparent;
   color: $slate;
@@ -20,9 +21,34 @@
 
   &__title {
     color: $green;
-    font-size: clamp(100px, 25vw, 200px);
+    font-size: clamp(80px, 20vw, 200px);
     line-height: 1;
     margin: 0 0 10px;
+  }
+
+  &__caption {
+    margin-top: 10px;
+    font-size: $fz-sm;
+    color: $slate;
+    text-align: center;
+  }
+
+  // Go Home drifts nearby like an escape capsule, beacon blinking
+  &__capsule {
+    animation: capsule-drift 5s ease-in-out infinite alternate;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: $green;
+      box-shadow: 0 0 8px 2px rgba($green, 0.7);
+      animation: beacon 1.4s steps(1) infinite;
+    }
   }
 
   &__subtitle {
@@ -51,4 +77,67 @@
       background-color: $lightest-navy;
     }
   }
+}
+
+// Every character is stretched along the line to the quasar (tidal forces),
+// falls in and vanishes, then reappears so the page stays readable.
+// Direction, distance and delay are set per character by NotFound.tsx
+@keyframes spaghettify {
+  0%,
+  30% {
+    transform: none;
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5);
+  }
+  46% {
+    transform: translate(calc(var(--dx) * 0.4), calc(var(--dy) * 0.4)) rotate(var(--angle)) scale(2.2, 0.5)
+      rotate(calc(-1 * var(--angle)));
+    opacity: 0.9;
+  }
+  56% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--angle)) scale(2.4, 0.04) rotate(calc(-1 * var(--angle)));
+    opacity: 0;
+  }
+  57%,
+  86% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes capsule-drift {
+  from {
+    transform: translate(-4px, -6px) rotate(-1.5deg);
+  }
+  to {
+    transform: translate(4px, 6px) rotate(1.5deg);
+  }
+}
+
+@keyframes beacon {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.spaghetti__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.spaghetti__char {
+  display: inline-block;
+}
+
+.notFound--falling .spaghetti__char {
+  animation: spaghettify 14s infinite;
 }
