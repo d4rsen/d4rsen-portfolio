@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { GoldenRecord } from './GoldenRecord';
 
 /**
  * Voyager 1's distance from the Sun, ticking live. It's a straight-line
@@ -16,6 +18,9 @@ const format = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 
 export const VoyagerDistance = () => {
     const [km, setKm] = useState(distanceNow);
+    const [recordOpen, setRecordOpen] = useState(false);
+    // Stable, or the dialog would re-run its focus handling on every tick
+    const closeRecord = useCallback(() => setRecordOpen(false), []);
 
     useEffect(() => {
         const timer = window.setInterval(() => setKm(distanceNow()), TICK_MS);
@@ -23,8 +28,17 @@ export const VoyagerDistance = () => {
     }, []);
 
     return (
-        <div className="voyager-distance" title="Voyager 1, launched 1977, the farthest human-made object">
-            Voyager 1 is <span className="voyager-distance__km">{format.format(km)}</span> km from the Sun and counting
-        </div>
+        <>
+            <button
+                data-hover
+                className="voyager-distance"
+                title="Voyager 1, launched 1977, the farthest human-made object. Open its Golden Record"
+                onClick={() => setRecordOpen(true)}
+            >
+                Voyager 1 is <span className="voyager-distance__km">{format.format(km)}</span> km from the Sun and
+                counting · <span className="voyager-distance__record">open its Golden Record</span>
+            </button>
+            {recordOpen && createPortal(<GoldenRecord onClose={closeRecord} />, document.body)}
+        </>
     );
 };

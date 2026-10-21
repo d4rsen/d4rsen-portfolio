@@ -286,41 +286,44 @@ export interface ProjectedConstellation {
 }
 
 /**
- * Altitude/azimuth of every star right now, then a stereographic projection
- * with the zenith at the screen center. Constellations entirely below the
- * horizon are dropped.
+ * Projector for the sky above the visitor at `date`: altitude/azimuth of a
+ * point, then a stereographic projection with the zenith at the screen
+ * center. Also used for the Moon and the planets.
  */
-export const projectSky = (width: number, height: number, date = new Date()) => {
+export const makeProjector = (width: number, height: number, date = new Date()) => {
     const { latitude, longitude } = guessObserver();
     const lst = siderealTime(date, longitude);
     const lat = latitude * DEG;
     // Horizon a bit beyond the corners, so the whole screen is sky
     const horizonRadius = Math.hypot(width, height) * 0.62;
 
+    /** `ra` in hours, `dec` in degrees */
+    return (ra: number, dec: number) => {
+        const hourAngle = (lst - ra) * 15 * DEG;
+        const d = dec * DEG;
+        const altitude = Math.asin(Math.sin(d) * Math.sin(lat) + Math.cos(d) * Math.cos(lat) * Math.cos(hourAngle));
+        // Azimuth from north towards east
+        const azimuth = Math.atan2(
+            -Math.cos(d) * Math.sin(hourAngle),
+            Math.sin(d) * Math.cos(lat) - Math.cos(d) * Math.sin(lat) * Math.cos(hourAngle)
+        );
+        const r = horizonRadius * Math.tan((Math.PI / 2 - altitude) / 2);
+        return { x: width / 2 - r * Math.sin(azimuth), y: height / 2 - r * Math.cos(azimuth), altitude };
+    };
+};
+
+/** Where every constellation is right now; ones entirely below the horizon are dropped */
+export const projectSky = (width: number, height: number, date = new Date()) => {
+    const project = makeProjector(width, height, date);
     const result: ProjectedConstellation[] = [];
     for (const constellation of CONSTELLATIONS) {
         const stars: Record<string, ProjectedStar> = {};
         let visible = false;
 
         for (const [id, star] of Object.entries(constellation.stars)) {
-            const hourAngle = (lst - star.ra) * 15 * DEG;
-            const dec = star.dec * DEG;
-            const altitude = Math.asin(
-                Math.sin(dec) * Math.sin(lat) + Math.cos(dec) * Math.cos(lat) * Math.cos(hourAngle)
-            );
-            // Azimuth from north towards east
-            const azimuth = Math.atan2(
-                -Math.cos(dec) * Math.sin(hourAngle),
-                Math.sin(dec) * Math.cos(lat) - Math.cos(dec) * Math.sin(lat) * Math.cos(hourAngle)
-            );
+            const { x, y, altitude } = project(star.ra, star.dec);
             if (altitude > 0) visible = true;
-
-            const r = horizonRadius * Math.tan((Math.PI / 2 - altitude) / 2);
-            stars[id] = {
-                x: width / 2 - r * Math.sin(azimuth),
-                y: height / 2 - r * Math.cos(azimuth),
-                mag: star.mag
-            };
+            stars[id] = { x, y, mag: star.mag };
         }
         if (visible) result.push({ name: constellation.name, stars, lines: constellation.lines });
     }

@@ -1,0 +1,76 @@
+@use '../abstracts' as *;
+
+// Konami code easter egg: Hyperspace.tsx. Durations match JUMP_MS (2.2s)
+.hyperspace__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba($dark-navy, 0.2), rgba($dark-navy, 0.85));
+  animation: hyperspace-overlay 2.2s ease forwards;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hyperspace__flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #fff, rgba(190, 225, 255, 0.85) 40%, rgba($blue, 0.3));
+  opacity: 0;
+  animation: hyperspace-flash 2.2s ease forwards;
+}
+
+// The page itself falls away into the distance, then drops back out of warp
+.hyperspace .wrapper {
+  animation: hyperspace-page 2.2s cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+@keyframes hyperspace-overlay {
+  0% {
+    opacity: 0;
+  }
+  10%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hyperspace-flash {
+  0%,
+  62% {
+    opacity: 0;
+  }
+  68% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hyperspace-page {
+  0% {
+    transform: none;
+    filter: none;
+  }
+  60% {
+    transform: scale(0.7);
+    filter: blur(6px);
+    opacity: 0.2;
+  }
+  68% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    filter: none;
+    opacity: 1;
+  }
+}

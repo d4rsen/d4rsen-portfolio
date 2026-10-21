@@ -5,6 +5,9 @@ import App from './App/App';
 import ErrorBoundary from './components/atoms/ErrorBoundary';
 import { MenuProvider } from './store/MenuContext';
 import { Sky } from './components/space/Sky';
+import { startTabSignals } from './space/tab';
+
+startTabSignals();
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 

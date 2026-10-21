@@ -91,6 +91,15 @@
   }
 }
 
+.contact__delay {
+  margin-top: 36px;
+  color: $slate;
+  opacity: 0.7;
+  font-family: $font-mono;
+  font-size: $fz-xxs;
+  letter-spacing: 0.05em;
+}
+
 .contact__signal {
   margin-bottom: 14px;
   color: $green;
