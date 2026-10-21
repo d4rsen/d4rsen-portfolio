@@ -6,9 +6,9 @@ import mobxUrl from '../../assets/svg/mobx.svg';
 import typescriptUrl from '../../assets/svg/typescript.svg';
 import gitlabUrl from '../../assets/svg/gitlab.svg';
 import githubUrl from '../../assets/svg/github.svg';
-import styledComponentsUrl from '../../assets/images/styled-components.png';
+import styledComponentsUrl from '../../assets/images/styled-components.webp';
 import storybookUrl from '../../assets/images/storybook.png';
-import sassUrl from '../../assets/images/sass.png';
+import sassUrl from '../../assets/images/sass.webp';
 
 const Background = () => {
     return (

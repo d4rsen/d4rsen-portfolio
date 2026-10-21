@@ -1,22 +1,19 @@
-import { observer } from 'mobx-react-lite';
-import React, { useCallback } from 'react';
-import { menu } from '../../store/menu.store';
+import React from 'react';
+import { useMenu } from '../../store/MenuContext';
 import HeaderLines from '../atoms/HeaderLines';
 import Burger from '../organisms/Burger';
 
-const BurgerTemplate = observer(() => {
-    const burgerHandler = useCallback(() => {
-        menu.open = !menu.open;
-    }, []);
+const BurgerTemplate = () => {
+    const menu = useMenu();
 
     return (
         <>
             <Burger />
-            <div onClick={burgerHandler} className={menu.open ? 'hamburger active fade3' : 'hamburger fade3'}>
+            <div onClick={menu.toggle} className={menu.open ? 'hamburger active fade3' : 'hamburger fade3'}>
                 <HeaderLines />
             </div>
         </>
     );
-});
+};
 
 export default BurgerTemplate;

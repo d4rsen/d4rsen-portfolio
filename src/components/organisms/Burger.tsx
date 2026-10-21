@@ -1,9 +1,10 @@
-import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { menu } from '../../store/menu.store';
+import { useMenu } from '../../store/MenuContext';
 import BurgerItem from '../atoms/BurgerItem';
 
-const Burger = observer(() => {
+const Burger = () => {
+    const menu = useMenu();
+
     return (
         <div className="right__burger burger ">
             <aside>
@@ -18,6 +19,6 @@ const Burger = observer(() => {
             </aside>
         </div>
     );
-});
+};
 
 export default Burger;

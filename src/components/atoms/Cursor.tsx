@@ -1,21 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-// @ts-ignore
-import { CursorFx, initBlackHoles } from './cursorClass';
+import React, { useRef } from 'react';
+import { useCursor } from '../../hooks/useCursor';
 
 export const Cursor = () => {
-    const ref = useRef(null);
-    const refHoles = useRef(null);
-
-    useEffect(() => {
-        refHoles.current = initBlackHoles();
-        const cursor = new CursorFx(ref.current);
-        // @ts-ignore
-        [...document.querySelectorAll('[data-hover]')].forEach((link) => {
-            link.addEventListener('mouseenter', () => cursor.enter());
-            link.addEventListener('mouseleave', () => cursor.leave());
-            link.addEventListener('click', () => cursor.click());
-        });
-    }, []);
+    const ref = useRef<HTMLDivElement>(null);
+    useCursor(ref);
 
     return (
         <div ref={ref} id="cursor">

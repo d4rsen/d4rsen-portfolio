@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.mainPage {
+  background-color: transparent;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @include mobile {
+    font-size: $fz-lg;
+  }
+}

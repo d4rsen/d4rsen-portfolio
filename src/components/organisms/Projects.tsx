@@ -2,10 +2,10 @@ import React from 'react';
 import NumberedHeading from '../atoms/NumberedHeading';
 import OneProject from './OneProject';
 import * as CONSTANTS from './constants';
-import coliseumImgSrc from '../../assets/images/coliseum.jpg';
+import coliseumImgSrc from '../../assets/images/coliseum.webp';
 import jsonImgSrc from '../../assets/images/json.png';
-import gradientImgSrc from '../../assets/images/gradient.jpg';
-import translateImgSrc from '../../assets/images/translate.jpg';
+import gradientImgSrc from '../../assets/images/gradient.webp';
+import translateImgSrc from '../../assets/images/translate.webp';
 
 function Projects() {
     return (

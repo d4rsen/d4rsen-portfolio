@@ -2,7 +2,7 @@ import React from 'react';
 import NumberedHeading from '../atoms/NumberedHeading';
 import SkillsItem from '../atoms/SkillsItem';
 import { darsenGitHub } from './constants';
-import darsenUrl from '../../assets/images/darsen.jpeg';
+import darsenUrl from '../../assets/images/darsen.webp';
 
 function About() {
     return (
