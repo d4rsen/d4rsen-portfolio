@@ -33,7 +33,8 @@
     gap: 0 10px;
     padding: 0;
     margin: 20px 0 0;
-    overflow: hidden;
+    // Visible: the hovered star's glow reaches past the grid's edge
+    overflow: visible;
     list-style: none;
   }
 
