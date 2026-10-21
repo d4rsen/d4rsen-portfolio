@@ -26,6 +26,14 @@
     margin: 0 0 10px;
   }
 
+  &__signal {
+    margin-bottom: 10px;
+    color: $green;
+    font-family: $font-mono;
+    font-size: $fz-sm;
+    letter-spacing: 0.4em;
+  }
+
   &__caption {
     margin-top: 10px;
     font-size: $fz-sm;
@@ -139,5 +147,24 @@
 }
 
 .notFound--falling .spaghetti__char {
-  animation: spaghettify 14s infinite;
+  animation: spaghettify 14s var(--fall-delay, 0s) infinite;
+}
+
+// The caption is typed in first. Typing uses visibility, so it never fights
+// the spaghettify animation over opacity
+.spaghetti--typed .spaghetti__char {
+  visibility: hidden;
+  animation: type-in 0.01s var(--type-delay, 0s) steps(1) forwards;
+}
+
+.notFound--falling .spaghetti--typed .spaghetti__char {
+  animation:
+    type-in 0.01s var(--type-delay, 0s) steps(1) forwards,
+    spaghettify 14s var(--fall-delay, 0s) infinite;
+}
+
+@keyframes type-in {
+  to {
+    visibility: visible;
+  }
 }

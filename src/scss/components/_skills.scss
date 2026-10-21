@@ -18,3 +18,68 @@
     margin-right: 10px;
   }
 }
+
+.skills__item--star {
+  transition: color 0.25s ease;
+
+  &:before {
+    content: none;
+  }
+
+  // No hue-rotate filter here: it puts the item on its own layer clipped to
+  // its box, which cut the hovered star's glow off with a straight edge
+  &:hover {
+    animation: none;
+    color: $green;
+  }
+}
+
+.skills__star {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 5px;
+  height: 5px;
+  margin: 0 12px 1px 3px;
+  border-radius: 50%;
+  background: $white;
+  box-shadow: 0 0 4px 1px rgba($blue, 0.6);
+  vertical-align: middle;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  .skills__item:hover & {
+    transform: scale(1.8);
+    box-shadow: 0 0 10px 3px rgba($green, 0.8);
+  }
+}
+
+.constellation {
+  position: relative;
+
+  &__lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+
+    path {
+      fill: none;
+      stroke: rgba($blue, 0.35);
+      stroke-width: 1;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+  }
+
+  &--visible &__lines path {
+    animation: constellation-draw 2.4s ease-in-out 0.3s forwards;
+  }
+}
+
+@keyframes constellation-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

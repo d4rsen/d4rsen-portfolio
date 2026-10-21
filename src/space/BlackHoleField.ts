@@ -4,6 +4,8 @@ import { TAU, clamp01, easeInCubic, easeOutBack, lerp, random } from './math';
 import { feedQuasar, quasar } from './quasar';
 import { Debris, drawDebris, takeDisruptions, tidalDisruption, tidalTail, updateDebris } from './debris';
 import { WAVE_WIDTH, emitWave, getWaves, waveDecay, waveRadius } from './waves';
+import { CHIRP_LEAD_S, playChirp } from './sound';
+import { skyLayers } from './sky';
 
 const MAX_HOLES = 4;
 
@@ -46,6 +48,29 @@ const RINGDOWN: [number, number][] = [
     [320, 0.3]
 ];
 const MERGER_FLASH_MS = 900;
+/**
+ * Gravitational lensing of the starry background: within LENS_OUTER horizon
+ * radii the sky is magnified and pushed outwards, much more strongly close to
+ * the hole (inside LENS_INNER), where stars smear into arcs
+ */
+const LENS_OUTER = 12;
+const LENS_INNER = 4.5;
+const LENS_ZOOM_OUTER = 1.6;
+const LENS_ZOOM_INNER = 2.8;
+/**
+ * The page background is a radial gradient (lighter towards the bottom
+ * center, see #c); the lensed image is painted over the matching color so
+ * the original stars don't show through and no disc edge is visible
+ */
+const SKY_DARK = [10, 25, 47];
+const SKY_LIGHT = [17, 34, 64];
+const skyColorAt = (x: number, y: number) => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const t = clamp01(1 - Math.hypot((x - w / 2) / (w * 0.7), (y - h) / h));
+    const [r, g, b] = SKY_DARK.map((dark, i) => Math.round(dark + (SKY_LIGHT[i] - dark) * t));
+    return `rgb(${r}, ${g}, ${b})`;
+};
 /** Tidal tails: debris pairs per second once the quasar strips the disk completely */
 const STRIP_RATE = 110;
 
@@ -63,6 +88,7 @@ interface Inspiral {
     time: number;
     /** Gravitational waves go out twice per orbit */
     halfOrbits: number;
+    chirped: boolean;
 }
 
 class BlackHole implements GravityWell {
@@ -97,7 +123,7 @@ class BlackHole implements GravityWell {
             const dy = (y - quasar.y) / ORBIT_SQUASH;
             const a0 = Math.max(Math.hypot(dx, dy), quasar.radius * 3);
             const angle = Math.atan2(dy, dx);
-            this.inspiral = { a0, a: a0, angle, time: 0, halfOrbits: Math.floor(angle / Math.PI) };
+            this.inspiral = { a0, a: a0, angle, time: 0, halfOrbits: Math.floor(angle / Math.PI), chirped: false };
         }
 
         for (let i = 0; i < DUST_AT_BIRTH; i++) this.spawnDust();
@@ -176,6 +202,12 @@ class BlackHole implements GravityWell {
         orbit.time += dt;
         const left = Math.max(0, 1 - orbit.time / INSPIRAL_S);
         orbit.a = orbit.a0 * left ** INSPIRAL_DECAY;
+
+        // Start the sound so its peak lands on the merger
+        if (!orbit.chirped && INSPIRAL_S - orbit.time <= CHIRP_LEAD_S) {
+            orbit.chirped = true;
+            playChirp();
+        }
 
         const speed = Math.min(MAX_ORBIT_SPEED, INSPIRAL_SPEED * (orbit.a0 / Math.max(orbit.a, 1)) ** 1.5);
         orbit.angle += speed * quasar.spin * dt;
@@ -284,6 +316,8 @@ export class BlackHoleField {
     private readonly ctx: CanvasRenderingContext2D | null;
     private holes: BlackHole[] = [];
     private debris: Debris[] = [];
+    private readonly lensCanvas = document.createElement('canvas');
+    private readonly lensCtx = this.lensCanvas.getContext('2d');
     private mergerFlashes: number[] = [];
     private rafId = 0;
     private lastTime = 0;
@@ -354,6 +388,7 @@ export class BlackHoleField {
 
         // Debris orbiting a hole that's gone has nothing left to hold it
         this.debris = this.debris.filter((d) => !finished.has(d.host as BlackHole) && updateDebris(d, dt));
+        for (const hole of this.holes) this.drawLens(ctx, hole);
         // Drawn before the holes so their horizons hide whatever falls in
         drawDebris(ctx, this.debris);
         for (const hole of this.holes) hole.draw(ctx);
@@ -366,6 +401,59 @@ export class BlackHoleField {
         this.rafId = busy ? requestAnimationFrame(this.frame) : 0;
         if (!busy) ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     };
+
+    /** Re-draws the sky behind a hole magnified, as a gravitational lens would */
+    private drawLens(ctx: CanvasRenderingContext2D, hole: BlackHole) {
+        const lens = this.lensCtx;
+        const R = hole.radius;
+        if (!lens || R <= 0 || !skyLayers.length) return;
+
+        const outer = Math.ceil(R * LENS_OUTER);
+        const size = outer * 2;
+        // Both sides: a fresh canvas is 300×150, so checking the width alone
+        // would leave the lens cut off at 150px
+        if (this.lensCanvas.width < size || this.lensCanvas.height < size) {
+            this.lensCanvas.width = Math.max(size, this.lensCanvas.width);
+            this.lensCanvas.height = Math.max(size, this.lensCanvas.height);
+        }
+
+        lens.globalCompositeOperation = 'source-over';
+        lens.clearRect(0, 0, size, size);
+        lens.fillStyle = skyColorAt(hole.x, hole.y);
+        lens.fillRect(0, 0, size, size);
+
+        const drawSky = (zoom: number) => {
+            for (const layer of skyLayers) {
+                const dpr = layer.canvas.width / parseFloat(layer.canvas.style.width);
+                // The part of the layer that sits behind the hole, shrunk by the zoom
+                const half = outer / zoom;
+                const sx = (hole.x - layer.x - half) * dpr;
+                const sy = (hole.y - layer.y - half) * dpr;
+                lens.drawImage(layer.canvas, sx, sy, half * 2 * dpr, half * 2 * dpr, 0, 0, size, size);
+            }
+        };
+
+        drawSky(LENS_ZOOM_OUTER);
+        lens.save();
+        lens.beginPath();
+        lens.arc(outer, outer, R * LENS_INNER, 0, TAU);
+        lens.clip();
+        drawSky(LENS_ZOOM_INNER);
+        lens.restore();
+
+        // Blend into the untouched sky towards the edge
+        const fadeOut = lens.createRadialGradient(outer, outer, outer * 0.25, outer, outer, outer);
+        fadeOut.addColorStop(0, 'rgba(0, 0, 0, 1)');
+        fadeOut.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        lens.globalCompositeOperation = 'destination-in';
+        lens.fillStyle = fadeOut;
+        lens.fillRect(0, 0, size, size);
+
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = hole.dying ? 1 - clamp01(hole.deathAge / DEATH_MS) : clamp01(hole.age / BIRTH_MS);
+        ctx.drawImage(this.lensCanvas, 0, 0, size, size, hole.x - outer, hole.y - outer, size, size);
+        ctx.globalAlpha = 1;
+    }
 
     /** Each ripple is drawn as a crest and a trough: spacetime stretched, then squeezed */
     private drawWaves(ctx: CanvasRenderingContext2D, now: number) {

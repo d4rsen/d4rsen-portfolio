@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Button from '../../atoms/Button';
 import { SpaghettiText } from '../../space/SpaghettiText';
+import { Typewriter } from '../../atoms/Typewriter';
 import { flareQuasar, getSystemCenter } from '../../../space/quasar';
+import { useEffectsEnabled } from '../../../space/effects';
 
 /** Must match the spaghettify animation duration in _not-found.scss */
 const CYCLE_MS = 14000;
@@ -14,10 +16,11 @@ const ENTRANCE_MS = 1600;
 
 function NotFound() {
     const ref = useRef<HTMLDivElement>(null);
+    const effects = useEffectsEnabled();
 
     useEffect(() => {
         const root = ref.current;
-        if (!root || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+        if (!root || !effects) return;
         let flareTimer = 0;
         let flareInterval = 0;
 
@@ -39,7 +42,7 @@ function NotFound() {
                 char.style.setProperty('--dx', `${dx}px`);
                 char.style.setProperty('--dy', `${dy}px`);
                 char.style.setProperty('--angle', `${Math.atan2(dy, dx)}rad`);
-                char.style.animationDelay = `${delay}ms`;
+                char.style.setProperty('--fall-delay', `${delay}ms`);
             }
             root.classList.add('notFound--falling');
 
@@ -74,16 +77,21 @@ function NotFound() {
             window.removeEventListener('resize', onResize);
             window.clearTimeout(flareTimer);
             window.clearInterval(flareInterval);
+            root.classList.remove('notFound--falling');
         };
-    }, []);
+    }, [effects]);
 
     return (
         <div ref={ref} className="notFound">
+            <div className="notFound__signal">
+                <Typewriter text="SIGNAL LOST" charMs={70} keepCaret />
+            </div>
             <SpaghettiText text="404" className="notFound__title fade1" />
             <SpaghettiText text="Page Not Found" className="notFound__subtitle fade2" />
             <SpaghettiText
                 text="It crossed the event horizon. Nothing comes back from there."
                 className="notFound__caption fade2"
+                typed={{ delay: 1200, charMs: 28 }}
             />
             <Button target="_self" text="Go Home" className="notFound__button notFound__capsule fade3" href="/" />
         </div>

@@ -4,6 +4,14 @@ import NumberedHeading from '../atoms/NumberedHeading';
 import Abt from '../molecules/Abt';
 import Megafon from '../molecules/Megafon';
 import Home from '../molecules/Home';
+import { MissionPatch } from '../atoms/MissionPatch';
+
+// Each job is a mission in the log, numbered chronologically
+const MISSIONS = {
+    home: { number: '01', code: 'HOM', status: 'ONGOING' },
+    abt: { number: '02', code: 'ABT', status: 'COMPLETED' },
+    megafon: { number: '03', code: 'MGF', status: 'ACTIVE' }
+};
 
 function Jobs() {
     const [jobs, setJobs] = useState({
@@ -32,6 +40,7 @@ function Jobs() {
                 <div className="jobs__right">
                     {jumps > 0 && <div key={jumps} className="jobs__warp" aria-hidden="true" />}
                     <div key={current} className={jumps > 0 ? 'jobs__panel jobs__panel--arrived' : 'jobs__panel'}>
+                        <MissionPatch {...MISSIONS[current]} />
                         {jobs.abt ? <Abt /> : jobs.home ? <Home /> : <Megafon />}
                     </div>
                 </div>

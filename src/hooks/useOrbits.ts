@@ -3,6 +3,7 @@ import { requestDisruption } from '../space/debris';
 import { GravityWell, getWells } from '../space/gravity';
 import { getSystemCenter } from '../space/quasar';
 import { getWaves, waveStrain } from '../space/waves';
+import { useEffectsEnabled } from '../space/effects';
 
 interface Orbit {
     /** Semi-major axis as a fraction of half the viewport width */
@@ -85,11 +86,13 @@ const createIcons = (container: HTMLElement): Icon[] => {
  * gravitational waves ripple through them.
  */
 export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
+    const effects = useEffectsEnabled();
+
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
-        const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+        const reducedMotion = !effects;
         const icons = createIcons(container);
         let width = window.innerWidth;
         let height = window.innerHeight;
@@ -204,5 +207,5 @@ export const useOrbits = (containerRef: RefObject<HTMLElement>) => {
             cancelAnimationFrame(rafId);
             window.removeEventListener('resize', onResize);
         };
-    }, [containerRef]);
+    }, [containerRef, effects]);
 };

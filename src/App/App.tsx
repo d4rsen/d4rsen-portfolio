@@ -9,6 +9,8 @@ import { useMenu } from '../store/MenuContext';
 import '../scss/style.scss';
 import { Cursor } from '../components/atoms/Cursor.tsx';
 import { BlackHoles } from '../components/atoms/BlackHoles';
+import { GravityToggle } from '../components/atoms/GravityToggle';
+import { useGravityOff } from '../space/effects';
 
 /** Long enough for the star birth intro to play out */
 const LOADER_MIN_MS = 2400;
@@ -17,6 +19,7 @@ const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').m
 
 const App = () => {
     const menu = useMenu();
+    const gravityOff = useGravityOff();
     const [phase, setPhase] = useState<'loading' | 'leaving' | 'done'>('loading');
     const onLoaderExited = useCallback(() => setPhase('done'), []);
 
@@ -44,8 +47,8 @@ const App = () => {
             {phase !== 'loading' && (
                 <div className="wrapper">
                     <Background />
-                    {hasFinePointer && <BlackHoles />}
-                    {hasFinePointer && <Cursor />}
+                    <BlackHoles />
+                    {hasFinePointer && !gravityOff && <Cursor />}
                     <div className="_main-container">
                         <Header />
                         <main className={menu.open ? 'main--blur' : 'main'}>
@@ -54,6 +57,7 @@ const App = () => {
                         <Bar />
                     </div>
                     <Footer />
+                    <GravityToggle />
                 </div>
             )}
             {phase !== 'done' && <Loader leaving={phase === 'leaving'} onExited={onLoaderExited} />}
